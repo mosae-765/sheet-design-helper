@@ -1,0 +1,61 @@
+
+
+/* 롤20 따라하기....의 css
+	기본 html, css는 공식 github 라이선스상 자유롭게 사용할 수 있지만
+	roll20 사이트 내부에만 있는 시트 css 코드 때문에 그냥 html과 css끼리 연결하면 제대로 적용이 안됨
+	그래서 레이아웃+주사위 기본 배경색을 비슷하게 만들었고
+	고의적으로 다르게 한 부분도 O (저작권 걱정)*/
+
+h1, h2, h3, h4, h5, h6{
+    margin: 0px;
+}
+
+.charsheet{
+	padding: 10px;
+	padding-top: 30px;
+}
+
+.sheet-main input[type=number] {
+	width: 3em;
+}
+
+.sheet-main .sheet-col {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.sheet-main .sheet-col img {
+	max-width: 100%;
+}
+
+.sheet-main .sheet-2colrow .sheet-col {
+	width: 401px;
+	margin-right: 30px;
+}
+
+.sheet-main .sheet-3colrow .sheet-col {
+	width: 30%;
+	margin-right: 30px;
+}
+
+.sheet-main .sheet-col:last-child {
+	margin-right: 0px !important;
+}
+
+.sheet-main button[type=roll]{
+	font-size: 1em;
+	margin: 0px 3px 0px 3px;
+}
+
+.sheet-main .repcontrol_edit {
+	float: right;
+}
+
+/* --------------------------------- */
+
+.btn, .btn.btn-default {
+    font-size: 13px;
+    line-height: 18px;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+    
+}

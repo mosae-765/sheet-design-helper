@@ -1,0 +1,2019 @@
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="coc_7th_ed.css">
+
+<div class="sheet-main">
+    <div class="charsheet" style="display: block;">
+        <div class="sheet-cdiv" style="position: relative">
+
+
+            <div class="sheet-2colrow" style="width: 100.75%">
+                <div class="sheet-col">
+
+                    <div class="sheet-investigatorinfo">
+                        <h4 class="sheet-section-head">탐사자 정보</h4>
+                        <div class="sheet-section">
+                            <table style="width: 100%">
+                                <tbody>
+                                    <tr>
+                                        <td>이름</td>
+                                        <td colspan="3"><input type="text" name="attr_name" style="width: 100%"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>플레이어</td>
+                                        <td colspan="3"><input type="text" name="attr_player" style="width: 100%"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>직업</td>
+                                        <td colspan="3"><input type="text" name="attr_occupation" style="width: 100%">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>나이</td>
+                                        <td><input type="text" name="attr_age" style="width: 100%"></td>
+                                        <td>성별</td>
+                                        <td><input type="text" name="attr_sex" style="width: 100%"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>거주지</td>
+                                        <td colspan="3"><input type="text" name="attr_residence" style="width: 100%">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>출생지</td>
+                                        <td colspan="3"><input type="text" name="attr_birthplace" style="width: 100%">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="sheet-col">
+                    <h4 class="sheet-section-head">특성치</h4>
+                    <div class="sheet-section">
+                        <table style="width: 100%">
+                            <tbody>
+                                <tr>
+                                    <td class="sheet-attr-label"><strong>근력</strong></td>
+                                    <td>
+                                        <input class="sheet-attr-input" type="text" name="attr_str" value="50">
+                                    </td>
+                                    <td class="sheet-attr-roll"><button class="sheet-old-roll btn"
+                                            type="roll" name="roll_str_check">
+                                        </button><button class="sheet-new-roll btn" type="roll"
+                                            name="roll_str_check">
+
+                                        </button></td>
+                                    <td> </td>
+                                    <td class="sheet-attr-label"><strong>민첩</strong></td>
+                                    <td>
+                                        <input class="sheet-attr-input" type="text" name="attr_dex" value="50">
+                                    </td>
+                                    <td class="sheet-attr-roll">
+                                        <button class="sheet-old-roll btn" type="roll"
+                                            name="roll_dex_check">
+                                        </button><button class="sheet-new-roll btn" type="roll"
+                                            name="roll_dex_check">
+
+                                        </button>
+                                    </td>
+                                    <td> </td>
+                                    <td class="sheet-attr-label"><strong>정신</strong></td>
+                                    <td>
+                                        <input class="sheet-attr-input" type="text" name="attr_pow" value="50">
+                                    </td>
+                                    <td class="sheet-attr-roll">
+                                        <button class="sheet-old-roll btn" type="roll"
+                                            name="roll_pow_check">
+                                        </button><button class="sheet-new-roll btn" type="roll"
+                                            name="roll_pow_check">
+
+
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="sheet-attr-label"><strong>건강</strong></td>
+                                    <td>
+                                        <input class="sheet-attr-input" type="text" name="attr_con" value="50">
+                                    </td>
+                                    <td class="sheet-attr-roll">
+                                        <button class="sheet-old-roll btn" type="roll"
+                                            name="roll_con_check">
+                                        </button><button class="sheet-new-roll btn" type="roll"
+                                            name="roll_con_check">
+
+                                        </button>
+                                    </td>
+                                    <td> </td>
+                                    <td class="sheet-attr-label"><strong>외모</strong></td>
+                                    <td>
+                                        <input class="sheet-attr-input" type="text" name="attr_app" value="50">
+                                    </td>
+                                    <td class="sheet-attr-roll">
+                                        <button class="sheet-old-roll btn" type="roll"
+                                            name="roll_app_check">
+                                        </button><button class="sheet-new-roll btn" type="roll"
+                                            name="roll_app_check">
+
+                                        </button>
+                                    </td>
+                                    <td> </td>
+                                    <td class="sheet-attr-label"><strong>교육</strong></td>
+                                    <td><input class="sheet-attr-input" type="text" name="attr_edu" value="50"></td>
+                                    <td class="sheet-attr-roll">
+                                        <button class="sheet-old-roll btn" type="roll"
+                                            name="roll_edu_check">
+                                        </button><button class="sheet-new-roll btn" type="roll"
+                                            name="roll_edu_check">
+
+
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="sheet-attr-label"><strong>크기</strong></td>
+                                    <td><input class="sheet-attr-input" type="text" name="attr_siz" value="50"></td>
+                                    <td class="sheet-attr-roll">
+                                        <button class="sheet-old-roll btn" type="roll"
+                                            name="roll_siz_check">
+                                        </button><button class="sheet-new-roll btn" type="roll"
+                                            name="roll_siz_check">
+
+                                        </button>
+                                    </td>
+                                    <td> </td>
+                                    <td class="sheet-attr-label"><strong>지능</strong></td>
+                                    <td><input class="sheet-attr-input" type="text" name="attr_int" value="50"></td>
+                                    <td class="sheet-attr-roll">
+                                        <button class="sheet-old-roll btn" type="roll"
+                                            name="roll_int_check">
+                                        </button><button class="sheet-new-roll btn" type="roll"
+                                            name="roll_int_check">
+
+                                        </button>
+                                    </td>
+                                    <td> </td>
+                                    <td class="sheet-attr-label"><strong>이동력</strong></td>
+                                    <td><input class="sheet-attr-input" type="text" name="attr_mov"></td>
+                                    <td class="sheet-attr-roll"></td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sheet-3colrow" style="width: 100.5%">
+                <div class="sheet-col">
+
+                    <input type="checkbox" style="display: none" class="sheet-showpulp" name="attr_showpulp" value="1">
+                    <div class="sheet-pulphpsection">
+                        <h4 class="sheet-section-head">체력</h4>
+                        <div class="sheet-section">
+                            <table style="width: 100%">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <input class="sheet-secondary-attr-input" data-i18n-placeholder="current"
+                                                placeholder="현재" type="text" min="0" name="attr_hp">
+                                        </td>
+                                        <td style="text-align: center">/</td>
+                                        <td>
+                                            <input class="sheet-secondary-attr-input" placeholder="max" type="number"
+                                                min="0" name="attr_hp_max" readonly="true">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="sheet-row" style="width: 100%">
+                                <div class="sheet-col" style="width: 40%">
+                                    <span
+                                        value="1" name="attr_dying">
+                                </div>
+
+                                <input type="checkbox" style="display: none" class="sheet-hptemp" name="attr_hptemp"
+                                    value="1">
+                                <div class="sheet-show-major-wound-checkbox" style="width: 46% ; text-align: right">
+                                    <input type="checkbox" class="sheet-majorwound" value="1"
+                                        name="attr_major_wound_toggle"><span>중상</span>
+                                </div>
+
+                                <input type="checkbox" style="display: none" class="sheet-hptemp" name="attr_hptemp"
+                                    value="1">
+                                <div class="sheet-show-hp-temp-checkbox" style="width: 46% ; text-align: right">
+                                    <input type="checkbox" class="sheet-hp-temp-toggle" value="1"
+                                        name="attr_hp_temp_toggle"><span>HP Temporary</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="sheet-hpsection">
+                        <h4 class="sheet-section-head">체력</h4>
+                        <div class="sheet-section">
+                            <table style="width: 100%">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <input class="sheet-secondary-attr-input" data-i18n-placeholder="current"
+                                                placeholder="현재" type="text" min="0" name="attr_hp">
+                                        </td>
+                                        <td style="text-align: center">/</td>
+                                        <td>
+                                            <input class="sheet-secondary-attr-input" placeholder="max" type="number"
+                                                min="0" name="attr_hp_max" readonly="true">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="sheet-row" style="width: 100%">
+                                <div class="sheet-col" style="width: 40%">
+                                    <span
+                                        value="1" name="attr_dying">
+                                </div>
+
+                                <input type="checkbox" style="display: none" class="sheet-hptemp" name="attr_hptemp"
+                                    value="1">
+                                <div class="sheet-show-major-wound-checkbox" style="width: 46% ; text-align: right">
+                                    <input type="checkbox" class="sheet-majorwound" value="1"
+                                        name="attr_major_wound_toggle"><span>중상</span>
+                                </div>
+
+                                <input type="checkbox" style="display: none" class="sheet-hptemp" name="attr_hptemp"
+                                    value="1">
+                                <div class="sheet-show-hp-temp-checkbox" style="width: 46% ; text-align: right">
+                                    <input type="checkbox" class="sheet-hp-temp-toggle" value="1"
+                                        name="attr_hp_temp_toggle"><span>HP Temporary</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 class="sheet-section-head">운</h4>
+                    <div class="sheet-section">
+                        <div class="sheet-row" style="width: 100%">
+                            <button class="sheet-dice-roll-action" type="action"
+                                name="act_recovery_luck_button"></button>
+                            <input class="sheet-secondary-attr-input" style="width: 70%" type="text" name="attr_luck">
+                            <span><button class="sheet-old-roll btn" type="roll" name="roll_luck_check">
+                                </button><button class="sheet-new-roll btn" type="roll"
+                                    name="roll_luck_check"></button></span>
+                        </div>
+                    </div>
+
+
+                    <h4 class="sheet-section-head">마력</h4>
+                    <div class="sheet-section">
+                        <table style="width: 100%">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <input class="sheet-secondary-attr-input" data-i18n-placeholder="current"
+                                            placeholder="현재" type="text" min="0" name="attr_mp">
+                                    </td>
+                                    <td style="text-align: center">/</td>
+                                    <td>
+                                        <input class="sheet-secondary-attr-input" placeholder="max" type="number"
+                                            min="0" name="attr_mp_max" readonly="true">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="sheet-col">
+
+                    <div id="sheet-major-wound" class="sheet-hidden">
+                        <h4 class="sheet-section-head">중상</h4>
+                        <div class="sheet-section">
+                            <input class="sheet-narrow-input" type="text" name="attr_majorwoundcurrent"
+                                style="text-align: center ; width: 100%">
+                        </div>
+                    </div>
+
+
+
+
+                    <input type="checkbox" style="display: none" class="sheet-showpulp" name="attr_showpulp" value="1">
+                    <div class="sheet-pulplogosection">
+                        <div style="text-align: center"><img
+                                src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Call_of_Cthulhu_7th_Ed/pulp%20coc%20small%20horrizontal.png"
+                                alt="Pulp Cthulhu"></div>
+                    </div>
+
+
+                    <div class="sheet-logosection">
+                        <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                            value="7">
+                        <div class="sheet-skills7">
+                            <div style="text-align: center"><img style="height: 40px ; width: 213px"
+                                    src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Call_of_Cthulhu_7th_Ed/Cthulhu%20Invictus%20Small.png"
+                                    alt="Cthulhu Invictus"></div>
+                        </div>
+
+                        <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                            value="1">
+                        <div class="sheet-skills1">
+                            <div style="text-align: center"><img style="height: 40px ; width: 213px"
+                                    src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Call_of_Cthulhu_7th_Ed/CocDA2.png"
+                                    alt="Cthulhu Dark Ages"></div>
+                        </div>
+
+                        <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                            value="5">
+                        <div class="sheet-skills5">
+                            <div style="text-align: center"><img style="height: 40px ; width: 213px"
+                                    src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Call_of_Cthulhu_7th_Ed/Down%20Darker%20Trails%20Logo.png"
+                                    alt="Old West"></div>
+                        </div>
+
+                        <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                            checked="" value="2">
+                        <div class="sheet-skills2">
+                            <div style="text-align: center"><img style="height: 40px ; width: 213px"
+                                    src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Call_of_Cthulhu_7th_Ed/Gq98aWD.png_%20alt%3D_Call%20of%20Cthulhu.png"
+                                    alt="Call of Cthulhu"></div>
+                        </div>
+
+                        <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                            value="3">
+                        <div class="sheet-skills3">
+                            <div style="text-align: center"><img style="height: 40px ; width: 213px"
+                                    src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Call_of_Cthulhu_7th_Ed/cthulhu%20now.png"
+                                    alt="Cthulhu Now"></div>
+                        </div>
+
+                        <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                            value="6">
+                        <div class="sheet-skills6">
+                            <div style="text-align: center"><img style="height: 40px ; width: 213px"
+                                    src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Call_of_Cthulhu_7th_Ed/Cthulhu%20Icarus.png"
+                                    alt="Cthulhu Icarus"></div>
+                        </div>
+
+                        <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                            value="4">
+                        <div class="sheet-skills4">
+                            <div style="text-align: center"><img style="height: 40px ; width: 213px"
+                                    src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Call_of_Cthulhu_7th_Ed/coc%20End%20Times%20(new).png"
+                                    alt="Cthulhu End Times"></div>
+                        </div>
+                    </div>
+
+
+                    <div style="width: 50% ; float: left">
+                        <input type="checkbox" style="display: none" class="sheet-showpulp" name="attr_showpulp"
+                            value="1">
+                        <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                            value="7">
+                        <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                            value="1">
+                        <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                            value="5">
+                        <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                            value="2" checked="checked">
+                        <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                            value="3">
+                        <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                            value="6">
+                        <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                            value="4">
+                        <h4 class="sheet-section-head">피해보너스</h4>
+                        <div class="sheet-section">
+                            <select style="width: 100%" name="attr_damage_bonus">
+                                <option value="-2">-2</option>
+                                <option value="-1">-1</option>
+                                <option value="0" selected="">없음</option>
+                                <option value="1d4">+1d4</option>
+                                <option value="1d6">+1d6</option>
+                                <option value="2d6">+2d6</option>
+                                <option value="3d6">+3d6</option>
+                                <option value="4d6">+4d6</option>
+                                <option value="5d6">+5d6</option>
+                                <option value="6d6">+6d6</option>
+                                <option value="7d6">+7d6</option>
+                                <option value="8d6">+8d6</option>
+                                <option value="9d6">+9d6</option>
+                                <option value="10d6">+10d6</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div style="width: 50% ; float: left">
+                        <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                            value="7">
+                        <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                            value="1">
+                        <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                            value="5">
+                        <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                            value="2" checked="checked">
+                        <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                            value="3">
+                        <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                            value="6">
+                        <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                            value="4">
+                        <input type="checkbox" style="display: none" class="sheet-showpulp" name="attr_showpulp"
+                            value="1">
+                        <h4 class="sheet-section-head">체구</h4>
+                        <div class="sheet-section">
+                            <input class="sheet-secondary-attr-input" type="text" name="attr_build">
+                        </div>
+                    </div>
+                    <div class="sheet-row" style="width: 100%">
+                        <div style="width: 50% ; float: left">
+                            <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                                value="7">
+                            <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                                value="1">
+                            <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                                value="5">
+                            <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                                value="2" checked="checked">
+                            <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                                value="3">
+                            <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                                value="6">
+                            <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                                value="4">
+                            <input type="checkbox" style="display: none" class="sheet-showpulp" name="attr_showpulp"
+                                value="1">
+                            <h4 class="sheet-section-head">Initiative (Fixed)</h4>
+                            <div class="sheet-section">
+
+                                <div class="sheet-row"
+                                    style="display: none ; width: 100% ; text-align: center ; line-height: normal">
+                                    <span><button class="sheet-adv-action" type="action"
+                                            name="act_init_f_a"></button></span>
+                                    <span><button class="sheet-nadv-action" type="action"
+                                            name="act_init_f_na"></button></span>
+                                </div>
+
+                                <div class="sheet-row" style="width: 100% ; text-align: center ; line-height: normal">
+                                    <span><button class="sheet-old-roll btn" type="roll"
+                                            value="%{selected|init_f_a}"></button></span>
+                                    <span><button class="sheet-new-roll btn" type="roll"
+                                            value="%{selected|init_f_na}"></button></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="width: 50% ; float: left">
+                            <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                                value="7">
+                            <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                                value="1">
+                            <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                                value="5">
+                            <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                                value="2" checked="checked">
+                            <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                                value="3">
+                            <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                                value="6">
+                            <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                                value="4">
+                            <input type="checkbox" style="display: none" class="sheet-showpulp" name="attr_showpulp"
+                                value="1">
+                            <h4 class="sheet-section-head">Initiative (Rolled)</h4>
+                            <div class="sheet-section">
+
+                                <div class="sheet-row"
+                                    style="display: none ; width: 100% ; text-align: center ; line-height: normal">
+                                    <span><button style="vertical-align: bottom" class="sheet-dice-roll-action"
+                                            type="action" name="act_init_r_set"></button></span>
+                                    <span style="vertical-align: bottom ; font-size: large">|</span>
+                                    <span><button class="sheet-adv-action" type="action"
+                                            name="act_init_r_a"></button></span>
+                                    <span><button class="sheet-nadv-action" type="action"
+                                            name="act_init_r_na"></button></span>
+                                </div>
+
+                                <div class="sheet-row" style="width: 100% ; text-align: center ; line-height: normal">
+                                    <span id="sheet-green-init"><button
+                                            style="width: 20px ; height: 20px ; font-size: 1.3em"
+                                            class="sheet-smallnonskillbutton-roll btn" type="roll"
+                                            value="%{selected|init_r_set}"></button></span>
+                                    <span id="sheet-green-init"
+                                        style="vertical-align: bottom ; font-size: large">|</span>
+
+                                    <input type="hidden" name="attr_lastinit" value="0.0">
+                                    <span id="sheet-reroll-quest" style="font-weight: bold"
+                                        class="sheet-hidden">Re-roll?: </span>
+                                    <span><button class="sheet-old-roll btn" type="roll"
+                                            value="%{selected|init_r_a}"></button></span>
+                                    <span id="sheet-green-init"><button class="sheet-new-roll btn"
+                                            type="roll" value="%{selected|init_r_na}"></button></span>
+                                    <span style="vertical-align: bottom ; font-size: large">|</span>
+                                    <input type="checkbox" name="attr_rerollcheck" value="1">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <input type="hidden" name="attr_indins_check" value="1">
+
+
+                <div class="sheet-col">
+                    <input type="checkbox" style="display: none" value="1" name="attr_pulp_bomtoggle"
+                        class="sheet-pulpbomtoggle">
+                    <div class="sheet-sanitysection">
+                        <input type="checkbox" style="display: none" class="sheet-showpulp" name="attr_showpulp"
+                            value="1">
+                        <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                            value="7">
+                        <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                            value="1">
+                        <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                            value="5">
+                        <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                            value="2" checked="checked">
+                        <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                            value="3">
+                        <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                            value="6">
+                        <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                            value="4">
+                        <h4 class="sheet-section-head">이성</h4>
+                        <div class="sheet-section">
+                            <div class="sheet-row" style="width: 100% ; margin-bottom: 4px">
+                                <span><button class="sheet-old-roll btn" type="roll" name="roll_san_check">
+                                    </button><button class="sheet-new-roll btn" type="roll"
+                                        name="roll_san_check"></button></span>
+                                <input style="width: 15%" class="sheet-secondary-attr-input" placeholder="4/5"
+                                    type="text" min="0" name="attr_san_thresh" readonly="true">
+                                <span>\</span>
+                                <input style="width: 20%" class="sheet-secondary-attr-input"
+                                    data-i18n-placeholder="current-u" placeholder="현재" type="text" min="0"
+                                    name="attr_san">
+                                <span>/</span>
+                                <input style="width: 16% ; margin-right: 3px" class="sheet-secondary-attr-input"
+                                    type="number" min="0" name="attr_san_max" placeholder="max" readonly="true">
+                                <input style="width: 18%" class="sheet-narrow-input" data-i18n-placeholder="start"
+                                    placeholder="시작" type="text" min="0" name="attr_san_start">
+                                <span id="sheet-start" class="sheet-badge-start">&nbsp;</span>
+                            </div>
+                            <div class="sheet-row" style="width: 100%">
+                                <div class="sheet-col" style="width: 40%">
+                                    <span
+                                        name="attr_temp_insane">
+                                </div>
+                                <div class="sheet-col" style="width: 46% ; text-align: right ; margin-bottom: 5px">
+                                    <input type="checkbox" value="1" name="attr_indef_insane"><span
+                                       >장기적 광기</span>
+                                </div>
+                            </div>
+
+
+                            <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                                value="7">
+                            <div class="sheet-skills7">
+                                <div class="sheet-row" style="width: 100% ; text-align: center">
+                                    <span
+                                        style="text-align: center ; font-weight: bold">광기의 발작</span>
+                                </div>
+                                <div class="sheet-row" style="width: 100% ; text-align: left">
+                                    <div class="sheet-col" style="width: 20%">
+                                        <button class="sheet-dice-roll btn" type="roll"
+                                            name="roll_bomadness-inv-rt">
+                                        </button>
+                                    </div>
+                                    <div class="sheet-col" style="width: 45% ; margin-bottom: 8px">
+                                        <span>실시간</span>
+                                    </div>
+                                </div>
+                                <div class="sheet-row" style="width: 100% ; text-align: left">
+                                    <div class="sheet-col" style="width: 20%">
+                                        <button class="sheet-dice-roll btn" type="roll"
+                                            name="roll_bomadness-inv-summ">
+                                        </button>
+                                    </div>
+                                    <div class="sheet-col" style="width: 45%">
+                                        <span>요약</span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                                value="1">
+                            <div class="sheet-skills1">
+                                <div class="sheet-row" style="width: 100% ; text-align: center">
+                                    <span
+                                        style="text-align: center ; font-weight: bold">광기의 발작</span>
+                                </div>
+                                <div class="sheet-row" style="width: 100% ; text-align: left">
+                                    <div class="sheet-col" style="width: 20%">
+                                        <button class="sheet-dice-roll btn" type="roll"
+                                            name="roll_bomadness-da-rt">
+                                        </button>
+                                    </div>
+                                    <div class="sheet-col" style="width: 45% ; margin-bottom: 8px">
+                                        <span>실시간</span>
+                                    </div>
+                                </div>
+                                <div class="sheet-row" style="width: 100% ; text-align: left">
+                                    <div class="sheet-col" style="width: 20%">
+                                        <button class="sheet-dice-roll btn" type="roll"
+                                            name="roll_bomadness-da-summ">
+                                        </button>
+                                    </div>
+                                    <div class="sheet-col" style="width: 45%">
+                                        <span>요약</span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                                value="5">
+                            <div class="sheet-skills5">
+                                <div class="sheet-row" style="width: 100% ; text-align: center">
+                                    <span
+                                        style="text-align: center ; font-weight: bold">광기의 발작</span>
+                                </div>
+                                <div class="sheet-row" style="width: 100% ; text-align: left">
+                                    <div class="sheet-col" style="width: 20%">
+                                        <button class="sheet-dice-roll btn" type="roll"
+                                            name="roll_bomadness-ow-rt">
+                                        </button>
+                                    </div>
+                                    <div class="sheet-col" style="width: 45% ; margin-bottom: 8px">
+                                        <span>실시간</span>
+                                    </div>
+                                </div>
+                                <div class="sheet-row" style="width: 100% ; text-align: left">
+                                    <div class="sheet-col" style="width: 20%">
+                                        <button class="sheet-dice-roll btn" type="roll"
+                                            name="roll_bomadness-ow-summ">
+                                        </button>
+                                    </div>
+                                    <div class="sheet-col" style="width: 45%">
+                                        <span>요약</span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                                value="2" checked="checked">
+                            <div class="sheet-skills2">
+                                <input type="checkbox" style="display: none" class="sheet-mixed-bouts"
+                                    name="attr_mixedbom" value="1">
+                                <div class="sheet-normal-bouts">
+                                    <div class="sheet-row" style="width: 100% ; text-align: center">
+                                        <span
+                                            style="text-align: center ; font-weight: bold">광기의 발작</span>
+                                    </div>
+                                    <div class="sheet-row" style="width: 100% ; text-align: left">
+                                        <div class="sheet-col" style="width: 21%">
+                                            <button class="sheet-dice-roll btn" type="roll"
+                                                name="roll_bomadness-20-rt">
+                                            </button>
+                                        </div>
+                                        <div class="sheet-col"
+                                            style="width: 45% ; margin-bottom: 8px ; vertical-align: sub">
+                                            <span>실시간</span>
+                                        </div>
+                                    </div>
+                                    <div class="sheet-row" style="width: 100% ; text-align: left">
+                                        <div class="sheet-col" style="width: 24.5%">
+                                            <button class="sheet-dice-roll btn" type="roll"
+                                                name="roll_bomadness-20-summ">
+                                            </button>
+                                        </div>
+                                        <div class="sheet-col" style="width: 45%">
+                                            <span>요약</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="checkbox" style="display: none" class="sheet-mixed-bouts"
+                                    name="attr_mixedbof" value="1">
+                                <div class="sheet-mixed-bouts">
+                                    <div class="sheet-row" style="width: 100% ; text-align: center">
+                                        <span
+                                            style="text-align: center ; font-weight: bold">Mixed Bouts of Madness
+                                            (Normal+Pulp)</span>
+                                    </div>
+                                    <div class="sheet-row" style="width: 100% ; text-align: left">
+                                        <div class="sheet-col" style="width: 21%">
+                                            <button class="sheet-dice-roll btn" type="roll"
+                                                name="roll_mixed_bomadness-20-rt">
+                                            </button>
+                                        </div>
+                                        <div class="sheet-col"
+                                            style="width: 45% ; margin-bottom: 8px ; vertical-align: sub">
+                                            <span>실시간</span>
+                                        </div>
+                                    </div>
+                                    <div class="sheet-row" style="width: 100% ; text-align: left">
+                                        <div class="sheet-col" style="width: 24.5%">
+                                            <button class="sheet-dice-roll btn" type="roll"
+                                                name="roll_mixed_bomadness-20-summ">
+                                            </button>
+                                        </div>
+                                        <div class="sheet-col" style="width: 45%">
+                                            <span>요약</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                                value="3">
+                            <div class="sheet-skills3">
+                                <div class="sheet-row" style="width: 100% ; text-align: center">
+                                    <span
+                                        style="text-align: center ; font-weight: bold">광기의 발작</span>
+                                </div>
+                                <div class="sheet-row" style="width: 100% ; text-align: left">
+                                    <div class="sheet-col" style="width: 20%">
+                                        <button class="sheet-dice-roll btn" type="roll"
+                                            name="roll_bomadness-mdr-rt">
+                                        </button>
+                                    </div>
+                                    <div class="sheet-col" style="width: 45% ; margin-bottom: 8px">
+                                        <span>실시간</span>
+                                    </div>
+                                </div>
+                                <div class="sheet-row" style="width: 100% ; text-align: left">
+                                    <div class="sheet-col" style="width: 20%">
+                                        <button class="sheet-dice-roll btn" type="roll"
+                                            name="roll_bomadness-mdr-summ">
+                                        </button>
+                                    </div>
+                                    <div class="sheet-col" style="width: 45%">
+                                        <span>요약</span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                                value="6">
+                            <div class="sheet-skills6">
+                                <div class="sheet-row" style="width: 100% ; text-align: center">
+                                    <span
+                                        style="text-align: center ; font-weight: bold">광기의 발작</span>
+                                </div>
+                                <div class="sheet-row" style="width: 100% ; text-align: left">
+                                    <div class="sheet-col" style="width: 20%">
+                                        <button class="sheet-dice-roll btn" type="roll"
+                                            name="roll_bomadness-ic-rt">
+                                        </button>
+                                    </div>
+                                    <div class="sheet-col" style="width: 45% ; margin-bottom: 8px">
+                                        <span>실시간</span>
+                                    </div>
+                                </div>
+                                <div class="sheet-row" style="width: 100% ; text-align: left">
+                                    <div class="sheet-col" style="width: 20%">
+                                        <button class="sheet-dice-roll btn" type="roll"
+                                            name="roll_bomadness-ic-summ">
+                                        </button>
+                                    </div>
+                                    <div class="sheet-col" style="width: 45%">
+                                        <span>요약</span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                                value="4">
+                            <div class="sheet-skills4">
+                                <div class="sheet-row" style="width: 100% ; text-align: center">
+                                    <span
+                                        style="text-align: center ; font-weight: bold">광기의 발작</span>
+                                </div>
+                                <div class="sheet-row" style="width: 100% ; text-align: left">
+                                    <div class="sheet-col" style="width: 20%">
+                                        <button class="sheet-dice-roll btn" type="roll"
+                                            name="roll_bomadness-et-rt">
+                                        </button>
+                                    </div>
+                                    <div class="sheet-col" style="width: 45% ; margin-bottom: 8px">
+                                        <span>실시간</span>
+                                    </div>
+                                </div>
+                                <div class="sheet-row" style="width: 100% ; text-align: left">
+                                    <div class="sheet-col" style="width: 20%">
+                                        <button class="sheet-dice-roll btn" type="roll"
+                                            name="roll_bomadness-et-summ">
+                                        </button>
+                                    </div>
+                                    <div class="sheet-col" style="width: 45%">
+                                        <span>요약</span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <table style="width: 100%">
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td style="text-align: center ; font-weight: bold"
+                                           >현재 정신 상태</td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table style="width: 100%">
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td><input type="text" name="attr_current_mental_condition"
+                                                style="text-align: center ; width: 99%" data-i18n-placeholder="stable"
+                                                placeholder="평정심"></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+
+
+                    <div class="sheet-bompulpsection">
+                        <input type="checkbox" style="display: none" class="sheet-showpulp" name="attr_showpulp"
+                            value="1">
+                        <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                            value="7">
+                        <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                            value="1">
+                        <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                            value="5">
+                        <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                            value="2" checked="checked">
+                        <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                            value="3">
+                        <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                            value="6">
+                        <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills"
+                            value="4">
+                        <h4 class="sheet-section-head">이성</h4>
+                        <div class="sheet-section">
+                            <div class="sheet-row" style="width: 100% ; margin-bottom: 4px">
+                                <span><button class="sheet-old-roll btn" type="roll" name="roll_san_check">
+                                    </button><button class="sheet-new-roll btn" type="roll"
+                                        name="roll_san_check"></button></span>
+                                <input style="width: 15%" class="sheet-secondary-attr-input" placeholder="4/5"
+                                    type="text" min="0" name="attr_san_thresh" readonly="true">
+                                <span>\</span>
+                                <input style="width: 20%" class="sheet-secondary-attr-input"
+                                    data-i18n-placeholder="current-u" placeholder="현재" type="text" min="0"
+                                    name="attr_san">
+                                <span>/</span>
+                                <input style="width: 16% ; margin-right: 3px" class="sheet-secondary-attr-input"
+                                    type="number" min="0" name="attr_san_max" placeholder="max" readonly="true">
+                                <input style="width: 18%" class="sheet-narrow-input" data-i18n-placeholder="start"
+                                    placeholder="시작" type="text" min="0" name="attr_san_start">
+                                <span id="sheet-start" class="sheet-badge-start">&nbsp;</span>
+                            </div>
+                            <div class="sheet-row" style="width: 100%">
+                                <div class="sheet-col" style="width: 40%">
+                                    <span
+                                        name="attr_temp_insane">
+                                </div>
+                                <div class="sheet-col" style="width: 46% ; text-align: right ; margin-bottom: 5px">
+                                    <input type="checkbox" value="1" name="attr_indef_insane"><span
+                                       >장기적 광기</span>
+                                </div>
+                            </div>
+                            <div class="sheet-row" style="width: 100% ; text-align: center">
+                                <span
+                                    style="text-align: center ; font-weight: bold">펄프 광기의 발작</span>
+                            </div>
+                            <div class="sheet-row" style="width: 100% ; text-align: left">
+                                <div class="sheet-col" style="width: 21%">
+                                    <button class="sheet-dice-roll btn" type="roll"
+                                        name="roll_pulp-bomadness-rt">
+                                    </button>
+                                </div>
+                                <div class="sheet-col" style="width: 45% ; margin-bottom: 8px ; vertical-align: sub">
+                                    <span>실시간</span>
+                                </div>
+                            </div>
+                            <div class="sheet-row" style="width: 100% ; text-align: left">
+                                <div class="sheet-col" style="width: 24.5%">
+                                    <button class="sheet-dice-roll btn" type="roll"
+                                        name="roll_pulp-bomadness-summ">
+                                    </button>
+                                </div>
+                                <div class="sheet-col" style="width: 45%">
+                                    <span>요약</span>
+                                </div>
+                            </div>
+                            <table style="width: 100%">
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td style="text-align: center ; font-weight: bold"
+                                           >현재 정신 상태</td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table style="width: 100%">
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td><input type="text" name="attr_current_mental_condition"
+                                                style="text-align: center ; width: 99%" data-i18n-placeholder="stable"
+                                                placeholder="평정심"></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="sheet-3colrow">
+                <input type="checkbox" class="sheet-arrow" name="attr_sheet-arrow">
+                <h4 class="sheet-section-head">탐사자 기능</h4>
+
+
+                <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills" value="7">
+                <div class="sheet-skills7">
+                    <input type="checkbox" style="display: none" class="sheet-arrow" name="attr_sheet-arrow">
+                    <div class="sheet-section">
+                        <div data-i18n-list="invictus-skill-list">
+                            <div class="sheet-col">
+                                <table style="width: 100%">
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_appraise_inv_checkbox"></td>
+                                            <td class="sheet-skill-label">감정(05%)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_appraise_inv"
+                                                    value="5"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_appraise_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_appraise_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_fightspec1_inv_checkbox"></td>
+                                            <td class="sheet-skill-label"><input class="sheet-skill-name-input"
+                                                    style="width: 100%" type="text" name="attr_fightspec1_inv_name"
+                                                    data-i18n-placeholder="fightspec1" placeholder="격투 특기 1"></td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_fightspec1_inv">
+                                            </td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_fightspec1_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_fightspec1_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_fightspec2_inv_checkbox"></td>
+                                            <td class="sheet-skill-label"><input class="sheet-skill-name-input"
+                                                    style="width: 100%" type="text" name="attr_fightspec2_inv_name"
+                                                    data-i18n-placeholder="fightspec2" placeholder="격투 특기 2"></td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_fightspec2_inv">
+                                            </td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_fightspec2_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_fightspec2_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_fightspec3_inv_checkbox"></td>
+                                            <td class="sheet-skill-label"><input class="sheet-skill-name-input"
+                                                    style="width: 100%" type="text" name="attr_fightspec3_inv_name"
+                                                    data-i18n-placeholder="fightspec3" placeholder="격투 특기 3"></td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_fightspec3_inv">
+                                            </td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_fightspec3_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_fightspec3_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_civics_inv_checkbox"></td>
+                                            <td class="sheet-skill-label">공민학(10%)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_civics_inv"
+                                                    value="10"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_civics_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_civics_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_spot_hidden_inv_checkbox"></td>
+                                            <td class="sheet-skill-label">관찰력(25%)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_spot_hidden_inv"
+                                                    value="25"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_spot_hidden_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_spot_hidden_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_fighting_brawl_inv_checkbox"></td>
+                                            <td class="sheet-skill-label">근접전(격투)(25%)
+                                            </td>
+                                            <td><input class="sheet-skill-input" type="text"
+                                                    name="attr_fighting_brawl_inv" value="25"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_fighting_brawl_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_fighting_brawl_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_otherlanguage1_inv_checkbox"></td>
+                                            <td class="sheet-skill-label"><input class="sheet-skill-name-input"
+                                                    style="width: 100%" type="text" name="attr_otherlanguage1_inv_name"
+                                                    data-i18n-placeholder="otherlanguage1" placeholder="다른 언어 1"></td>
+                                            <td><input class="sheet-skill-input" type="text"
+                                                    name="attr_otherlanguage1_inv" value="1"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_otherlanguage1_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_otherlanguage1_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_otherlanguage2_inv_checkbox"></td>
+                                            <td class="sheet-skill-label"><input class="sheet-skill-name-input"
+                                                    style="width: 100%" type="text" name="attr_otherlanguage2_inv_name"
+                                                    data-i18n-placeholder="otherlanguage2" placeholder="다른 언어 2"></td>
+                                            <td><input class="sheet-skill-input" type="text"
+                                                    name="attr_otherlanguage2_inv" value="1"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_otherlanguage2_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_otherlanguage2_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_otherkingdom1_inv_checkbox"></td>
+                                            <td class="sheet-skill-label"><input class="sheet-skill-name-input"
+                                                    style="width: 100%" type="text" name="attr_otherkingdom1_inv_name"
+                                                    data-i18n-placeholder="otherkingdom1" placeholder="다른 왕국 1"></td>
+                                            <td><input class="sheet-skill-input" type="text"
+                                                    name="attr_otherkingdom1_inv" value="10"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_otherkingdom1_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_otherkingdom1_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_otherkingdom2_inv_checkbox"></td>
+                                            <td class="sheet-skill-label"><input class="sheet-skill-name-input"
+                                                    style="width: 100%" type="text" name="attr_otherkingdom2_inv_name"
+                                                    data-i18n-placeholder="otherkingdom2" placeholder="다른 왕국 2"></td>
+                                            <td><input class="sheet-skill-input" type="text"
+                                                    name="attr_otherkingdom2_inv" value="10"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_otherkingdom2_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_otherkingdom2_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_jump_inv_checkbox"></td>
+                                            <td class="sheet-skill-label">도약(25%)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_jump_inv"
+                                                    value="25"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_jump_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_jump_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_animalhandling_inv_checkbox"></td>
+                                            <td class="sheet-skill-label">동물 다루기(05%)</td>
+                                            <td><input class="sheet-skill-input" type="text"
+                                                    name="attr_animalhandling_inv" value="05"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_animalhandling_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_animalhandling_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_listen_inv_checkbox"></td>
+                                            <td class="sheet-skill-label">듣기(25%)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_listen_inv"
+                                                    value="25"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_listen_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_listen_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_drive_wagon_inv_checkbox"></td>
+                                            <td class="sheet-skill-label">마차 운전(20%)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_drive_wagon_inv"
+                                                    value="20"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_drive_wagon_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_drive_wagon_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_fast_talk_inv_checkbox"></td>
+                                            <td class="sheet-skill-label">말재주(05%)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_fast_talk_inv"
+                                                    value="5"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_fast_talk_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_fast_talk_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_charm_inv_checkbox"></td>
+                                            <td class="sheet-skill-label">매혹(15%)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_charm_inv"
+                                                    value="15"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_charm_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_charm_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_shield_inv_checkbox"></td>
+                                            <td class="sheet-skill-label">방패(15%)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_shield_inv"
+                                                    value="15"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_shield_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_shield_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_disguise_inv_checkbox"></td>
+                                            <td class="sheet-skill-label">변장(05%)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_disguise_inv"
+                                                    value="5"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_disguise_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_disguise_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="sheet-col">
+                                <table style="width: 100%">
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_pilotboat_inv_checkbox"></td>
+                                            <td class="sheet-skill-label">보트 조종(01%)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_pilotboat_inv"
+                                                    value="1"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_pilotboat_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_pilotboat_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_persuade_inv_checkbox"></td>
+                                            <td class="sheet-skill-label">설득(10%)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_persuade_inv"
+                                                    value="15"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_persuade_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_persuade_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_sleight_of_hand_inv_checkbox"></td>
+                                            <td class="sheet-skill-label">손놀림(25%)</td>
+                                            <td><input class="sheet-skill-input" type="text"
+                                                    name="attr_sleight_of_hand_inv" value="25"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_sleight_of_hand_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_sleight_of_hand_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_repair/devise_inv_checkbox"></td>
+                                            <td class="sheet-skill-label">수리/고안(20%)</td>
+                                            <td><input class="sheet-skill-input" type="text"
+                                                    name="attr_repair/devise_inv" value="20"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_repair/devise_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_repair/devise_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_swim_inv_checkbox"></td>
+                                            <td class="sheet-skill-label">수영(25%)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_swim_inv"
+                                                    value="25"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_swim_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_swim_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_ride_inv_checkbox"></td>
+                                            <td class="sheet-skill-label">승마(05%)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_ride_inv"
+                                                    value="5"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_ride_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_ride_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_readandwritelang1_inv_checkbox"></td>
+                                            <td class="sheet-skill-label"><input class="sheet-skill-name-input"
+                                                    style="width: 100%" type="text"
+                                                    name="attr_readandwritelang1_inv_name"
+                                                    data-i18n-placeholder="readandwritelang1" placeholder="언어 읽고 쓰기 1">
+                                            </td>
+                                            <td><input class="sheet-skill-input" type="text"
+                                                    name="attr_readandwritelang1_inv" value="1"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_readandwritelang1_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_readandwritelang1_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_readandwritelang2_inv_checkbox"></td>
+                                            <td class="sheet-skill-label"><input class="sheet-skill-name-input"
+                                                    style="width: 100%" type="text"
+                                                    name="attr_readandwritelang2_inv_name"
+                                                    data-i18n-placeholder="readandwritelang2" placeholder="언어 읽고 쓰기 2">
+                                            </td>
+                                            <td><input class="sheet-skill-input" type="text"
+                                                    name="attr_readandwritelang2_inv" value="1"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_readandwritelang2_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_readandwritelang2_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_language_own_inv_checkbox"></td>
+                                            <td class="sheet-skill-label">언어(모국어)(교육)</td>
+                                            <td><input class="sheet-skill-input" type="text"
+                                                    name="attr_language_own_inv"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_language_own_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_language_own_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_artandcraft1_inv_checkbox"></td>
+                                            <td class="sheet-skill-label"><input class="sheet-skill-name-input"
+                                                    style="width: 100%" type="text" name="attr_artandcraft1_inv_name"
+                                                    data-i18n-placeholder="artandcraft-u" placeholder="예술/공예(05%)"></td>
+                                            <td><input class="sheet-skill-input" type="text"
+                                                    name="attr_artandcraft1_inv" value="5"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_artandcraft1_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_artandcraft1_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_artandcraft2_inv_checkbox"></td>
+                                            <td class="sheet-skill-label"><input class="sheet-skill-name-input"
+                                                    style="width: 100%" type="text" name="attr_artandcraft2_inv_name"
+                                                    data-i18n-placeholder="artandcraft-u" placeholder="예술/공예(05%)"></td>
+                                            <td><input class="sheet-skill-input" type="text"
+                                                    name="attr_artandcraft2_inv" value="5"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_artandcraft2_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_artandcraft2_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_climb_inv_checkbox"></td>
+                                            <td class="sheet-skill-label">오르기(20%)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_climb_inv"
+                                                    value="20"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_climb_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_climb_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_occult_inv_checkbox"></td>
+                                            <td class="sheet-skill-label">오컬트(05%)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_occult_inv"
+                                                    value="5"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_occult_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_occult_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_intimidate_inv_checkbox"></td>
+                                            <td class="sheet-skill-label">위협(15%)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_intimidate_inv"
+                                                    value="15"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_intimidate_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_intimidate_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_stealth_inv_checkbox"></td>
+                                            <td class="sheet-skill-label">은밀행동(20%)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_stealth_inv"
+                                                    value="20"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_stealth_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_stealth_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_first_aid_inv_checkbox"></td>
+                                            <td class="sheet-skill-label">응급처치(30%)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_first_aid_inv"
+                                                    value="30"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_first_aid_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_first_aid_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_medicine_inv_checkbox"></td>
+                                            <td class="sheet-skill-label">의료(01%)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_medicine_inv"
+                                                    value="1"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_medicine_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_medicine_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_library_use_inv_checkbox"></td>
+                                            <td class="sheet-skill-label">자료조사(05%)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_library_use_inv"
+                                                    value="5"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_library_use_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_library_use_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_natural_world_inv_checkbox"></td>
+                                            <td class="sheet-skill-label">자연(20%)</td>
+                                            <td><input class="sheet-skill-input" type="text"
+                                                    name="attr_naturalworld_inv" value="20"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_naturalworld_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_naturalworld_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="sheet-col">
+                                <table style="width: 100%">
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_empire_inv_checkbox"></td>
+                                            <td class="sheet-skill-label">제국(25%)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_empire_inv"
+                                                    value="25"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_empire_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_empire_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td class="sheet-skill-label">지위</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_status_inv"
+                                                    value="0"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_status_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_status_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_track_inv_checkbox"></td>
+                                            <td class="sheet-skill-label">추적(10%)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_track_inv"
+                                                    value="10"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_track_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_track_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td class="sheet-skill-label">크툴루 신화(00%)</td>
+                                            <td><input class="sheet-skill-input" type="text"
+                                                    name="attr_cthulhu_mythos_inv" value="0"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_cthulhu_mythos_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_cthulhu_mythos_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_insight_inv_checkbox"></td>
+                                            <td class="sheet-skill-label">통찰(05%)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_insight_inv"
+                                                    value="5"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_insight_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_insight_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_throw_inv_checkbox"></td>
+                                            <td class="sheet-skill-label">투척(25%)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_throw_inv"
+                                                    value="25"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_throw_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_throw_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_navigate_inv_checkbox"></td>
+                                            <td class="sheet-skill-label">항법(10%)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_navigate_inv"
+                                                    value="10"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_navigate_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_navigate_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_accounting_inv_checkbox"></td>
+                                            <td class="sheet-skill-label">회계(10%)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_accounting_inv"
+                                                    value="10"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_accounting_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_accounting_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_dodge_inv_checkbox"></td>
+                                            <td class="sheet-skill-label">회피(민/2)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_dodge_inv"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_dodge_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_dodge_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table style="width: 100%">
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_otherskill1_inv_checkbox"></td>
+                                            <td class="sheet-skill-label"><input class="sheet-skill-name-input"
+                                                    style="width: 100%" type="text" name="attr_otherskill1_inv_name">
+                                            </td>
+                                            <td><input class="sheet-skill-input" type="text"
+                                                    name="attr_otherskill1_inv"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_otherskill1_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_otherskill1_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table style="width: 100%">
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_otherskill2_inv_checkbox"></td>
+                                            <td class="sheet-skill-label"><input class="sheet-skill-name-input"
+                                                    style="width: 100%" type="text" name="attr_otherskill2_inv_name">
+                                            </td>
+                                            <td><input class="sheet-skill-input" type="text"
+                                                    name="attr_otherskill2_inv"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_otherskill2_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_otherskill2_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table style="width: 100%">
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_otherskill3_inv_checkbox"></td>
+                                            <td class="sheet-skill-label"><input class="sheet-skill-name-input"
+                                                    style="width: 100%" type="text" name="attr_otherskill3_inv_name">
+                                            </td>
+                                            <td><input class="sheet-skill-input" type="text"
+                                                    name="attr_otherskill3_inv"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_otherskill3_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_otherskill3_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table style="width: 100%">
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_otherskill4_inv_checkbox"></td>
+                                            <td class="sheet-skill-label"><input class="sheet-skill-name-input"
+                                                    style="width: 100%" type="text" name="attr_otherskill4_inv_name">
+                                            </td>
+                                            <td><input class="sheet-skill-input" type="text"
+                                                    name="attr_otherskill4_inv"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_otherskill4_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_otherskill4_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table style="width: 100%">
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_otherskill5_inv_checkbox"></td>
+                                            <td class="sheet-skill-label"><input class="sheet-skill-name-input"
+                                                    style="width: 100%" type="text" name="attr_otherskill5_inv_name">
+                                            </td>
+                                            <td><input class="sheet-skill-input" type="text"
+                                                    name="attr_otherskill5_inv"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_otherskill5_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_otherskill5_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table style="width: 100%">
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_otherskill6_inv_checkbox"></td>
+                                            <td class="sheet-skill-label"><input class="sheet-skill-name-input"
+                                                    style="width: 100%" type="text" name="attr_otherskill6_inv_name">
+                                            </td>
+                                            <td><input class="sheet-skill-input" type="text"
+                                                    name="attr_otherskill6_inv"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_otherskill6_inv_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_otherskill6_inv_check">
+
+                                                </button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <fieldset class="repeating_skillsinv" style="display: none;">
+                                    <table style="width: 100%">
+                                        <tbody>
+                                            <tr>
+                                                <td><input type="checkbox" name="attr_checkbox_inv"></td>
+                                                <td class="sheet-skill-label"><input class="sheet-skill-name-input"
+                                                        style="width: 100%" type="text" name="attr_skillname_inv"></td>
+                                                <td><input class="sheet-skill-input" type="text" name="attr_skill_inv">
+                                                </td>
+                                                <td><button class="sheet-old-roll btn" type="roll"
+                                                        name="roll_skill_inv_check">
+                                                    </button></td>
+                                                <td><button class="sheet-new-roll btn" type="roll"
+                                                        name="roll_skill_inv_check">
+
+                                                    </button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </fieldset>
+                                <div class="repcontainer" data-groupname="repeating_skillsinv"></div>
+                                <div class="repcontrol" data-groupname="repeating_skillsinv"><button
+                                        class="btn repcontrol_edit">Modify</button><button
+                                        class="btn repcontrol_add">+Add</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <input type="checkbox" style="display: none" class="sheet-showskills" name="attr_showskills" value="2"
+                    checked="checked">
+                <div class="sheet-skills2">
+                    <input type="checkbox" style="display: none" class="sheet-arrow" name="attr_sheet-arrow">
+                    <div class="sheet-section">
+                        <div data-i18n-list="1920-skill-list">
+                            <div class="sheet-col">
+                                <table style="width: 100%">
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_appraise_checkbox"></td>
+                                            <td class="sheet-skill-label">감정(05%)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_appraise"
+                                                    value="5"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_appraise_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_appraise_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_archaeology_checkbox"></td>
+                                            <td class="sheet-skill-label">고고학(01%)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_archaeology"
+                                                    value="1"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_archaeology_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_archaeology_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_spot_hidden_checkbox"></td>
+                                            <td class="sheet-skill-label">관찰력(25%)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_spot_hidden"
+                                                    value="25"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_spot_hidden_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_spot_hidden_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="sheet-col">
+                                <table style="width: 100%">
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_language_own_checkbox"></td>
+                                            <td class="sheet-skill-label">언어(모국어)(교육)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_language_own">
+                                            </td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_language_own_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_language_own_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_history_checkbox"></td>
+                                            <td class="sheet-skill-label">역사(05%)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_history"
+                                                    value="5"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_history_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_history_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_locksmith_checkbox"></td>
+                                            <td class="sheet-skill-label">열쇠공(01%)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_locksmith"
+                                                    value="1"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_locksmith_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_locksmith_check">
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="sheet-col">
+                                <table style="width: 100%">
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td class="sheet-skill-label">크툴루 신화(00%)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_cthulhu_mythos"
+                                                    value="0"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_cthulhu_mythos_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_cthulhu_mythos_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_throw_checkbox"></td>
+                                            <td class="sheet-skill-label">투척(20%)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_throw"
+                                                    value="20"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_throw_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_throw_check">
+
+                                                </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="attr_navigate_checkbox"></td>
+                                            <td class="sheet-skill-label">항법(10%)</td>
+                                            <td><input class="sheet-skill-input" type="text" name="attr_navigate"
+                                                    value="10"></td>
+                                            <td><button class="sheet-old-roll btn" type="roll"
+                                                    name="roll_navigate_check">
+                                                </button></td>
+                                            <td><button class="sheet-new-roll btn" type="roll"
+                                                    name="roll_navigate_check">
+                                    </tbody>
+                                </table>
+                                </fieldset>
+                                <div class="repcontainer" data-groupname="repeating_skills"></div>
+                                <div class="repcontrol" data-groupname="repeating_skills"><button
+                                        class="btn repcontrol_edit">Modify</button><button
+                                        class="btn repcontrol_add">+Add</button></div>
+                                <table style="width: 100%">
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="3">다른 기능들:</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div style="margin-top:50px; width: 860px; display: flex; gap: 10px;">
+<div class="sheet-rolltemplate-coc" style="width: 100%;">
+    <table>
+        <caption>감정</caption>
+        <tbody>
+            <tr>
+                <td class="sheet-template_label">기준치:</td>
+                <td class="sheet-template_value"><span class="inlinerollresult showtip tipsy-n-right"
+                        original-title="Rolling 5 = 5">5</span>/<span class="inlinerollresult showtip tipsy-n-right"
+                        original-title="Rolling floor(5/2) = floor(5/2)">2</span>/<span
+                        class="inlinerollresult showtip tipsy-n-right"
+                        original-title="Rolling floor(5/5) = floor(5/5)">1</span></td>
+            </tr>
+            <tr>
+                <td class="sheet-template_label">굴림:</td>
+                <td class="sheet-template_value"><span class="inlinerollresult showtip tipsy-n-right"
+                        original-title="&lt;img src=&quot;/images/quantumrollwhite.png&quot; class=&quot;inlineqroll&quot;&gt; Rolling 1d100cs1cf100 = (&lt;span class=&quot;basicdiceroll&quot;&gt;59&lt;/span&gt;)">59</span>,
+                    <span class="inlinerollresult showtip tipsy-n-right"
+                        original-title="&lt;img src=&quot;/images/quantumrollwhite.png&quot; class=&quot;inlineqroll&quot;&gt; Rolling 1d100cs1cf100 = (&lt;span class=&quot;basicdiceroll&quot;&gt;36&lt;/span&gt;)">36</span>,
+                    <span class="inlinerollresult showtip tipsy-n-right"
+                        original-title="&lt;img src=&quot;/images/quantumrollwhite.png&quot; class=&quot;inlineqroll&quot;&gt; Rolling 1d100cs1cf100 = (&lt;span class=&quot;basicdiceroll&quot;&gt;23&lt;/span&gt;)">23</span>
+                </td>
+            </tr>
+            <tr style="background: #dff0d8">
+                <td class="sheet-template_label">+2:</td>
+                <td class="sheet-template_value">실패</td>
+            </tr>
+            <tr style="background: #d9edf7">
+                <td class="sheet-template_label">+1:</td>
+                <td class="sheet-template_value">실패</td>
+            </tr>
+            <tr style="background: #d3d3d3">
+                <td class="sheet-template_label">&nbsp;&nbsp;0:</td>
+                <td class="sheet-template_value">실패</td>
+            </tr>
+            <tr style="background: #fcf8e3">
+                <td class="sheet-template_label">-1:</td>
+                <td class="sheet-template_value">실패</td>
+            </tr>
+            <tr style="background: #f2dede">
+                <td class="sheet-template_label">-2:</td>
+                <td class="sheet-template_value">실패</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="sheet-rolltemplate-coc-1" style="width: 100%;">
+    <table>
+        <caption>감정</caption>
+        <tbody>
+            <tr>
+                <td class="sheet-template_label">기준치:</td>
+                <td class="sheet-template_value"><span class="inlinerollresult showtip tipsy-n-right"
+                        original-title="Rolling 5 = 5">5</span>/<span class="inlinerollresult showtip tipsy-n-right"
+                        title="Rolling floor(5/2) = floor(5/2)">2</span>/<span
+                        class="inlinerollresult showtip tipsy-n-right"
+                        original-title="Rolling floor(5/5) = floor(5/5)">1</span></td>
+            </tr>
+            <tr>
+                <td class="sheet-template_label">굴림:</td>
+                <td class="sheet-template_value"><span class="inlinerollresult showtip tipsy-n-right"
+                        title="&lt;img src=&quot;/images/quantumrollwhite.png&quot; class=&quot;inlineqroll&quot;&gt; Rolling 1d100cs1cf100 = (&lt;span class=&quot;basicdiceroll&quot;&gt;74&lt;/span&gt;)">74</span>
+                </td>
+            </tr>
+            <tr style="background: #bebebe">
+                <td class="sheet-template_label">판정결과:</td>
+                <td style="background: crimson" class="sheet-template_value">실패</td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="sheet-rolltemplate-coc-bomadness-rt" style="width: 100%;">
+    <table>
+        <caption>광기의 발작 - 실시간</caption>
+        <tbody>
+            <tr>
+                <td class="sheet-template_value"><b>중요한 PL: </b></td>
+            </tr>
+            <tr>
+                <td class="sheet-template_value">1D10시간 동안 곁에 있는 PL을 깊고 어두운 롤방으로 안내합니다.</td>
+            </tr>
+            <tr>
+                <td class="sheet-template_value">
+                    <span style="font-weight: bold">Rounds:</span>
+                    <span><span class="inlinerollresult showtip tipsy-n-right"
+                            original-title="&lt;img src=&quot;/images/quantumrollwhite.png&quot; class=&quot;inlineqroll&quot;&gt; Rolling 1d10cs1cf10 = (&lt;span class=&quot;basicdiceroll&quot;&gt;2&lt;/span&gt;)">2</span></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="sheet-template_value">
+                    <span style="font-weight: bold">Underlying Insanity Duration
+                        (Hours):</span>
+                    <span><span class="inlinerollresult showtip tipsy-n-right fullfail"
+                            original-title="&lt;img src=&quot;/images/quantumrollwhite.png&quot; class=&quot;inlineqroll&quot;&gt; Rolling 1d10cs1cf10 = (&lt;span class=&quot;basicdiceroll critfail &quot;&gt;10&lt;/span&gt;)">10</span></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
