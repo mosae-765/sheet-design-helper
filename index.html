@@ -3,13 +3,13 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>manipulable.css 디자이너</title>
+  <title>롤20 COC 커스텀 시트 헬퍼</title>
   <link rel="stylesheet" href="designer_style.css">
 </head>
 
 <body>
   <header>
-    <h1>manipulable.css 디자이너 (목업)</h1>
+    <h1>롤20 COC 커스텀 시트 헬퍼</h1>
     <p>각 선택자별 배경색·배경이미지·외곽선·radius·글자색을 조절하면 미리보기와 오른쪽 CSS가 실시간으로 갱신됩니다.</p>
   </header>
 
@@ -20,23 +20,21 @@
   <div id="app">
     <div class="col-left">
       <div class="card">
-        <h2>① 다이스/액션 아이콘 폰트 (:before)</h2>
-        <p class="desc">dicefont, pictos 아이콘 종류는 <a href="https://wiki.roll20.net/CSS_Wizardry#Icon_Fonts">해당 링크</a>에 잘 정리되어 있습니다. (별개로 커스텀 시트 제작법을 공부하기 좋은 사이트입니다.)</p>
+        <h2>① 다이스/액션 아이콘 폰트</h2>
+        <p class="desc">dicefont, pictos 아이콘 종류는 <a href="https://wiki.roll20.net/CSS_Wizardry#Icon_Fonts">해당 링크</a>에 잘 정리되어 있습니다. <br>(별개로 커스텀 시트 제작법을 공부하기 좋은 사이트입니다.)<br>상기한 두 폰트는 미리보기가 아닌 실제 롤20 시트로 확인해주세요.</p>
         <div class="field">
           <label>폰트</label>
           <select data-path="beforeFont">
-            <option value="Arial, Helvetica, sans-serif">기본값 (Arial) — 목업</option>
-            <option value="'Noto Sans KR', sans-serif">고딕 느낌 — 목업</option>
-            <option value="cursive">손글씨 느낌 — 목업</option>
-            <option value="serif">명조 느낌 — 목업</option>
-            <option value="fantasy">장식체 느낌 — 목업</option>
+            <option value="Arial, Helvetica, sans-serif">Arial</option>
+            <option value="'Noto Serif KR', sserif">Noto Serif KR</option>
+            <option value="dicefontd20">dicefontd20</option>
+            <option value="pictos">pictos</option>
           </select>
-          <p class="note">※ 실제 폰트 목록 확정 전까지는 목업 옵션만 제공됩니다.</p>
         </div>
         <div class="field">
           <label>아이콘 문자 (content)</label>
           <input type="text" data-path="beforeContent" maxlength="4" value="★">
-          <p class="note">※ 주사위/액션 버튼 안에 표시되는 글자입니다. dicefont 등 아이콘 폰트를 쓰는 경우 해당 폰트의 코드 문자를 입력하세요.</p>
+          <p class="note">※ dicefont와 pictos는 해당 폰트의 코드 문자를 입력하세요. (롤20 기본: dicefontd20, t)</p>
         </div>
       </div>
 
@@ -109,20 +107,21 @@
           </div>
         </div>
         <div class="field">
-          <label>폰트 (목업)</label>
+          <label>폰트</label>
           <select data-path="charsheet.fontFamily">
-            <option value="cursive">기본값 (cursive) — 목업</option>
-            <option value="Arial, Helvetica, sans-serif">고딕 느낌 — 목업</option>
-            <option value="'Noto Sans KR', sans-serif">한글 고딕 느낌 — 목업</option>
-            <option value="serif">명조 느낌 — 목업</option>
-            <option value="fantasy">장식체 느낌 — 목업</option>
+            <option value="Arial">Arial</option>
+            <option value="'Do Hyeon', sans-serif">배달의 민족 도현체</option>
+            <option value="'Song Myung', serif">Song Myung</option>
+            <option value="'Noto Serif KR', serif">Noto Serif Korean</option>
+            <option value="'Gowun Dodum', sans-serif">고운 돋움</option>
+            <option value="'Hi Melody', sans-serif">Hi Melody</option>
+            <option value="'Diphylleia', cursive">Diphylleia</option>
           </select>
-          <p class="note">※ 실제 폰트 목록 확정 전까지는 목업 옵션만 제공됩니다.</p>
         </div>
       </div>
 
       <div class="card">
-        <h2>③ 일반 주사위 버튼 (sheet-new-roll)</h2>
+        <h2>③ 일반 주사위 버튼</h2>
         <div class="field">
           <label>글자색</label>
           <div class="color-row">
@@ -183,13 +182,13 @@
       </div>
 
       <div class="card">
-        <h2>④ 단색 버튼들 (글자색만)</h2>
-        <p class="desc">보너스 다이스 / 동료·탈것 / 펄프 새니티 / 주도권·방어·장갑 / 행운 / 전투(일반·유리)</p>
+        <h2>④ 단색 버튼들</h2>
+        <p class="desc">보너스 다이스 / 동료·탈것 / 펄프 새니티 / 주도권·방어·장갑 / 행운 / 전투(일반·유리). 각 버튼마다 ③ 일반 주사위 버튼과 동일하게 글자색·배경색·테두리·모서리 radius를 개별 조절할 수 있습니다. 아래 버튼으로 전체를 일반 주사위 값과 통일할 수 있습니다.</p>
         <div class="simple-buttons-grid" id="simpleButtonsContainer"></div>
       </div>
 
       <div class="card">
-        <h2>⑤ 섹션 헤더 + 섹션 박스 (sheet-section-head / sheet-section)</h2>
+        <h2>⑤ 섹션 헤더 + 섹션 박스</h2>
         <p class="desc">두 선택자는 서로 다르지만, 하나의 둥근 박스처럼 보이도록 모서리를 함께 조절할 수 있습니다. (헤더 = 위쪽 모서리, 섹션 = 아래쪽 모서리)</p>
 
         <div class="subgroup-title">헤더 (sheet-section-head)</div>
@@ -234,7 +233,7 @@
           </div>
         </div>
 
-        <div class="subgroup-title">섹션 (sheet-section)</div>
+        <div class="subgroup-title">섹션</div>
         <div class="field">
           <label>배경색</label>
           <div class="color-row">
@@ -292,7 +291,7 @@
       </div>
 
       <div class="card">
-        <h2>⑥ 입력칸 (.charsheet input)</h2>
+        <h2>⑥ 입력칸</h2>
         <div class="row2">
           <div class="field">
             <label>배경색</label>
@@ -311,10 +310,18 @@
             </div>
           </div>
         </div>
+        <div class="field">
+          <label>테두리 색</label>
+          <div class="color-row">
+            <input type="color" data-path="input.borderColor" value="#c9a14a">
+            <input type="text" data-path="input.borderColor" data-hex="true" maxlength="9" spellcheck="false"
+              value="#c9a14a">
+          </div>
+        </div>
       </div>
 
       <div class="card">
-        <h2>⑦ 추가/수정/삭제 버튼 (repcontrol)</h2>
+        <h2>⑦ 추가/수정/삭제 버튼</h2>
         <div class="row2">
           <div class="field">
             <label>배경색</label>
@@ -336,6 +343,128 @@
       </div>
 
       <div class="card">
+        <h2>⑦-1 무기 액션 버튼 (button[type=action].sheet-type-weapons)</h2>
+        <div class="field">
+          <label>글자색</label>
+          <div class="color-row">
+            <input type="color" data-path="weaponAction.fontColor" value="#f0e6cc">
+            <input type="text" data-path="weaponAction.fontColor" data-hex="true" maxlength="9" spellcheck="false"
+              value="#f0e6ccff">
+          </div>
+        </div>
+        <div class="field">
+          <label>배경색</label>
+          <div class="color-row">
+            <input type="color" data-path="weaponAction.bgColor" value="#8c3b3b">
+            <input type="text" data-path="weaponAction.bgColor" data-hex="true" maxlength="9" spellcheck="false"
+              value="#8c3b3bff">
+          </div>
+        </div>
+        <div class="field">
+          <label>테두리 색</label>
+          <div class="color-row">
+            <input type="color" data-path="weaponAction.borderColor" value="#c9a14a">
+            <input type="text" data-path="weaponAction.borderColor" data-hex="true" maxlength="9" spellcheck="false"
+              value="#c9a14aff">
+          </div>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label>테두리 두께 (px)</label>
+            <input type="number" min="0" max="10" data-path="weaponAction.borderWidth" value="1">
+          </div>
+          <div class="field">
+            <label>테두리 스타일</label>
+            <select data-path="weaponAction.borderStyle">
+              <option value="solid">solid</option>
+              <option value="dashed">dashed</option>
+              <option value="dotted">dotted</option>
+              <option value="double">double</option>
+              <option value="none">none</option>
+            </select>
+          </div>
+        </div>
+        <div class="radius-block">
+          <div class="range-field master">
+            <label>모서리 한번에 조절</label>
+            <input type="range" id="weaponActionRadiusMaster" min="0" max="50" value="6">
+            <span class="val" id="weaponActionRadiusMasterVal">6px</span>
+          </div>
+          <div class="corner-grid">
+            <div class="range-field"><label>왼쪽 위</label><input type="range" min="0" max="50" value="6"
+                data-path="weaponAction.radius.tl"><span class="val">6px</span></div>
+            <div class="range-field"><label>오른쪽 위</label><input type="range" min="0" max="50" value="6"
+                data-path="weaponAction.radius.tr"><span class="val">6px</span></div>
+            <div class="range-field"><label>왼쪽 아래</label><input type="range" min="0" max="50" value="6"
+                data-path="weaponAction.radius.bl"><span class="val">6px</span></div>
+            <div class="range-field"><label>오른쪽 아래</label><input type="range" min="0" max="50" value="6"
+                data-path="weaponAction.radius.br"><span class="val">6px</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>⑦-2 선택 상자 (select)</h2>
+        <div class="field">
+          <label>글자색</label>
+          <div class="color-row">
+            <input type="color" data-path="selectBox.fontColor" value="#f0e6cc">
+            <input type="text" data-path="selectBox.fontColor" data-hex="true" maxlength="9" spellcheck="false"
+              value="#f0e6ccff">
+          </div>
+        </div>
+        <div class="field">
+          <label>배경색</label>
+          <div class="color-row">
+            <input type="color" data-path="selectBox.bgColor" value="#1b1712">
+            <input type="text" data-path="selectBox.bgColor" data-hex="true" maxlength="9" spellcheck="false"
+              value="#1b1712ff">
+          </div>
+        </div>
+        <div class="field">
+          <label>테두리 색</label>
+          <div class="color-row">
+            <input type="color" data-path="selectBox.borderColor" value="#c9a14a">
+            <input type="text" data-path="selectBox.borderColor" data-hex="true" maxlength="9" spellcheck="false"
+              value="#c9a14aff">
+          </div>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label>테두리 두께 (px)</label>
+            <input type="number" min="0" max="10" data-path="selectBox.borderWidth" value="1">
+          </div>
+          <div class="field">
+            <label>테두리 스타일</label>
+            <select data-path="selectBox.borderStyle">
+              <option value="solid">solid</option>
+              <option value="dashed">dashed</option>
+              <option value="dotted">dotted</option>
+              <option value="double">double</option>
+              <option value="none">none</option>
+            </select>
+          </div>
+        </div>
+        <div class="radius-block">
+          <div class="range-field master">
+            <label>모서리 한번에 조절</label>
+            <input type="range" id="selectBoxRadiusMaster" min="0" max="50" value="6">
+            <span class="val" id="selectBoxRadiusMasterVal">6px</span>
+          </div>
+          <div class="corner-grid">
+            <div class="range-field"><label>왼쪽 위</label><input type="range" min="0" max="50" value="6"
+                data-path="selectBox.radius.tl"><span class="val">6px</span></div>
+            <div class="range-field"><label>오른쪽 위</label><input type="range" min="0" max="50" value="6"
+                data-path="selectBox.radius.tr"><span class="val">6px</span></div>
+            <div class="range-field"><label>왼쪽 아래</label><input type="range" min="0" max="50" value="6"
+                data-path="selectBox.radius.bl"><span class="val">6px</span></div>
+            <div class="range-field"><label>오른쪽 아래</label><input type="range" min="0" max="50" value="6"
+                data-path="selectBox.radius.br"><span class="val">6px</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
         <h2>⑧ CoC 로고 표시 여부</h2>
         <div class="checkbox-row">
           <input type="checkbox" id="logoVisible" data-path="logo.visible" checked>
@@ -344,7 +473,7 @@
       </div>
 
       <div class="card">
-        <h2>⑨ 롤 템플릿 캡션 + 테이블 (sheet-rolltemplate-coc 계열)</h2>
+        <h2>⑨ 롤 템플릿 캡션 + 테이블</h2>
         <p class="desc">캡션이 위, 테이블이 아래에 오는 하나의 박스처럼 보이도록 모서리를 함께 조절할 수 있습니다. (캡션 = 위쪽 모서리, 테이블 = 아래쪽 모서리)</p>
 
         <div class="subgroup-title">캡션 (caption)</div>
@@ -420,7 +549,7 @@
       </div>
 
       <div class="card">
-        <h2>⑩ 롤 템플릿 행 구분선 (td/tr)</h2>
+        <h2>⑩ 롤 템플릿 행 구분선</h2>
         <div class="row2">
           <div class="field">
             <label>선 색</label>
@@ -435,13 +564,23 @@
             <input type="number" min="0" max="10" data-path="rollRow.borderWidth" value="2">
           </div>
         </div>
+        <div class="field">
+          <label>선 스타일</label>
+          <select data-path="rollRow.borderStyle">
+            <option value="solid">solid</option>
+            <option value="dashed">dashed</option>
+            <option value="dotted">dotted</option>
+            <option value="double">double</option>
+            <option value="none">none</option>
+          </select>
+        </div>
       </div>
 
       <div class="card">
         <h2>⑪ 인라인 롤 결과 (.inlinerollresult)</h2>
         <div class="row2">
           <div class="field">
-            <label>테두리 색 (8자리 HEX 가능, 끝 2자리 = 투명도)</label>
+            <label>테두리 색</label>
             <div class="color-row">
               <input type="color" data-path="rollInline.borderColor" value="#000000">
               <input type="text" data-path="rollInline.borderColor" data-hex="true" maxlength="9" spellcheck="false"
@@ -455,6 +594,14 @@
               <input type="text" data-path="rollInline.bgColor" data-hex="true" maxlength="9" spellcheck="false"
                 value="#e3c46b">
             </div>
+          </div>
+        </div>
+        <div class="field">
+          <label>글자색</label>
+          <div class="color-row">
+            <input type="color" data-path="rollInline.fontColor" value="#f0e6cc">
+            <input type="text" data-path="rollInline.fontColor" data-hex="true" maxlength="9" spellcheck="false"
+              value="#f0e6ccff">
           </div>
         </div>
       </div>
@@ -479,99 +626,130 @@
 
   <script>
     // 기본 색상은 "고서/양피지 + 골드 + 딥 틸" 톤의 일관된 팔레트로 구성했습니다.
+    // 모든 색상 값은 #RRGGBBAA(8자리 HEX) 형식으로 저장하며, 끝 2자리가 알파(투명도)입니다.
+    function mkButtonStyle(fontColor) {
+      return {
+        fontColor,
+        bgColor: '#00000000',
+        borderColor: '#c9a14a00',
+        borderWidth: 0,
+        borderStyle: 'solid',
+        radius: { tl: 0, tr: 0, br: 0, bl: 0 },
+      };
+    }
+
     const DEFAULT_STATE = {
       beforeFont: 'Arial, Helvetica, sans-serif',
       beforeContent: '★',
       charsheet: {
-        bgColor: '#2b2620',
+        bgColor: '#2b2620ff',
         bgImage: '',
         bgSize: '100% auto',
         bgRepeat: 'no-repeat',
-        borderColor: '#c9a14a',
+        borderColor: '#c9a14aff',
         borderWidth: 2,
         borderStyle: 'solid',
-        fontColor: '#f0e6cc',
-        fontFamily: 'cursive',
+        fontColor: '#f0e6ccff',
+        fontFamily: 'Arial',
       },
       normalRoll: {
-        fontColor: '#f0e6cc',
-        bgColor: '#3c6e71',
-        borderColor: '#c9a14a',
+        fontColor: '#f0e6ccff',
+        bgColor: '#3c6e71ff',
+        borderColor: '#c9a14aff',
         borderWidth: 1,
         borderStyle: 'solid',
         radius: { tl: 6, tr: 6, br: 6, bl: 6 },
       },
       simpleButtons: {
-        oldRoll: '#c9a14a',
-        smallButtonRoll: '#7fa37f',
-        diceRoll: '#3c6e71',
-        smallNonSkillButtonRoll: '#6b5b95',
-        diceRollAction: '#d98e73',
-        nadvAction: '#8c3b3b',
-        advAction: '#a1652e',
+        oldRoll: mkButtonStyle('#c9a14aff'),
+        smallButtonRoll: mkButtonStyle('#7fa37fff'),
+        diceRoll: mkButtonStyle('#3c6e71ff'),
+        smallNonSkillButtonRoll: mkButtonStyle('#6b5b95ff'),
+        diceRollAction: mkButtonStyle('#d98e73ff'),
+        nadvAction: mkButtonStyle('#8c3b3bff'),
+        advAction: mkButtonStyle('#a1652eff'),
       },
       sectionHead: {
-        bgColor: '#3c6e71',
-        fontColor: '#f0e6cc',
-        borderColor: '#c9a14a',
+        bgColor: '#3c6e71ff',
+        fontColor: '#f0e6ccff',
+        borderColor: '#c9a14aff',
         borderWidth: 1,
         borderStyle: 'solid',
         radiusTL: 10,
         radiusTR: 10,
       },
       section: {
-        bgColor: '#3a332a',
-        borderColor: '#c9a14a',
+        bgColor: '#3a332aff',
+        borderColor: '#c9a14aff',
         borderWidth: 2,
         borderStyle: 'solid',
         radiusBL: 10,
         radiusBR: 10,
       },
       input: {
-        bgColor: '#1b1712',
-        fontColor: '#f0e6cc',
+        bgColor: '#1b1712ff',
+        fontColor: '#f0e6ccff',
+        borderColor: '#c9a14aff',
       },
       repcontrol: {
-        bgColor: '#c9a14a',
-        fontColor: '#1b1712',
+        bgColor: '#c9a14aff',
+        fontColor: '#1b1712ff',
+      },
+      weaponAction: {
+        fontColor: '#f0e6ccff',
+        bgColor: '#8c3b3bff',
+        borderColor: '#c9a14aff',
+        borderWidth: 1,
+        borderStyle: 'solid',
+        radius: { tl: 6, tr: 6, br: 6, bl: 6 },
+      },
+      selectBox: {
+        fontColor: '#f0e6ccff',
+        bgColor: '#1b1712ff',
+        borderColor: '#c9a14aff',
+        borderWidth: 1,
+        borderStyle: 'solid',
+        radius: { tl: 6, tr: 6, br: 6, bl: 6 },
       },
       logo: {
         visible: true,
       },
       rollCaption: {
-        bgColor: '#3c6e71',
+        bgColor: '#3c6e71ff',
         radiusTL: 10,
         radiusTR: 10,
       },
       rollTable: {
         bgImage: '',
-        bgColor: '#1b1712',
-        fontColor: '#f0e6cc',
-        borderColor: '#c9a14a',
+        bgColor: '#1b1712ff',
+        fontColor: '#f0e6ccff',
+        borderColor: '#c9a14aff',
         borderWidth: 2,
         radiusBL: 10,
         radiusBR: 10,
       },
       rollRow: {
-        borderColor: '#c9a14a',
+        borderColor: '#c9a14aff',
         borderWidth: 2,
+        borderStyle: 'solid',
       },
       rollInline: {
         borderColor: '#00000000',
-        bgColor: '#e3c46b',
+        bgColor: '#e3c46bff',
+        fontColor: '#f0e6ccff',
       },
     };
 
     let state = JSON.parse(JSON.stringify(DEFAULT_STATE));
 
     const SIMPLE_BUTTONS = [
-      { path: 'simpleButtons.oldRoll', label: '보너스 다이스 (sheet-old-roll)' },
-      { path: 'simpleButtons.smallButtonRoll', label: '동료 & 탈것 (sheet-smallbutton-roll)' },
-      { path: 'simpleButtons.diceRoll', label: '펄프 새니티 (sheet-dice-roll)' },
-      { path: 'simpleButtons.smallNonSkillButtonRoll', label: '주도권/방어/장갑 등 (sheet-smallnonskillbutton-roll)' },
-      { path: 'simpleButtons.diceRollAction', label: '행운 (sheet-dice-roll-action)' },
-      { path: 'simpleButtons.nadvAction', label: '전투 - 일반 (sheet-nadv-action)' },
-      { path: 'simpleButtons.advAction', label: '전투 - 유리 (sheet-adv-action)' },
+      { key: 'oldRoll', label: '보너스 다이스 (sheet-old-roll)', selector: '.charsheet button[type=roll].sheet-old-roll' },
+      { key: 'smallButtonRoll', label: '동료 & 탈것 (sheet-smallbutton-roll)', selector: '.charsheet button[type=roll].sheet-smallbutton-roll' },
+      { key: 'diceRoll', label: '펄프 새니티 (sheet-dice-roll)', selector: '.charsheet button[type=roll].sheet-dice-roll' },
+      { key: 'smallNonSkillButtonRoll', label: '주도권/방어/장갑 등 (sheet-smallnonskillbutton-roll)', selector: '.charsheet button[type=roll].sheet-smallnonskillbutton-roll' },
+      { key: 'diceRollAction', label: '행운 (sheet-dice-roll-action)', selector: '.charsheet button[type=action].sheet-dice-roll-action' },
+      { key: 'nadvAction', label: '전투 - 일반 (sheet-nadv-action)', selector: '.charsheet button[type=action].sheet-nadv-action' },
+      { key: 'advAction', label: '전투 - 유리 (sheet-adv-action)', selector: '.charsheet button[type=action].sheet-adv-action' },
     ];
 
     const ROLLTEMPLATE_CLASSES = [
@@ -606,11 +784,24 @@
       return ROLLTEMPLATE_CLASSES.map(c => c + suffix).join(',\n');
     }
 
-    const MASTER_GROUPS = [
+    const STATIC_MASTER_GROUPS = [
       { masterId: 'normalRollRadiusMaster', valId: 'normalRollRadiusMasterVal', paths: ['normalRoll.radius.tl', 'normalRoll.radius.tr', 'normalRoll.radius.br', 'normalRoll.radius.bl'] },
+      { masterId: 'weaponActionRadiusMaster', valId: 'weaponActionRadiusMasterVal', paths: ['weaponAction.radius.tl', 'weaponAction.radius.tr', 'weaponAction.radius.br', 'weaponAction.radius.bl'] },
+      { masterId: 'selectBoxRadiusMaster', valId: 'selectBoxRadiusMasterVal', paths: ['selectBox.radius.tl', 'selectBox.radius.tr', 'selectBox.radius.br', 'selectBox.radius.bl'] },
       { masterId: 'rollCaptionTableRadiusMaster', valId: 'rollCaptionTableRadiusMasterVal', paths: ['rollCaption.radiusTL', 'rollCaption.radiusTR', 'rollTable.radiusBR', 'rollTable.radiusBL'] },
       { masterId: 'sectionRadiusMaster', valId: 'sectionRadiusMasterVal', paths: ['sectionHead.radiusTL', 'sectionHead.radiusTR', 'section.radiusBR', 'section.radiusBL'] },
     ];
+
+    function simpleButtonMasterGroups() {
+      return SIMPLE_BUTTONS.map(b => ({
+        masterId: `simpleBtnRadiusMaster_${b.key}`,
+        valId: `simpleBtnRadiusMasterVal_${b.key}`,
+        paths: ['tl', 'tr', 'br', 'bl'].map(c => `simpleButtons.${b.key}.radius.${c}`),
+      }));
+    }
+    function allMasterGroups() {
+      return STATIC_MASTER_GROUPS.concat(simpleButtonMasterGroups());
+    }
 
     function getPath(obj, path) {
       return path.split('.').reduce((o, k) => (o == null ? o : o[k]), obj);
@@ -620,6 +811,19 @@
       let o = obj;
       for (let i = 0; i < keys.length - 1; i++) o = o[keys[i]];
       o[keys[keys.length - 1]] = value;
+    }
+
+    function splitHex(hex) {
+      const h = String(hex || '#000000ff');
+      if (/^#[0-9a-fA-F]{8}$/.test(h)) return { rgb: h.slice(0, 7), alphaHex: h.slice(7, 9).toLowerCase() };
+      if (/^#[0-9a-fA-F]{6}$/.test(h)) return { rgb: h, alphaHex: 'ff' };
+      return { rgb: '#000000', alphaHex: 'ff' };
+    }
+    function alphaHexToPercent(a) {
+      return Math.round(parseInt(a, 16) / 255 * 100);
+    }
+    function alphaPercentToHex(p) {
+      return Math.round(Math.min(100, Math.max(0, p)) / 100 * 255).toString(16).padStart(2, '0');
     }
 
     function radiusCSS(r) {
@@ -661,6 +865,13 @@
       const sec = s.section;
       const parts = [];
 
+      parts.push(`@import url('https://fonts.googleapis.com/css2?family=Diphylleia&family=Do+Hyeon&family=Gowun+Dodum&family=Hi+Melody&family=Noto+Serif+KR:wght@200..900&family=Song+Myung&display=swap');
+      .charsheet button[type=roll],
+      .charsheet button[type=action] {
+    text-shadow: none !important;
+    box-shadow: none !important;
+}`);
+
       parts.push(`.charsheet button[type=roll]:before,    /* 주사위 내부*/
 .charsheet button[type=action]:before {
     font-family: ${s.beforeFont} !important;
@@ -669,40 +880,30 @@
 
       parts.push(`.charsheet button[type=roll].sheet-new-roll{   /* normal dice*/
     color: ${s.normalRoll.fontColor} !important;
+    background-image: none; !important;
     background-color: ${s.normalRoll.bgColor} !important;
     border: ${s.normalRoll.borderWidth}px ${s.normalRoll.borderStyle} ${s.normalRoll.borderColor} !important;
     ${radiusCSS(s.normalRoll.radius)}
 }`);
 
-      parts.push(`.charsheet button[type=roll].sheet-old-roll{   /* bonus dice*/
-    color: ${s.simpleButtons.oldRoll} !important;
+      SIMPLE_BUTTONS.forEach(b => {
+        const st = s.simpleButtons[b.key];
+        parts.push(`${b.selector} {   /* ${b.label} */
+    color: ${st.fontColor} !important;
+    background-image: none !important;
+    background-color: ${st.bgColor} !important;
+    border: ${st.borderWidth}px ${st.borderStyle} ${st.borderColor} !important;
+    ${radiusCSS(st.radius)}
 }`);
-      parts.push(`.charsheet button[type=roll].sheet-smallbutton-roll{   /* companions & mounts */
-    color: ${s.simpleButtons.smallButtonRoll} !important;
-}`);
-      parts.push(`.charsheet button[type=roll].sheet-dice-roll { /* Pulp Sanity*/
-  color: ${s.simpleButtons.diceRoll} !important;
-}`);
-      parts.push(`.charsheet button[type=roll].sheet-smallnonskillbutton-roll {  /* Dice Rolls, initiative, Defence, Armor*/
-  color: ${s.simpleButtons.smallNonSkillButtonRoll} !important;
-}`);
-      parts.push(`.charsheet button[type=action].sheet-dice-roll-action {    /* Luck */
-  color: ${s.simpleButtons.diceRollAction} !important;
-}`);
-      parts.push(`.charsheet button[type=action].sheet-nadv-action{   /* combat normal*/
-    color:${s.simpleButtons.nadvAction} !important;
-}`);
-      parts.push(`.charsheet button[type=action].sheet-adv-action{
-    color:${s.simpleButtons.advAction} !important;
-}`);
+      });
 
       parts.push(`.charsheet {    /* 시트 배경 */
     background-image: url(${s.charsheet.bgImage}) !important;
     background-size: ${s.charsheet.bgSize} !important;
     background-repeat: ${s.charsheet.bgRepeat} !important;
-    background-color: ${s.charsheet.bgColor};
+    background-color: ${s.charsheet.bgColor} !important;
     border: ${s.charsheet.borderWidth}px ${s.charsheet.borderStyle} ${s.charsheet.borderColor} !important;
-    color:${s.charsheet.fontColor};
+    color:${s.charsheet.fontColor} !important;
     font-family: ${s.charsheet.fontFamily} !important;
 }`);
 
@@ -723,6 +924,7 @@
       parts.push(`.charsheet input{    /* 수치 입력 */
     background-color: ${s.input.bgColor} !important;
     color: ${s.input.fontColor} !important;
+    border-color: ${s.input.borderColor} !important;
 }`);
 
       parts.push(`.charsheet .repcontrol_add,
@@ -730,6 +932,21 @@
 .charsheet .repcontrol_del {
     background: ${s.repcontrol.bgColor} !important;
     color: ${s.repcontrol.fontColor} !important;
+}`);
+
+      parts.push(`.charsheet button[type=action].sheet-type-weapons {    /* 무기 액션 버튼 */
+    color: ${s.weaponAction.fontColor} !important;
+    background-image: none !important;
+    background-color: ${s.weaponAction.bgColor} !important;
+    border: ${s.weaponAction.borderWidth}px ${s.weaponAction.borderStyle} ${s.weaponAction.borderColor} !important;
+    ${radiusCSS(s.weaponAction.radius)}
+}`);
+
+      parts.push(`.charsheet select {    /* 선택 상자 */
+    color: ${s.selectBox.fontColor} !important;
+    background-color: ${s.selectBox.bgColor} !important;
+    border: ${s.selectBox.borderWidth}px ${s.selectBox.borderStyle} ${s.selectBox.borderColor} !important;
+    ${radiusCSS(s.selectBox.radius)}
 }`);
 
       parts.push(`.sheet-showpulp,
@@ -757,18 +974,19 @@
 }`);
 
       parts.push(`${selList(' td')}{
-    border-bottom: ${s.rollRow.borderWidth}px solid ${s.rollRow.borderColor} !important;
+    border-bottom: ${s.rollRow.borderWidth}px ${s.rollRow.borderStyle} ${s.rollRow.borderColor} !important;
     background: none !important;
 }`);
 
       parts.push(`${selList(' tr')}{
-    border-bottom: ${s.rollRow.borderWidth}px solid ${s.rollRow.borderColor} !important;
+    border-bottom: ${s.rollRow.borderWidth}px ${s.rollRow.borderStyle} ${s.rollRow.borderColor} !important;
     background: none !important;
 }`);
 
       parts.push(`${selList(' .inlinerollresult')} {
     border: 2px solid ${s.rollInline.borderColor} !important;
     background: ${s.rollInline.bgColor} !important;
+    color: ${s.rollInline.fontColor} !important;
 }`);
 
       return parts.join('\n\n');
@@ -779,14 +997,67 @@
       return `<div class="field">
     <label>${label}</label>
     <div class="color-row">
-      <input type="color" data-path="${path}" value="${String(val).slice(0, 7)}">
+      <input type="color" data-path="${path}" value="${splitHex(val).rgb}">
       <input type="text" data-path="${path}" data-hex="true" maxlength="9" spellcheck="false" value="${val}">
     </div>
   </div>`;
     }
+
+    function borderStyleOptionsHTML() {
+      return ['solid', 'dashed', 'dotted', 'double', 'none']
+        .map(v => `<option value="${v}">${v}</option>`).join('');
+    }
+
+    function buttonBlockHTML(b) {
+      const path = `simpleButtons.${b.key}`;
+      const st = state.simpleButtons[b.key];
+      return `<div class="simple-button-block">
+    <div class="subgroup-title">${b.label}</div>
+    ${colorFieldHTML(path + '.fontColor', '글자색')}
+    ${colorFieldHTML(path + '.bgColor', '배경색')}
+    ${colorFieldHTML(path + '.borderColor', '테두리 색')}
+    <div class="row2">
+      <div class="field">
+        <label>테두리 두께 (px)</label>
+        <input type="number" min="0" max="10" data-path="${path}.borderWidth" value="${st.borderWidth}">
+      </div>
+      <div class="field">
+        <label>테두리 스타일</label>
+        <select data-path="${path}.borderStyle">${borderStyleOptionsHTML()}</select>
+      </div>
+    </div>
+    <div class="radius-block">
+      <div class="range-field master">
+        <label>모서리 한번에 조절</label>
+        <input type="range" id="simpleBtnRadiusMaster_${b.key}" min="0" max="50" value="${st.radius.tl}">
+        <span class="val" id="simpleBtnRadiusMasterVal_${b.key}">${st.radius.tl}px</span>
+      </div>
+      <div class="corner-grid">
+        <div class="range-field"><label>왼쪽 위</label><input type="range" min="0" max="50" value="${st.radius.tl}" data-path="${path}.radius.tl"><span class="val">${st.radius.tl}px</span></div>
+        <div class="range-field"><label>오른쪽 위</label><input type="range" min="0" max="50" value="${st.radius.tr}" data-path="${path}.radius.tr"><span class="val">${st.radius.tr}px</span></div>
+        <div class="range-field"><label>왼쪽 아래</label><input type="range" min="0" max="50" value="${st.radius.bl}" data-path="${path}.radius.bl"><span class="val">${st.radius.bl}px</span></div>
+        <div class="range-field"><label>오른쪽 아래</label><input type="range" min="0" max="50" value="${st.radius.br}" data-path="${path}.radius.br"><span class="val">${st.radius.br}px</span></div>
+      </div>
+    </div>
+  </div>`;
+    }
+
+    function unifyToNormalRoll() {
+      SIMPLE_BUTTONS.forEach(b => {
+        state.simpleButtons[b.key] = JSON.parse(JSON.stringify(state.normalRoll));
+      });
+      renderSimpleButtons();
+      syncInputsFromState();
+      updateOutput();
+    }
+
     function renderSimpleButtons() {
-      document.getElementById('simpleButtonsContainer').innerHTML =
-        SIMPLE_BUTTONS.map(b => colorFieldHTML(b.path, b.label)).join('');
+      const container = document.getElementById('simpleButtonsContainer');
+      container.innerHTML =
+        `<button type="button" id="unifyToNormalRollBtn" class="unify-btn">일반 주사위 값으로 변경</button>` +
+        SIMPLE_BUTTONS.map(buttonBlockHTML).join('');
+      document.getElementById('unifyToNormalRollBtn').addEventListener('click', unifyToNormalRoll);
+      wireMasterSliders(simpleButtonMasterGroups());
     }
 
     function syncInputsFromState(except) {
@@ -794,31 +1065,57 @@
         if (el === except) return;
         const val = getPath(state, el.dataset.path);
         if (el.type === 'checkbox') el.checked = !!val;
-        else if (el.type === 'color') el.value = String(val).length >= 7 ? String(val).slice(0, 7) : '#000000';
+        else if (el.type === 'color') el.value = splitHex(val).rgb;
         else el.value = val;
       });
       document.querySelectorAll('input[type=range][data-path]').forEach(el => {
         const lbl = el.parentElement.querySelector('.val');
         if (lbl) lbl.textContent = el.value + 'px';
       });
+      document.querySelectorAll('[data-alpha-path]').forEach(el => {
+        if (el === except) return;
+        const val = getPath(state, el.dataset.alphaPath);
+        const pct = alphaHexToPercent(splitHex(val).alphaHex);
+        el.value = pct;
+        const lbl = el.parentElement.querySelector('.alpha-val');
+        if (lbl) lbl.textContent = pct + '%';
+      });
+      enhanceColorRows();
       syncMasterSliders();
       syncThumbnails();
     }
 
+    function enhanceColorRows() {
+      document.querySelectorAll('.color-row').forEach(row => {
+        if (row.dataset.alphaEnhanced === 'true') return;
+        const colorInput = row.querySelector('input[type=color]');
+        if (!colorInput || !colorInput.dataset.path) return;
+        const path = colorInput.dataset.path;
+        const pct = alphaHexToPercent(splitHex(getPath(state, path)).alphaHex);
+        const alphaWrap = document.createElement('div');
+        alphaWrap.className = 'range-field alpha-field';
+        alphaWrap.innerHTML = `<label>알파(투명도)</label><input type="range" min="0" max="100" data-alpha-path="${path}" value="${pct}"><span class="val alpha-val">${pct}%</span>`;
+        row.insertAdjacentElement('afterend', alphaWrap);
+        row.dataset.alphaEnhanced = 'true';
+      });
+    }
+
     function syncMasterSliders() {
-      MASTER_GROUPS.forEach(g => {
+      allMasterGroups().forEach(g => {
         const master = document.getElementById(g.masterId);
         const valLbl = document.getElementById(g.valId);
+        if (!master || !valLbl) return;
         const v = getPath(state, g.paths[0]);
         master.value = v;
         valLbl.textContent = v + 'px';
       });
     }
 
-    function wireMasterSliders() {
-      MASTER_GROUPS.forEach(g => {
+    function wireMasterSliders(groups) {
+      groups.forEach(g => {
         const master = document.getElementById(g.masterId);
         const valLbl = document.getElementById(g.valId);
+        if (!master || !valLbl) return;
         master.addEventListener('input', () => {
           const v = Number(master.value);
           valLbl.textContent = v + 'px';
@@ -854,16 +1151,35 @@
       if (t.type === 'checkbox') val = t.checked;
       else if (t.type === 'number' || t.type === 'range') val = Number(t.value);
       else val = t.value;
-      if (t.dataset.hex === 'true') {
+
+      if (t.type === 'color') {
+        // native color input has no alpha channel; keep the alpha already stored in state
+        const { alphaHex } = splitHex(getPath(state, t.dataset.path));
+        val = t.value + alphaHex;
+      } else if (t.dataset.hex === 'true') {
         if (!/^#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/.test(val)) return;
+        if (val.length === 7) val += 'ff';
+        val = val.toLowerCase();
       }
       setPath(state, t.dataset.path, val);
       syncInputsFromState(t);
       updateOutput();
     }
 
+    function applyAlphaField(t) {
+      const path = t.dataset.alphaPath;
+      const { rgb } = splitHex(getPath(state, path));
+      setPath(state, path, rgb + alphaPercentToHex(Number(t.value)));
+      syncInputsFromState(t);
+      updateOutput();
+    }
+
     function onFieldEvent(e) {
       const t = e.target;
+      if (t.dataset.alphaPath) {
+        applyAlphaField(t);
+        return;
+      }
       if (!t.dataset.path) return;
       if (t.dataset.hex === 'true' && e.type !== 'change') return;
       applyField(t);
@@ -943,7 +1259,7 @@
       const app = document.getElementById('app');
       app.addEventListener('input', onFieldEvent);
       app.addEventListener('change', onFieldEvent);
-      wireMasterSliders();
+      wireMasterSliders(STATIC_MASTER_GROUPS);
       wireThumbnails();
       document.getElementById('viewerFrame').addEventListener('load', injectLiveStyle);
       window.addEventListener('resize', syncFixedIframeTop);

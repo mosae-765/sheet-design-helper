@@ -17,6 +17,7 @@
       font-family: "Segoe UI", sans-serif;
       background: var(--bg);
       color: var(--text);
+      overflow-x: hidden;
     }
 
     header {
@@ -54,6 +55,8 @@
     .slicer>#app {
       margin-left: 50vw;
       width: 50vw;
+      /* max-width: 50vw; */
+      min-width: 0;
     }
 
     #app {
@@ -274,13 +277,45 @@
     }
 
     .simple-buttons-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
     }
 
-    @media (max-width:600px) {
-      .simple-buttons-grid {
-        grid-template-columns: 1fr;
-      }
+    .alpha-field {
+      margin-top: 6px;
+    }
+
+    .alpha-field label {
+      flex: 0 0 70px !important;
+    }
+
+    .unify-btn {
+      display: block;
+      width: 100%;
+      margin-bottom: 14px;
+      padding: 8px 10px;
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--accent);
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .unify-btn:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .simple-button-block {
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    .simple-button-block:last-child {
+      margin-bottom: 0;
     }
