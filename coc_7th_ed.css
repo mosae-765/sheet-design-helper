@@ -1,0 +1,2047 @@
+/* ----------------------------------------- */
+
+.charsheet {
+    background-color: #888888;
+    border: 2px solid black;
+    color:black;
+    width: 840px;
+}
+
+.dummy{
+	/*incase BOM decides to screw up css */
+}
+
+/* -------------------------------------------------------------------------- */
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0;
+  background-color: rgba(255,255,255,0.5);
+}
+
+select {
+    margin: 0;
+    padding: 0;
+    background-color: rgba(255,255,255,0.5);
+}
+
+/* Tweak repeating section buttons so they have a bottom margin and dont overflow when in edit mode. */
+div[class^="repcontrol"] {
+  margin: 0 0 0 0;
+}
+
+div[class="repcontainer editmode"] ~ div[class^="repcontrol"] button[class="btn repcontrol_add"] {
+  display: inline-block!important;
+  visibility: hidden;
+}
+
+.charsheet .repcontrol_add,
+.charsheet .repcontrol_edit,
+.charsheet .repcontrol_del {
+    display: block;
+    background: #7c746a;
+    color: white;
+    box-shadow:none;
+    font-size:0.7em;
+    height:1.5em;
+}
+
+/* ------------------------------Show Only NPCS etc-------------------------------------------- */
+
+input.sheet-hide:checked ~ div.sheet-2colrow,
+input.sheet-hide:checked ~ div.sheet-3colrow,
+input.sheet-hide:checked ~ div.sheet-section,
+input.sheet-hide:checked ~ h4.sheet-section-head {
+    display: none;
+}
+
+/* -------------------------------------------------------------------------- */
+
+.charsheet div.sheet-companions {
+    display: none;
+}
+
+.sheet-togglecompanions[value="1"]:checked ~ div.sheet-companions {
+    display: block;
+}
+
+/* -------------------------------------------------------------------------- */
+
+
+.charsheet div.sheet-vehicles {
+    display: none;
+}
+
+.sheet-togglevehicles[value="1"]:checked ~ div.sheet-vehicles {
+    display: block;
+}
+
+/* -------------------------------------------------------------------------- */
+
+
+
+.charsheet div.sheet-downtime {
+    display: none;
+}
+
+.sheet-toggledowntime[value="1"]:checked ~ div.sheet-downtime {
+    display: block;
+}
+
+
+/* -------------------------------------------------------------------------- */
+
+
+
+.charsheet div.sheet-spells {
+    display: none;
+}
+
+.sheet-togglespells[value="1"]:checked ~ div.sheet-spells {
+    display: block;
+}
+
+/* -------------------------------------------------------------------------- */
+
+
+.charsheet div.sheet-simplearmorsection {
+    display: none;
+}
+
+.sheet-togglesimplearmor[value="1"]:checked ~ div.sheet-simplearmorsection {
+    display: block;
+}
+
+/* -------------------------------------------------------------------------- */
+
+
+.charsheet div.sheet-armorsection {
+    display: none;
+}
+
+.sheet-togglearmor[value="1"]:checked ~ div.sheet-armorsection {
+    display: block;
+}
+
+/* -------------------------------------------------------------------------- */
+
+
+.charsheet div.sheet-dicerollsection {
+    display: none;
+}
+
+.sheet-toggledr[value="1"]:checked ~ div.sheet-dicerollsection {
+    display: block;
+}
+
+/* -------------------------------------------------------------------------- */
+
+
+.charsheet div.sheet-pulptalentssection {
+    display: none;
+}
+
+.sheet-toggletalents[value="1"]:checked ~ div.sheet-pulptalentssection {
+    display: block;
+}
+
+/* -------------------------------------------------------------------------- */
+
+
+.charsheet div.sheet-bompulpsection {
+    display: none;
+}
+
+.sheet-pulpbomtoggle[value="1"]:checked ~ div.sheet-bompulpsection {
+    display: block;
+}
+
+.sheet-pulpbomtoggle[value="1"]:checked ~ div.sheet-sanitysection {
+    display: none;
+}
+
+/* -------------------------------------------------------------------------- */
+
+.charsheet div.sheet-pulphpsection {
+    display: none;
+}
+
+.sheet-showpulp[value="1"]:checked ~ div.sheet-pulphpsection {
+    display: block;
+}
+
+.sheet-showpulp[value="1"]:checked ~ div.sheet-hpsection {
+    display: none;
+}
+
+/* -------------------------------------------------------------------------- */
+
+.charsheet div.sheet-heroinfo {
+    display: none;
+}
+
+.sheet-showpulp[value="1"]:checked ~ div.sheet-heroinfo {
+    display: block;
+}
+
+.sheet-showpulp[value="1"]:checked ~ div.sheet-investigatorinfo {
+    display: none;
+}
+
+/* -------------------------------------------------------------------------- */
+
+.charsheet div.sheet-pulplogosection {
+    display: none;
+}
+
+.sheet-showpulp[value="1"]:checked ~ div.sheet-pulplogosection {
+    display: block;
+}
+
+.sheet-showpulp[value="1"]:checked ~ div.sheet-logosection {
+    display: none;
+}
+
+/* --------------------------------Era Skills------------------------------------------ */
+
+.charsheet div.sheet-skills1 {
+    display: none;
+}
+
+.charsheet div.sheet-skills2 {
+    display: none;
+}
+
+.charsheet div.sheet-skills3 {
+    display: none;
+}
+
+.charsheet div.sheet-skills4 {
+    display: none;    
+}
+
+.charsheet div.sheet-skills5 {
+    display: none;    
+}
+
+.charsheet div.sheet-skills6 {
+    display: none;    
+}
+
+.charsheet div.sheet-skills7 {
+    display: none;    
+}
+
+.sheet-showskills[value="1"]:checked ~ div.sheet-skills1 {
+    display: block;
+}
+
+.sheet-showskills[value="2"]:checked ~ div.sheet-skills2 {
+    display: block;
+}
+
+.sheet-showskills[value="3"]:checked ~ div.sheet-skills3 {
+    display: block;
+}
+
+.sheet-showskills[value="4"]:checked ~ div.sheet-skills4 {
+    display: block;
+}
+
+.sheet-showskills[value="5"]:checked ~ div.sheet-skills5 {
+    display: block;
+}
+
+.sheet-showskills[value="6"]:checked ~ div.sheet-skills6 {
+    display: block;
+}
+
+.sheet-showskills[value="7"]:checked ~ div.sheet-skills7 {
+    display: block;
+}
+
+/* ------------------------------Options Config-------------------------------------------- */
+
+.charsheet span.sheet-is-config::after { /*Close Config*/
+	content: " ⮟";
+}
+
+.charsheet .sheet-HideConfig:checked + span.sheet-is-config::after { /*Show Configuration*/
+	content: " ⮝";
+}
+
+.charsheet span.sheet-is-config {
+    text-align: center;
+    display: inline-block;    
+    width: 5%;
+    height: 16px;
+    font-size: 9px;
+    /*font-family: "Pictos";*/
+    /*background: #65763c;*/
+    background: black; /*#93537c;*/
+	color: white; /*white;*/
+	font-weight: bold;
+	border-radius: 4px;
+	margin-left: -5%;
+}
+
+.charsheet input.sheet-HideConfig {
+    width: 5%;
+    height: 16px;
+    cursor: pointer;	
+    margin-left: auto;
+    margin-top: auto;
+	opacity: 0;
+	z-index: 9999;
+}
+
+.charsheet .sheet-HideConfig:checked + span.sheet-is-config {
+    background: black;
+    border-radius: 4px;
+	color: white;
+}
+
+.charsheet label.sheet-configitem {
+    margin-left: 10px; 
+    width: 50px; 
+    font-size: .9em; 
+    font-weight: normal
+}
+
+/* ------------------------------Sheet Arrow-------------------------------------------- */
+
+
+input.sheet-arrow::after {
+    float: left;
+    font-family: pictos;
+    content: "E";
+    opacity: 1.5;
+}
+
+input.sheet-arrow {
+    float: left;
+    font-family: pictos;
+    content: "E";
+    opacity: 0.5;
+}
+
+.charsheet .sheet-arrow:checked ~ div.sheet-section,
+.charsheet .sheet-arrow:checked ~ div.sheet-skills1,
+.charsheet .sheet-arrow:checked ~ div.sheet-skills2,
+.charsheet .sheet-arrow:checked ~ div.sheet-skills3,
+.charsheet .sheet-arrow:checked ~ div.sheet-skills4,
+.charsheet .sheet-arrow:checked ~ div.sheet-skills5,
+.charsheet .sheet-arrow:checked ~ div.sheet-skills6,
+.charsheet .sheet-arrow:checked ~ div.sheet-skills7 {
+    display: none;
+}
+
+/* -------------------------------Headers Coloring------------------------------------------- */
+
+.sheet-showskills[value="1"]:checked ~ h4.sheet-section-head {
+    background-image: linear-gradient(black, #840032);
+    background-color: #840032;
+    color: white;
+    text-align: center;
+    font-weight: normal;
+    font-style: normal;
+    border: 1px solid black;
+}
+
+.sheet-showskills[value="2"]:checked ~ h4.sheet-section-head {
+    background-image: linear-gradient(black, #262626);
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-weight: normal;
+    font-style: normal;
+    border: 1px solid black;
+}
+
+.sheet-showskills[value="3"]:checked ~ h4.sheet-section-head {
+    background-image: linear-gradient(black, #112749);
+    background-color: #112749;
+    color: white;
+    text-align: center;
+    font-weight: normal;
+    font-style: normal;
+    border: 1px solid black;
+}
+
+.sheet-showskills[value="4"]:checked ~ h4.sheet-section-head {
+    background-image: linear-gradient(black, #273f13);
+    background-color: #273f13;
+    color: white;
+    text-align: center;
+    font-weight: normal;
+    font-style: normal;
+    border: 1px solid black;
+}
+
+.sheet-showskills[value="5"]:checked ~ h4.sheet-section-head {
+    background-image: linear-gradient(black, #6B5A38);
+    background-color: #6B5A38;
+    color: white;
+    text-align: center;
+    font-weight: normal;
+    font-style: normal;
+    border: 1px solid black;
+}
+
+.sheet-showskills[value="6"]:checked ~ h4.sheet-section-head {
+    background-image: linear-gradient(black, #31657b);
+    background-color: #31657b;
+    color: white;
+    text-align: center;
+    font-weight: normal;
+    font-style: normal;
+    border: 1px solid black;
+}
+
+.sheet-showskills[value="7"]:checked ~ h4.sheet-section-head {
+    background-image: linear-gradient(black, #65356f);
+    background-color: #65356f;
+    color: white;
+    text-align: center;
+    font-weight: normal;
+    font-style: normal;
+    border: 1px solid black;
+}
+
+.sheet-showpulp[value="1"]:checked ~ h4.sheet-section-head, 
+.sheet-showpulp[value="1"]:checked ~ div.sheet-pulphpsection h4.sheet-section-head,
+.sheet-showpulp[value="1"]:checked ~ div.sheet-heroinfo h4.sheet-section-head {
+    background-image: linear-gradient(#750000, #800000);
+    background-color: #800000;
+    color: white;
+    text-align: center;
+    font-weight: normal;
+    font-style: normal;
+    border: 1px solid black;
+}
+
+/* -------------------------------------------------------------------------- */
+
+h4.sheet-section-head {
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-weight: normal;
+    font-style: normal;
+    border: 1px solid black;
+}
+
+hr { 
+  display: block;
+  margin-top: 0.7em;
+  margin-bottom: 0.7em;
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+div.sheet-section {
+    background-color: #c4beb6; /* #c9c7c3  #d1cdc5 #c9c8c5   */
+    border: 2px solid black;
+    padding: 1%;
+    margin: 0 0 1% 0;
+}
+
+table td.sheet-attr {
+    width: 13.33%;
+    height: 58px;
+}
+
+table td.sheet-attr-label {
+    height: 56px;
+    font-size: 120%; 
+    text-align: center;
+}
+
+input[type="text"].sheet-attr-input {
+    width: 52px; 
+    height: 40px; 
+    font-size: 200%; 
+    text-align: center;
+}
+
+table td.sheet-attr-roll {
+    height: 56px;
+    text-align: center;
+}
+
+input.sheet-secondary-attr-input {
+    width: 100%;
+    text-align: center;
+}
+
+input[type="number"].sheet-secondary-attr-input {
+    width: 100%;
+    text-align: center;
+}
+
+table td.sheet-skill-label {
+    width: 100%;
+    height: 23px;
+}
+
+input[type="text"].sheet-skill-input {
+    width: 30px;
+    height: 23px;
+    text-align: center;
+    background-color: rgba(255,255,255,0.5);
+    margin-bottom: 1px;
+}
+
+input[type="number"].sheet-skill-input {
+    width: 30px;
+    height: 23px;
+    text-align: center;
+    margin-bottom: 1px;
+}
+
+input[type="text"].sheet-skill-name-input {
+    height: 23px;
+    text-align: left;
+    margin-bottom: 1px;
+}
+
+td.sheet-otherskill-reminder {
+    font-size: 80%;
+}
+
+input[type="text"].sheet-narrow-input {
+    background-color: rgba(255,255,255,0.5);
+    color: black;
+    height: 20px;
+    text-align: center;
+    font-size: 85%;
+}
+
+
+texarea.sheet-backstory-box {
+    height: 75px;
+    background-color: rgba(255,255,255,0.5);
+}
+
+textarea {
+    background-color: rgba(255,255,255,0.5);
+    resize: vertical;
+    margin: 0 0 0 0;
+}
+
+input {
+    background-color: rgba(255,255,255,0.5);
+}
+
+/* ------------------------------------------ *//* Roll Templates *//* --------------------------------------- */
+
+/* BD/PD defence rolltemplate */
+.sheet-rolltemplate-coc-defence table {
+    width: 100%;
+    border: 1px solid black;
+    color: black;
+    background: #FFFFFF;
+}
+.sheet-rolltemplate-coc-defence caption {
+    text-align: center;
+    background: black;
+    color: white;
+    font-weight: bold;
+    padding: 2px;
+  border: 1px solid black;
+  line-height: 1.6em;
+}
+.sheet-rolltemplate-coc-defence td {
+  padding: 2px;
+  border-bottom: 1px solid black;
+}
+.sheet-rolltemplate-coc-defence td.sheet-template_label {
+    font-weight: bold;
+}
+.sheet-rolltemplate-coc-defence td.sheet-template_value {
+    text-align: center;
+}
+.sheet-rolltemplate-coc-defence .inlinerollresult  {
+  display: inline-block;
+  min-width: 1.5em;
+  text-align: center;
+  border: 2px solid black;
+    background: #BEBEBE;
+}
+
+
+
+/* simple defence rolltemplate */
+.sheet-rolltemplate-coc-defence-1 table {
+    width: 100%;
+    border: 1px solid black;
+    color: black;
+    background: #FFFFFF;
+}
+.sheet-rolltemplate-coc-defence-1 caption {
+    text-align: center;
+    background: black;
+    color: white;
+    font-weight: bold;
+    padding: 2px;
+  border: 1px solid black;
+  line-height: 1.6em;
+}
+.sheet-rolltemplate-coc-defence-1 td {
+  padding: 2px;
+  border-bottom: 1px solid black;
+}
+.sheet-rolltemplate-coc-defence-1 td.sheet-template_label {
+    font-weight: bold;
+}
+.sheet-rolltemplate-coc-defence-1 td.sheet-template_value {
+    text-align: center;
+}
+.sheet-rolltemplate-coc-defence-1 .inlinerollresult  {
+  display: inline-block;
+  min-width: 1.5em;
+  text-align: center;
+  border: 2px solid black;
+    background: #BEBEBE;
+}
+
+
+
+/* Vehicular Attack rolltemplate */
+.sheet-rolltemplate-coc-vehicleattack table {
+    width: 100%;
+    border: 1px solid black;
+    color: black;
+    background: #FFFFFF;
+}
+.sheet-rolltemplate-coc-vehicleattack caption {
+    text-align: center;
+    background: black;
+    color: white;
+    font-weight: bold;
+    padding: 2px;
+  border: 1px solid black;
+  line-height: 1.6em;
+}
+.sheet-rolltemplate-coc-vehicleattack td {
+  padding: 2px;
+  border-bottom: 1px solid black;
+}
+.sheet-rolltemplate-coc-vehicleattack td.sheet-template_label {
+    font-weight: bold;
+}
+.sheet-rolltemplate-coc-vehicleattack td.sheet-template_value {
+    text-align: center;
+}
+.sheet-rolltemplate-coc-vehicleattack .inlinerollresult  {
+  display: inline-block;
+  min-width: 1.5em;
+  text-align: center;
+  border: 2px solid black;
+    background: #BEBEBE;
+}
+
+
+
+/* PD/BD rolltemplate */
+.sheet-rolltemplate-coc table {
+    width: 100%;
+    border: 1px solid black;
+    color: black;
+    background: #FFFFFF;
+}
+.sheet-rolltemplate-coc caption {
+    text-align: center;
+    background: black;
+    color: white;
+    font-weight: bold;
+    padding: 2px;
+  border: 1px solid black;
+  line-height: 1.6em;
+}
+.sheet-rolltemplate-coc td {
+  padding: 2px;
+  border-bottom: 1px solid black;
+}
+.sheet-rolltemplate-coc td.sheet-template_label {
+    font-weight: bold;
+}
+.sheet-rolltemplate-coc td.sheet-template_value {
+    text-align: center;
+}
+.sheet-rolltemplate-coc .inlinerollresult  {
+  display: inline-block;
+  min-width: 1.5em;
+  text-align: center;
+  border: 2px solid black;
+    background: #BEBEBE;
+}
+
+
+/* -------------------------------------------------------------------------- */
+
+/*  PD/BD Attack rolltemplate */
+.sheet-rolltemplate-coc-attack table, .sheet-rolltemplate-type-coc-attack table {
+    width: 100%;
+    border: 1px solid black;
+    color: black;
+    background: #FFFFFF;
+}
+.sheet-rolltemplate-coc-attack caption, .sheet-rolltemplate-type-coc-attack caption {
+    text-align: center;
+    background: black;
+    color: white;
+    font-weight: bold;
+    padding: 2px;
+  border: 1px solid black;
+  line-height: 1.6em;
+}
+.sheet-rolltemplate-coc-attack td, .sheet-rolltemplate-type-coc-attack td {
+  padding: 2px;
+  border-bottom: 1px solid black;
+}
+.sheet-rolltemplate-coc-attack td.sheet-template_label, .sheet-rolltemplate-type-coc-attack td.sheet-template_label {
+    font-weight: bold;
+}
+.sheet-rolltemplate-coc-attack td.sheet-template_value, .sheet-rolltemplate-type-coc-attack td.sheet-template_value {
+    text-align: center;
+}
+.sheet-rolltemplate-coc-attack .inlinerollresult, .sheet-rolltemplate-type-coc-attack .inlinerollresult {
+  display: inline-block;
+  min-width: 1.5em;
+  text-align: center;
+  border: 2px solid black;
+    background: #BEBEBE;
+}
+
+
+/* -------------------------------------------------------------------------- */
+
+/* simple (no PD/BD) rolltemplate */
+.sheet-rolltemplate-coc-1 table {
+    width: 100%;
+    border: 1px solid black;
+    color: black;
+    background: #FFFFFF;
+}
+.sheet-rolltemplate-coc-1 caption {
+    text-align: center;
+    background: black;
+    color: white;
+    font-weight: bold;
+    padding: 2px;
+  border: 1px solid black;
+  line-height: 1.6em;
+}
+.sheet-rolltemplate-coc-1 td {
+  padding: 2px;
+  border-bottom: 1px solid black;
+}
+.sheet-rolltemplate-coc-1 td.sheet-template_label {
+    font-weight: bold;
+}
+.sheet-rolltemplate-coc-1 td.sheet-template_value {
+    text-align: center;
+}
+.sheet-rolltemplate-coc-1 .inlinerollresult  {
+  display: inline-block;
+  min-width: 1.5em;
+  text-align: center;
+  border: 2px solid black;
+    background: #BEBEBE;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* simple (no PD/BD) Attack rolltemplate */
+
+.sheet-rolltemplate-coc-attack-1 table, .sheet-rolltemplate-type-coc-attack-1 table {
+    width: 100%;
+    border: 1px solid black;
+    color: black;
+    background: #FFFFFF;
+}
+.sheet-rolltemplate-coc-attack-1 caption, .sheet-rolltemplate-type-coc-attack-1 caption {
+    text-align: center;
+    background: black;
+    color: white;
+    font-weight: bold;
+    padding: 2px;
+  border: 1px solid black;
+  line-height: 1.6em;
+}
+.sheet-rolltemplate-coc-attack-1 td, .sheet-rolltemplate-type-coc-attack-1 td {
+  padding: 2px;
+  border-bottom: 1px solid black;
+}
+.sheet-rolltemplate-coc-attack-1 td.sheet-template_label, .sheet-rolltemplate-type-coc-attack-1 td.sheet-template_label {
+    font-weight: bold;
+}
+.sheet-rolltemplate-coc-attack-1 td.sheet-template_value, .sheet-rolltemplate-type-coc-attack-1 td.sheet-template_value {
+    text-align: center;
+	max-width: 170.3px; /* Attack Roll Disavantage td Fixed Dimension */
+	width: 165.56px;
+}
+.sheet-rolltemplate-coc-attack-1 .inlinerollresult, .sheet-rolltemplate-type-coc-attack-1 .inlinerollresult {
+  display: inline-block;
+  min-width: 1.5em;
+  text-align: center;
+  border: 2px solid black;
+    background: #BEBEBE;
+}
+
+/* -------------------------------------------------------------------------- */
+
+
+/* simple dice-roll rolltemplate */
+.sheet-rolltemplate-coc-dice-roll table {
+    width: 100%;
+    border: 1px solid black;
+    color: black;
+    background: #FFFFFF;
+}
+.sheet-rolltemplate-coc-dice-roll caption {
+    text-align: center;
+    background: black;
+    color: white;
+    font-weight: bold;
+    padding: 2px;
+  border: 1px solid black;
+  line-height: 1.6em;
+}
+.sheet-rolltemplate-coc-dice-roll td {
+  padding: 2px;
+  border-bottom: 1px solid black;
+}
+.sheet-rolltemplate-coc-dice-roll td.sheet-template_label {
+    font-weight: Bold;
+}
+.sheet-rolltemplate-coc-dice-roll td.sheet-template_value {
+    text-align: center;
+}
+.sheet-rolltemplate-coc-dice-roll .inlinerollresult  {
+  display: inline-block;
+  min-width: 1.5em;
+  text-align: center;
+  border: 2px solid black;
+    background: #BEBEBE;
+}
+.sheet-rolltemplate-coc-dice-roll .inlinerollresult.importantroll {
+  border: 2px solid black;
+    background: #BEBEBE;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Dark Ages Bout of Madness- Real Time */
+.sheet-rolltemplate-coc-bomadness-da-rt table {
+    width: 100%;
+    border: 1px solid black;
+    color: black;
+    background: #FFFFFF;
+}
+.sheet-rolltemplate-coc-bomadness-da-rt caption {
+    text-align: center;
+    background: black;
+    color: white;
+    font-weight: bold;
+    padding: 2px;
+  border: 1px solid black;
+  line-height: 1.6em;
+}
+.sheet-rolltemplate-coc-bomadness-da-rt td {
+  padding: 2px;
+  border-bottom: 1px solid black;
+}
+.sheet-rolltemplate-coc-bomadness-da-rt td.sheet-template_label {
+    font-weight: Bold;
+}
+.sheet-rolltemplate-coc-bomadness-da-rt td.sheet-template_value {
+    text-align: center;
+    background: #FFFFFF;
+}
+.sheet-rolltemplate-coc-bomadness-da-rt .inlinerollresult  {
+  display: inline-block;
+  min-width: 1.5em;
+  text-align: center;
+  border: 2px solid black;
+    background: #BEBEBE;
+}
+.sheet-rolltemplate-coc-bomadness-da-rt .inlinerollresult.importantroll {
+  border: 2px solid black;
+    background: #BEBEBE;
+}
+
+
+/* -------------------------------------------------------------------------- */
+
+
+/* Bout of Madness- Real Time */
+.sheet-rolltemplate-coc-bomadness-rt table {
+    width: 100%;
+    border: 1px solid black;
+    color: black;
+    background: #FFFFFF;
+}
+.sheet-rolltemplate-coc-bomadness-rt caption {
+    text-align: center;
+    background: black;
+    color: white;
+    font-weight: bold;
+    padding: 2px;
+  border: 1px solid black;
+  line-height: 1.6em;
+}
+.sheet-rolltemplate-coc-bomadness-rt td {
+  padding: 2px;
+  border-bottom: 1px solid black;
+}
+.sheet-rolltemplate-coc-bomadness-rt td.sheet-template_label {
+    font-weight: Bold;
+}
+.sheet-rolltemplate-coc-bomadness-rt td.sheet-template_value {
+    text-align: center;
+    background: #FFFFFF;
+}
+.sheet-rolltemplate-coc-bomadness-rt .inlinerollresult  {
+  display: inline-block;
+  min-width: 1.5em;
+  text-align: center;
+  border: 2px solid black;
+    background: #BEBEBE;
+}
+.sheet-rolltemplate-coc-bomadness-rt .inlinerollresult.importantroll {
+  border: 2px solid black;
+    background: #BEBEBE;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/*Mixed Bout of Madness (Normal+Pulp) - Real Time */
+.sheet-rolltemplate-coc-mixed-bomadness-rt table {
+    width: 100%;
+    border: 1px solid black;
+    color: black;
+    background: #FFFFFF;
+}
+.sheet-rolltemplate-coc-mixed-bomadness-rt caption {
+    text-align: center;
+    background: black;
+    color: white;
+    font-weight: bold;
+    padding: 2px;
+  border: 1px solid black;
+  line-height: 1.6em;
+}
+.sheet-rolltemplate-coc-mixed-bomadness-rt td {
+  padding: 2px;
+  border-bottom: 1px solid black;
+}
+.sheet-rolltemplate-coc-mixed-bomadness-rt td.sheet-template_label {
+    font-weight: Bold;
+}
+.sheet-rolltemplate-coc-mixed-bomadness-rt td.sheet-template_value {
+    text-align: center;
+    background: #FFFFFF;
+}
+.sheet-rolltemplate-coc-mixed-bomadness-rt .inlinerollresult  {
+  display: inline-block;
+  min-width: 1.5em;
+  text-align: center;
+  border: 2px solid black;
+    background: #BEBEBE;
+}
+.sheet-rolltemplate-coc-mixed-bomadness-rt .inlinerollresult.importantroll {
+  border: 2px solid black;
+    background: #BEBEBE;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Mixed Bout of Madness (Normal+Pulp) - Summary */
+.sheet-rolltemplate-coc-mixed-bomadness-summ table {
+    width: 100%;
+    border: 1px solid black;
+    color: black;
+    background: #FFFFFF;
+}
+.sheet-rolltemplate-coc-mixed-bomadness-summ caption {
+    text-align: center;
+    background: black;
+    color: white;
+    font-weight: bold;
+    padding: 2px;
+  border: 1px solid black;
+  line-height: 1.6em;
+}
+.sheet-rolltemplate-coc-mixed-bomadness-summ td {
+  padding: 2px;
+  border-bottom: 1px solid black;
+}
+.sheet-rolltemplate-coc-mixed-bomadness-summ td.sheet-template_label {
+    font-weight: Bold;
+}
+.sheet-rolltemplate-coc-mixed-bomadness-summ td.sheet-template_value {
+    text-align: center;
+    background: #FFFFFF;
+}
+.sheet-rolltemplate-coc-mixed-bomadness-summ .inlinerollresult  {
+  display: inline-block;
+  min-width: 1.5em;
+  text-align: center;
+  border: 2px solid black;
+    background: #BEBEBE;
+}
+.sheet-rolltemplate-coc-mixed-bomadness-summ .inlinerollresult.importantroll {
+  border: 2px solid black;
+    background: #BEBEBE;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Pulp Bout of Madness- Real Time */
+.sheet-rolltemplate-coc-pulp-bomadness-rt table {
+    width: 100%;
+    border: 1px solid black;
+    color: black;
+    background: #FFFFFF;
+}
+.sheet-rolltemplate-coc-pulp-bomadness-rt caption {
+    text-align: center;
+    background: black;
+    color: white;
+    font-weight: bold;
+    padding: 2px;
+  border: 1px solid black;
+  line-height: 1.6em;
+}
+.sheet-rolltemplate-coc-pulp-bomadness-rt td {
+  padding: 2px;
+  border-bottom: 1px solid black;
+}
+.sheet-rolltemplate-coc-pulp-bomadness-rt td.sheet-template_label {
+    font-weight: Bold;
+}
+.sheet-rolltemplate-coc-pulp-bomadness-rt td.sheet-template_value {
+    text-align: center;
+    background: #FFFFFF;
+}
+.sheet-rolltemplate-coc-pulp-bomadness-rt .inlinerollresult  {
+  display: inline-block;
+  min-width: 1.5em;
+  text-align: center;
+  border: 2px solid black;
+    background: #BEBEBE;
+}
+.sheet-rolltemplate-coc-pulp-bomadness-rt .inlinerollresult.importantroll {
+  border: 2px solid black;
+    background: #BEBEBE;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Dark Ages Bout of Madness- Summary */
+.sheet-rolltemplate-coc-bomadness-da-summ table {
+    width: 100%;
+    border: 1px solid black;
+    color: black;
+    background: #FFFFFF;
+}
+.sheet-rolltemplate-coc-bomadness-da-summ caption {
+    text-align: center;
+    background: black;
+    color: white;
+    font-weight: bold;
+    padding: 2px;
+  border: 1px solid black;
+  line-height: 1.6em;
+}
+.sheet-rolltemplate-coc-bomadness-da-summ td {
+  padding: 2px;
+  border-bottom: 1px solid black;
+}
+.sheet-rolltemplate-coc-bomadness-da-summ td.sheet-template_label {
+    font-weight: Bold;
+}
+.sheet-rolltemplate-coc-bomadness-da-summ td.sheet-template_value {
+    text-align: center;
+    background: #FFFFFF;
+}
+.sheet-rolltemplate-coc-bomadness-da-summ .inlinerollresult  {
+  display: inline-block;
+  min-width: 1.5em;
+  text-align: center;
+  border: 2px solid black;
+    background: #BEBEBE;
+}
+.sheet-rolltemplate-coc-bomadness-da-summ .inlinerollresult.importantroll {
+  border: 2px solid black;
+    background: #BEBEBE;
+}
+
+
+/* -------------------------------------------------------------------------- */
+
+
+/* Bout of Madness- Summary */
+.sheet-rolltemplate-coc-bomadness-summ table {
+    width: 100%;
+    border: 1px solid black;
+    color: black;
+    background: #FFFFFF;
+}
+.sheet-rolltemplate-coc-bomadness-summ caption {
+    text-align: center;
+    background: black;
+    color: white;
+    font-weight: bold;
+    padding: 2px;
+  border: 1px solid black;
+  line-height: 1.6em;
+}
+.sheet-rolltemplate-coc-bomadness-summ td {
+  padding: 2px;
+  border-bottom: 1px solid black;
+}
+.sheet-rolltemplate-coc-bomadness-summ td.sheet-template_label {
+    font-weight: Bold;
+}
+.sheet-rolltemplate-coc-bomadness-summ td.sheet-template_value {
+    text-align: center;
+    background: #FFFFFF;
+}
+.sheet-rolltemplate-coc-bomadness-summ .inlinerollresult  {
+  display: inline-block;
+  min-width: 1.5em;
+  text-align: center;
+  border: 2px solid black;
+    background: #BEBEBE;
+}
+.sheet-rolltemplate-coc-bomadness-summ .inlinerollresult.importantroll {
+  border: 2px solid black;
+    background: #BEBEBE;
+}
+
+/* -------------------------------------------------------------------------- */
+
+
+
+/* Pulp Bout of Madness- Summary */
+.sheet-rolltemplate-coc-pulp-bomadness-summ table {
+    width: 100%;
+    border: 1px solid black;
+    color: black;
+    background: #FFFFFF;
+}
+.sheet-rolltemplate-coc-pulp-bomadness-summ caption {
+    text-align: center;
+    background: black;
+    color: white;
+    font-weight: bold;
+    padding: 2px;
+  border: 1px solid black;
+  line-height: 1.6em;
+}
+.sheet-rolltemplate-coc-pulp-bomadness-summ td {
+  padding: 2px;
+  border-bottom: 1px solid black;
+}
+.sheet-rolltemplate-coc-pulp-bomadness-summ td.sheet-template_label {
+    font-weight: Bold;
+}
+.sheet-rolltemplate-coc-pulp-bomadness-summ td.sheet-template_value {
+    text-align: center;
+    background: #FFFFFF;
+}
+.sheet-rolltemplate-coc-pulp-bomadness-summ .inlinerollresult  {
+  display: inline-block;
+  min-width: 1.5em;
+  text-align: center;
+  border: 2px solid black;
+    background: #BEBEBE;
+}
+.sheet-rolltemplate-coc-pulp-bomadness-summ .inlinerollresult.importantroll {
+  border: 2px solid black;
+    background: #BEBEBE;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* simple defence rolltemplate */
+.sheet-rolltemplate-coc-defence-2 table {
+    width: 100%;
+    border: 1px solid black;
+    color: black;
+    background: #E3DEDB;
+}
+.sheet-rolltemplate-coc-defence-2 caption {
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding: 2px;
+  border: 1px solid black;
+  line-height: 1.6em;
+}
+.sheet-rolltemplate-coc-defence-2 td {
+  padding: 2px;
+  border-bottom: 1px solid black;
+  background: #efefef;
+}
+.sheet-rolltemplate-coc-defence-2 td.sheet-template_label {
+    font-weight: Bold;
+    background: #efefef;
+}
+.sheet-rolltemplate-coc-defence-2 td.sheet-template_value {
+    text-align: center;
+    background: #efefef;
+}
+.sheet-rolltemplate-coc-defence-2 .inlinerollresult  {
+  display: inline-block;
+  min-width: 1.5em;
+  text-align: center;
+  border: 2px solid black;
+    background: #c3c9bd;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Minion (no PD/BD) Attack rolltemplate */
+
+.sheet-rolltemplate-coc-minionattack table {
+    width: 100%;
+    border: 1px solid black;
+    color: black;
+    background: #FFFFFF;
+}
+.sheet-rolltemplate-coc-minionattack caption {
+    text-align: center;
+    background: black;
+    color: white;
+    font-weight: bold;
+    padding: 2px;
+  border: 1px solid black;
+  line-height: 1.6em;
+}
+.sheet-rolltemplate-coc-minionattack td {
+  padding: 2px;
+  border-bottom: 1px solid black;
+}
+.sheet-rolltemplate-coc-minionattack td.sheet-template_label {
+    font-weight: bold;
+}
+.sheet-rolltemplate-coc-minionattack td.sheet-template_value {
+    text-align: center;
+}
+.sheet-rolltemplate-coc-minionattack .inlinerollresult  {
+  display: inline-block;
+  min-width: 1.5em;
+  text-align: center;
+  border: 2px solid black;
+    background: #BEBEBE;
+}
+
+
+/* -------------------------------------------------------------------------- */
+
+/* minion defence rolltemplate */
+.sheet-rolltemplate-coc-miniondef table {
+    width: 100%;
+    border: 1px solid black;
+    color: black;
+    background: #E3DEDB;
+}
+.sheet-rolltemplate-coc-miniondef caption {
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding: 2px;
+  border: 1px solid black;
+  line-height: 1.6em;
+}
+.sheet-rolltemplate-coc-miniondef td {
+  padding: 2px;
+  border-bottom: 1px solid black;
+  background: #efefef;
+}
+.sheet-rolltemplate-coc-miniondef td.sheet-template_label {
+    font-weight: Bold;
+    background: #efefef;
+}
+.sheet-rolltemplate-coc-miniondef td.sheet-template_value {
+    text-align: center;
+    background: #efefef;
+}
+.sheet-rolltemplate-coc-miniondef .inlinerollresult  {
+  display: inline-block;
+  min-width: 1.5em;
+  text-align: center;
+  border: 2px solid black;
+    background: #c3c9bd;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Initiative Send To Chat rolltemplate */
+.sheet-rolltemplate-coc-init-stc table {
+    width: 100%;
+    border: 1px solid black;
+    color: black;
+    background: #E3DEDB;
+}
+.sheet-rolltemplate-coc-init-stc caption {
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding: 2px;
+	border: 1px solid black;
+	line-height: 1.6em;
+}
+.sheet-rolltemplate-coc-init-stc td {
+	padding: 2px;
+	border-bottom: 1px solid black;
+	background: #efefef;
+}
+.sheet-rolltemplate-coc-init-stc td.sheet-template_label {
+    font-weight: Bold;
+    background: #efefef;
+}
+.sheet-rolltemplate-coc-init-stc td.sheet-template_value {
+    text-align: center;
+    background: #efefef;
+}
+.sheet-rolltemplate-coc-init-stc .inlinerollresult  {
+	display: inline-block;
+	min-width: 1.5em;
+	text-align: center;
+	border: 2px solid black;
+    background: #c3c9bd;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Reroll to Turn Order rolltemplate */
+.sheet-rolltemplate-coc-init-reroll table {
+    width: 100%;
+    border: 1px solid black;
+    color: black;
+    background: #E3DEDB;
+}
+.sheet-rolltemplate-coc-init-reroll caption {
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding: 2px;
+	border: 1px solid black;
+	line-height: 1.6em;
+}
+.sheet-rolltemplate-coc-init-reroll td {
+	padding: 2px;
+	border-bottom: 1px solid black;
+	background: #efefef;
+}
+.sheet-rolltemplate-coc-init-reroll td.sheet-template_label {
+    font-weight: Bold;
+    background: #efefef;
+}
+.sheet-rolltemplate-coc-init-reroll td.sheet-template_value {
+    text-align: center;
+    background: #efefef;
+}
+.sheet-rolltemplate-coc-init-reroll .inlinerollresult  {
+	display: inline-block;
+	min-width: 1.5em;
+	text-align: center;
+	border: 2px solid black;
+    background: #c3c9bd;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/*One Row Center rolltemplate */
+.sheet-rolltemplate-coc-one-row-center table {
+    width: 100%;
+    border: 1px solid black;
+    color: black;
+    background: #E3DEDB;
+}
+.sheet-rolltemplate-coc-one-row-center caption {
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding: 2px;
+	border: 1px solid black;
+	line-height: 1.6em;
+}
+.sheet-rolltemplate-coc-one-row-center td {
+	padding: 2px;
+	background: #efefef;
+}
+.sheet-rolltemplate-coc-one-row-center td.sheet-ammo_td {
+    font-weight: Bold;
+    background: #efefef;
+    text-align: center;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Weapons Tab Table Setting - Hand-to-Hand */
+
+.charsheet .sheet-tabs-hth-head {
+	width:68%;
+}
+
+.charsheet .sheet-tabs-hth-1 {
+	width:30%;
+}
+
+.charsheet .sheet-tabs-hth-2 {
+	width:6%;
+}
+
+.charsheet .sheet-tabs-hth-3 {
+	width:16%;
+}
+
+.charsheet .sheet-tabs-hth-4 {
+	width:8%;
+}
+
+.charsheet .sheet-tabs-hth-5 {
+	width:8%;
+}
+
+/* Weapons Tab Table Setting - Handguns, Rifles, Automatic */
+
+.charsheet .sheet-tabs-hra-head {
+	max-width:100%;
+}
+
+.charsheet .sheet-tabs-hra-1 {
+	width:34.4%;
+}
+
+.charsheet .sheet-tabs-hra-2 {
+	width:5.5%;
+}
+
+.charsheet .sheet-tabs-hra-3 {
+	width:17%;
+}
+
+.charsheet .sheet-tabs-hra-4 {
+	width:7.2%;
+}
+
+.charsheet .sheet-tabs-hra-5 {
+	width:8%;
+}
+
+.charsheet .sheet-tabs-hra-6 {
+	width:5%;
+}
+
+.charsheet .sheet-tabs-hra-7 {
+	width:5%;
+}
+
+.charsheet .sheet-tabs-hra-8 {
+	width:0.7%;
+	text-align:center;
+}
+
+.charsheet .sheet-tabs-hra-9 {
+	width:5%;
+}
+
+.charsheet .sheet-tabs-hra-10 {
+	width:5%;
+}
+
+/* Weapons Tab Table Setting - Shotgun */
+
+.charsheet .sheet-tabs-shotgun-head {
+	max-width:100%;
+}
+
+.charsheet .sheet-tabs-shotgun-1 {
+	width:25.2%;
+}
+
+.charsheet .sheet-tabs-shotgun-2 {
+	width:6%;
+}
+
+.charsheet .sheet-tabs-shotgun-3 {
+	width:9%;
+}
+
+.charsheet .sheet-tabs-shotgun-4 {
+	width:7%;
+}
+
+.charsheet .sheet-tabs-shotgun-5 {
+	width:7%;
+}
+
+.charsheet .sheet-tabs-shotgun-6 {
+	width:7%;
+}
+
+.charsheet .sheet-tabs-shotgun-7 {
+	width:5%;
+}
+
+.charsheet .sheet-tabs-shotgun-8 {
+	width:5%;
+}
+
+.charsheet .sheet-tabs-shotgun-9 {
+	width:5%;
+}
+
+.charsheet .sheet-tabs-shotgun-10 {
+	width:5%;
+}
+
+.charsheet .sheet-tabs-shotgun-11 {
+	width:6%;
+}
+
+.charsheet .sheet-tabs-shotgun-12 {
+	width:1%;
+	text-align:center;
+}
+
+.charsheet .sheet-tabs-shotgun-13 {
+	width:6%;
+}
+
+.charsheet .sheet-tabs-shotgun-14 {
+	width:5.1%;
+}
+
+/* Weapons Tab Table Setting - Explosives, Heavy */
+
+.charsheet .sheet-tabs-explhv-head {
+	max-width:100%;
+}
+
+.charsheet .sheet-tabs-explhv-1 {
+	width:22.2%;
+}
+
+.charsheet .sheet-tabs-explhv-2 {
+	width:6%;
+}
+
+.charsheet .sheet-tabs-explhv-3 {
+	width:9%;
+}
+
+.charsheet .sheet-tabs-explhv-4 {
+	width:5.126%;
+}
+
+.charsheet .sheet-tabs-explhv-5 {
+	width:7%;
+}
+
+.charsheet .sheet-tabs-explhv-6 {
+	width:7%;
+}
+
+.charsheet .sheet-tabs-explhv-7 {
+	width:7%;
+}
+
+.charsheet .sheet-tabs-explhv-8 {
+	width:5%;
+}
+
+.charsheet .sheet-tabs-explhv-9 {
+	width:5%;
+}
+
+.charsheet .sheet-tabs-explhv-10 {
+	width:5%;
+}
+
+.charsheet .sheet-tabs-explhv-11 {
+	width:3.925%;
+}
+
+.charsheet .sheet-tabs-explhv-12 {
+	width:5.8%;
+}
+
+.charsheet .sheet-tabs-explhv-13 {
+	width:1%;
+	text-align:center;
+}
+
+.charsheet .sheet-tabs-explhv-14 {
+	width:5.8%;
+}
+
+.charsheet .sheet-tabs-explhv-15 {
+	width:4.865%;
+}
+
+/* Weapons Tab Table Setting - Miscellaneous */
+
+.charsheet .sheet-tabs-misc-head {
+	max-width:100%;
+}
+
+.charsheet .sheet-tabs-misc-1 {
+	width:17%;
+}
+
+.charsheet .sheet-tabs-misc-2 {
+	width:5%;
+}
+
+.charsheet .sheet-tabs-misc-3 {
+	width:6%;
+}
+
+.charsheet .sheet-tabs-misc-4 {
+	width:6%;
+}
+
+.charsheet .sheet-tabs-misc-5 {
+	width:5.91%;
+}
+
+.charsheet .sheet-tabs-misc-6 {
+	width:9.2%;
+}
+
+.charsheet .sheet-tabs-misc-7 {
+	width:5%;
+}
+
+.charsheet .sheet-tabs-misc-8 {
+	width:5%;
+}
+
+.charsheet .sheet-tabs-misc-9 {
+	width:4%;
+}
+
+.charsheet .sheet-tabs-misc-10 {
+	width:1%;
+	text-align:center;
+}
+
+.charsheet .sheet-tabs-misc-11 {
+	width:4%;
+}
+
+.charsheet .sheet-tabs-misc-12 {
+	width:5%;
+}
+
+/* Hide and See Type of Weapons Heading*/
+
+.charsheet .sheet-hide-tw {
+    display: none;
+}
+
+.charsheet .sheet-showskills[value="2"]:checked ~ div.sheet-hide-tw {
+    display: block;
+}
+
+/* Hide and See Table Rows Extra*/
+
+.charsheet .sheet-rows-1,
+.charsheet .sheet-rows-2,
+.charsheet .sheet-rows-3,
+.charsheet .sheet-rows-4,
+.charsheet .sheet-rows-5,
+.charsheet .sheet-rows-6,
+.charsheet .sheet-rows-7 {
+    display: none;
+}
+
+.charsheet .sheet-tabs-type-wp-rows1[value="1"] ~ div.sheet-rows-1,
+.charsheet .sheet-tabs-type-wp-rows2[value="1"] ~ div.sheet-rows-2,
+.charsheet .sheet-tabs-type-wp-rows3[value="1"] ~ div.sheet-rows-3,
+.charsheet .sheet-tabs-type-wp-rows4[value="1"] ~ div.sheet-rows-4,
+.charsheet .sheet-tabs-type-wp-rows5[value="1"] ~ div.sheet-rows-5,
+.charsheet .sheet-tabs-type-wp-rows6[value="1"] ~ div.sheet-rows-6,
+.charsheet .sheet-tabs-type-wp-rows7[value="1"] ~ div.sheet-rows-7 {
+    display: block;
+}
+
+/* Switch Weapons Tabs */
+
+.charsheet .sheet-tabs-hth-hide,
+.charsheet .sheet-tabs-hgun-hide,
+.charsheet .sheet-tabs-rifle-hide,
+.charsheet .sheet-tabs-shotgun-hide,
+.charsheet .sheet-tabs-automatic-hide,
+.charsheet .sheet-tabs-explhv-hide,
+.charsheet .sheet-tabs-misc-hide {
+	display: none;
+}
+
+.charsheet .sheet-tabs-type-wp1[value="hth"] ~ div.sheet-tabs-hth-hide,
+.charsheet .sheet-tabs-type-wp2[value="hgun"] ~ div.sheet-tabs-hgun-hide,
+.charsheet .sheet-tabs-type-wp3[value="rifle"] ~ div.sheet-tabs-rifle-hide,
+.charsheet .sheet-tabs-type-wp4[value="shotgun"] ~ div.sheet-tabs-shotgun-hide,
+.charsheet .sheet-tabs-type-wp5[value="automatic"] ~ div.sheet-tabs-automatic-hide,
+.charsheet .sheet-tabs-type-wp6[value="explhv"] ~ div.sheet-tabs-explhv-hide,
+.charsheet .sheet-tabs-type-wp7[value="misc"] ~ div.sheet-tabs-misc-hide {
+    display: block;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/*Hide and See Mixed Bouts of Madness (Normal+Pulp)*/
+
+.charsheet .sheet-normal-bouts {
+    display: block;
+}
+
+.charsheet .sheet-mixed-bouts {
+	display: none;
+}
+
+.charsheet .sheet-mixed-bouts[value="1"]:checked ~ div.sheet-normal-bouts {
+    display: none;
+}
+
+.charsheet .sheet-mixed-bouts[value="1"]:checked ~ div.sheet-mixed-bouts {
+	display: block;
+}
+
+/* Hide and See Hp Temp */
+
+
+.charsheet .sheet-show-hp-temp-checkbox {
+    display: none;
+}
+
+.charsheet .sheet-show-major-wound-checkbox {
+	display: inline-block;
+}
+
+.charsheet .sheet-hptemp[value="1"]:checked ~ div.sheet-show-hp-temp-checkbox {
+    display: inline-block;
+}
+
+.charsheet .sheet-hptemp[value="1"]:checked ~ div.sheet-show-major-wound-checkbox {
+	display: none;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Body hit Location */
+.sheet-rolltemplate-coc-body-hit-loc table {
+    width: 100%;
+    border: 1px solid black;
+    color: black;
+    background: #FFFFFF;
+    text-align: center;
+}
+.sheet-rolltemplate-coc-body-hit-loc caption {
+    text-align: center;
+    background: black;
+    color: white;
+    font-weight: bold;
+    padding: 2px;
+  border: 1px solid black;
+  line-height: 1.6em;
+}
+.sheet-rolltemplate-coc-body-hit-loc td {
+  padding: 2px;
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+.sheet-rolltemplate-coc-body-hit-loc td.sheet-template_label {
+    font-weight: Bold;
+    text-align: center;
+}
+.sheet-rolltemplate-coc-body-hit-loc td.sheet-template_value {
+    text-align: center;
+}
+.sheet-rolltemplate-coc-body-hit-loc .inlinerollresult  {
+  display: inline-block;
+  min-width: 1.5em;
+  text-align: center;
+  border: 2px solid black;
+    background: #BEBEBE;
+}
+.sheet-rolltemplate-coc--body-hit-loc .inlinerollresult.importantroll {
+  border: 2px solid black;
+    background: #BEBEBE;
+    text-align: center;
+}
+
+/* -------------------------------------------- *//* Buttons *//* ---------------------------------- */
+
+/* Choose Type Wepons - Buttons*/
+
+.charsheet button[type=action].sheet-type-weapons {
+	background:#e2dfdb;
+	border-radius: 8px;
+	border: 1px solid #ccc;
+	overflow: hidden;
+	position: relative;
+	cursor: pointer;
+}
+
+.charsheet button[type=action].sheet-type-weapons:hover {
+	transform: scale(1.05);
+}
+.charsheet button[type=action].sheet-type-weapons:active {
+	background: #e2dfdb;
+	border-color: #c4beb6;
+	-webkit-box-shadow: inset 0px 0px 5px #c4beb6;
+    -moz-box-shadow: inset 0px 0px 5px #c4beb6;
+    box-shadow: inset 0px 0px 5px #c4beb6;
+	outline: none;
+}
+
+.charsheet .sheet-badge {
+	float: right;
+    padding: 3.2px;
+    width: 1px;
+    height: 1px;
+	background-color: #646464;
+    margin: 0.3px -4.25px 1px 1.3px;
+    border-radius: 50%;
+	transition: all .3s ease;
+}
+
+.charsheet .sheet-badge.red {
+	background-color: #CC0000;
+}
+
+.charsheet .sheet-badge-start {
+	float: right;
+    padding: 2.6px;
+    width: 0px;
+    height: 0px;
+	background-color: #646464;
+    margin: -21.3px 3.5px 1px 1.3px;
+    border-radius: 50%;
+	position:relative;
+	transition: all .3s ease;
+}
+
+.charsheet .sheet-badge-start.red {
+	background-color: #CC0000;
+}
+
+/* ------------------------------------------------- */
+
+/* Re-roll Hidden - Class*/
+
+.charsheet .sheet-hidden {
+    display: none;
+}
+
+/* ------------------------------------------------- */
+
+/* Count Ammo Checkbox */
+.charsheet .sheet-count-ammo-css-checkbox {
+  width: 25px;
+}
+
+/* ------------------------------------------------- */
+
+/*Special an Action Advantage Roll Button Scheet */
+.charsheet button[type=roll].sheet-adv-roll,
+.charsheet button[type=action].sheet-adv-action {
+  color: #390c63;
+  background-color: #ffffff;
+  font-weight: bolder;
+  font-size: 1.4em;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  margin: 0.0;
+  padding: 0.0em;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-family: dicefontd20;
+  background: linear-gradient(to top, #390c6399 0%, #390c6399 40%, #ffffff 40%, #ffffff 100%);
+  background-size: 100% 200%;
+  background-position: 0 0;
+  transition: background-position 0.3s;
+  text-shadow: 0 1px 1px rgb(255 255 255 / 75%);
+}
+
+.charsheet button[type=roll].sheet-adv-roll:hover,
+.charsheet button[type=action].sheet-adv-action:hover {
+    background-position: 0 96%;
+}
+
+/* 0 0 - 0 100% - 100% 200% */
+
+.charsheet button[type=roll].sheet-adv-roll::before,
+.charsheet button[type=action].sheet-adv-action::before {
+    content: "";
+}
+
+/* Standard Advantage Roll Button Scheet */
+button[type=roll].sheet-old-roll {
+  color: #390c63;
+  background-color: #390c63;
+  font-weight: bolder;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  margin: 0.0;
+  padding: 0.0em;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/*Special an Action Non Advantage Roll Button Scheet */
+.charsheet button[type=roll].sheet-nadv-roll,
+.charsheet button[type=action].sheet-nadv-action {
+  color: #18650D;
+  background-color: #ffffff;
+  font-weight: bolder;
+  font-size: 1.4em;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  margin: 0.0;
+  padding: 0.0em;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-family: dicefontd20;
+  background: linear-gradient(to top, #248c1599 0%, #248c1599 40%, #ffffff 40%, #ffffff 100%);
+  background-size: 100% 200%;
+  background-position: 0 0;
+  transition: background-position 0.3s;
+  text-shadow: 0 1px 1px rgb(255 255 255 / 75%);
+}
+
+.charsheet button[type=roll].sheet-nadv-roll:hover,
+.charsheet button[type=action].sheet-nadv-action:hover {
+    background-position: 0 96%;
+}
+
+/* 0 0 - 0 100% - 100% 200% */
+
+
+.charsheet button[type=roll].sheet-nadv-roll::before,
+.charsheet button[type=action].sheet-nadv-action::before {
+    content: "";
+}
+
+/* Standard Non Advantage Roll Button Scheet */
+button[type=roll].sheet-new-roll {
+  color: #18650D;
+  background-color: #248c15;
+  font-weight: bolder;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  margin: 0.0;
+  padding: 0.0em;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Roll Button Small */
+button[type=roll].sheet-dice-roll {
+  color: #000000;
+  background-color: #000000;
+  font-weight: bolder;
+  text-align: center;
+  width: 18px;
+  height: 18px;
+  margin: 0.0;
+  padding: 0.0em;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+/* Action Button Small */
+button[type=action].sheet-dice-roll-action {
+  color: #000000;
+  font-weight: bolder;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  font-size: 16.5px;
+  margin: 0.0;
+  padding: 0.0em;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-family: dicefontd20;
+  background: linear-gradient(to top, #000000 0%, #000000 40%, #ffffff 40%, #ffffff 100%);
+  background-size: 100% 200%;
+  background-position: 0 0;
+  transition: background-position 0.3s;
+  text-shadow: 0 1px 1px rgb(255 255 255 / 75%);
+  vertical-align: middle;
+}
+
+.charsheet button[type=action].sheet-dice-roll-action:hover {
+    background-position: 0 96%;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Button Smaller */
+button[type=roll].sheet-smallbutton-roll {
+  color: #18650D; 
+  background-color: #248c15;
+  font-weight: bolder;
+  font-size: 12px;
+  text-align: center;
+  width: 16px;
+  height: 16px;
+  margin: 0.0;
+  padding: 0.0em;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Non-Skill Button Smaller */
+button[type=roll].sheet-smallnonskillbutton-roll {
+  color: #000000; 
+  background-color: #000000;
+  font-weight: bolder;
+  font-size: 12px;
+  text-align: center;
+  width: 16px;
+  height: 16px;
+  margin: 0.0;
+  padding: 0.0em;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+/* -------------------------------------------------------------------------- */
+
+/* Button Even Smaller */
+button[type=roll].sheet-evensmallerbutton-roll {
+  color: #000000; 
+  background-color: #1a1a1a;
+  font-weight: bolder;
+  font-size: 1px;
+  width: 10px;
+  height: 10px;
+  margin: 0.0;
+  padding: 0.0em;
+  border: 1px solid black;
+  border-radius: 5px;
+}
