@@ -118,6 +118,10 @@
             <option value="'Diphylleia', cursive">Diphylleia</option>
           </select>
         </div>
+        <div class="field">
+          <label>상단 여백 (sheet-cdiv padding-top, px)</label>
+          <input type="number" data-path="charsheet.cdivPaddingTop" value="0" step="10">
+        </div>
       </div>
 
       <div class="card">
@@ -317,6 +321,46 @@
             <input type="text" data-path="input.borderColor" data-hex="true" maxlength="9" spellcheck="false"
               value="#c9a14a">
           </div>
+        </div>
+        <div class="radius-block">
+          <div class="range-field master">
+            <label>모서리 한번에 조절</label>
+            <input type="range" id="inputRadiusMaster" min="0" max="50" value="0">
+            <span class="val" id="inputRadiusMasterVal">0px</span>
+          </div>
+          <div class="corner-grid">
+            <div class="range-field"><label>왼쪽 위</label><input type="range" min="0" max="50" value="0"
+                data-path="input.radius.tl"><span class="val">0px</span></div>
+            <div class="range-field"><label>오른쪽 위</label><input type="range" min="0" max="50" value="0"
+                data-path="input.radius.tr"><span class="val">0px</span></div>
+            <div class="range-field"><label>왼쪽 아래</label><input type="range" min="0" max="50" value="0"
+                data-path="input.radius.bl"><span class="val">0px</span></div>
+            <div class="range-field"><label>오른쪽 아래</label><input type="range" min="0" max="50" value="0"
+                data-path="input.radius.br"><span class="val">0px</span></div>
+          </div>
+        </div>
+
+        <div class="subgroup-title">체크박스 (input[type=checkbox])</div>
+        <p class="desc">appearance를 auto로 두면 브라우저 기본 체크박스로 돌아가며, 아래 배경색·radius 설정은 시각적으로 적용되지 않습니다.</p>
+        <div class="field">
+          <label>배경색 (체크됨)</label>
+          <div class="color-row">
+            <input type="color" data-path="checkbox.bgColor" value="#c9a14a">
+            <input type="text" data-path="checkbox.bgColor" data-hex="true" maxlength="9" spellcheck="false"
+              value="#c9a14aff">
+          </div>
+        </div>
+        <div class="range-field">
+          <label>모서리 radius (4방향 동시)</label>
+          <input type="range" min="0" max="50" value="8" data-path="checkbox.radius">
+          <span class="val">8px</span>
+        </div>
+        <div class="field">
+          <label>외형 (appearance)</label>
+          <select data-path="checkbox.appearance">
+            <option value="none">none (커스텀 스타일 적용)</option>
+            <option value="auto">auto (기본 체크박스로 복귀)</option>
+          </select>
         </div>
       </div>
 
@@ -651,6 +695,7 @@
         borderStyle: 'solid',
         fontColor: '#f0e6ccff',
         fontFamily: 'Arial',
+        cdivPaddingTop: 0,
       },
       normalRoll: {
         fontColor: '#f0e6ccff',
@@ -690,6 +735,12 @@
         bgColor: '#1b1712ff',
         fontColor: '#f0e6ccff',
         borderColor: '#c9a14aff',
+        radius: { tl: 0, tr: 0, br: 0, bl: 0 },
+      },
+      checkbox: {
+        bgColor: '#c9a14aff',
+        radius: 8,
+        appearance: 'none',
       },
       repcontrol: {
         bgColor: '#c9a14aff',
@@ -786,6 +837,7 @@
 
     const STATIC_MASTER_GROUPS = [
       { masterId: 'normalRollRadiusMaster', valId: 'normalRollRadiusMasterVal', paths: ['normalRoll.radius.tl', 'normalRoll.radius.tr', 'normalRoll.radius.br', 'normalRoll.radius.bl'] },
+      { masterId: 'inputRadiusMaster', valId: 'inputRadiusMasterVal', paths: ['input.radius.tl', 'input.radius.tr', 'input.radius.br', 'input.radius.bl'] },
       { masterId: 'weaponActionRadiusMaster', valId: 'weaponActionRadiusMasterVal', paths: ['weaponAction.radius.tl', 'weaponAction.radius.tr', 'weaponAction.radius.br', 'weaponAction.radius.bl'] },
       { masterId: 'selectBoxRadiusMaster', valId: 'selectBoxRadiusMasterVal', paths: ['selectBox.radius.tl', 'selectBox.radius.tr', 'selectBox.radius.br', 'selectBox.radius.bl'] },
       { masterId: 'rollCaptionTableRadiusMaster', valId: 'rollCaptionTableRadiusMasterVal', paths: ['rollCaption.radiusTL', 'rollCaption.radiusTR', 'rollTable.radiusBR', 'rollTable.radiusBL'] },
@@ -907,6 +959,10 @@
     font-family: ${s.charsheet.fontFamily} !important;
 }`);
 
+      parts.push(`.sheet-cdiv {    /* 캐릭터 시트 컨테이너 상단 여백 */
+    padding-top: ${s.charsheet.cdivPaddingTop}px !important;
+}`);
+
       parts.push(`h4.sheet-section-head {    /* 각 칸 헤더 */
     background-image: none !important;
     background-color: ${head.bgColor} !important;
@@ -925,6 +981,20 @@
     background-color: ${s.input.bgColor} !important;
     color: ${s.input.fontColor} !important;
     border-color: ${s.input.borderColor} !important;
+    font-family: ${s.charsheet.fontFamily} !important;
+    ${radiusCSS(s.input.radius)}
+}`);
+
+      parts.push(`.charsheet input[type="checkbox"]{    /* 체크박스 */
+    width: 1rem;
+    height: 1rem;
+    border-radius: ${s.checkbox.radius}px !important;
+    border: 1px solid #999;
+    appearance: ${s.checkbox.appearance} !important;
+    cursor: pointer;
+}
+.charsheet input[type="checkbox"]:checked {
+    background-color: ${s.checkbox.bgColor} !important;
 }`);
 
       parts.push(`.charsheet .repcontrol_add,
@@ -932,9 +1002,11 @@
 .charsheet .repcontrol_del {
     background: ${s.repcontrol.bgColor} !important;
     color: ${s.repcontrol.fontColor} !important;
+    font-family: ${s.charsheet.fontFamily} !important;
 }`);
 
       parts.push(`.charsheet button[type=action].sheet-type-weapons {    /* 무기 액션 버튼 */
+    font-family: ${s.charsheet.fontFamily} !important;
     color: ${s.weaponAction.fontColor} !important;
     background-image: none !important;
     background-color: ${s.weaponAction.bgColor} !important;
@@ -959,7 +1031,7 @@
     background-repeat: no-repeat !important;
     background-position: bottom center !important;
     background-size: 100% !important;
-    font-family: cursive !important;
+    font-family: ${s.charsheet.fontFamily} !important;
     color: ${s.rollTable.fontColor} !important;
     background-color: ${s.rollTable.bgColor} !important;
     border-color: ${s.rollTable.borderColor} !important;
