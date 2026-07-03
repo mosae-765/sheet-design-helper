@@ -9,972 +9,382 @@
 
 <body>
   <header>
-    <h1>롤20 COC 커스텀 시트 헬퍼</h1>
-    <p>좌측 미리보기는 실제 시트와 다릅니다. 꼭 실제 적용 모습을 확인하며 작업해주세요!</p>
+
+    <div class="header-col">
+      <div>
+        <h1>롤20 COC 커스텀 시트 헬퍼</h1>
+        <p>좌측 미리보기는 실제 시트와 다릅니다. 꼭 실제 적용 모습을 확인하며 작업해주세요!</p>
+      </div>
+      <div class="out-actions">
+        <button id="loadBtn" type="button">CSS 파일 불러오기</button>
+        <button id="resetBtn" type="button">원본값으로 초기화</button>
+      </div>
+    </div>
+
   </header>
 
   <p id="liveSyncNote">⚠ 미리보기와의 실시간 연동에 실패했습니다. 브라우저가 로컬 파일 간 접근을 차단하고 있을 수 있습니다 (로컬 서버로 열면 해결됩니다).</p>
 
-<div class="slicer">
-<iframe id="viewerFrame" src="viewer.html"></iframe>
-  <div id="app">
-    <div class="col-left">
-      <div class="card">
-        <h2>① 주사위 문양</h2>
-        <p class="desc">dicefont, pictos 아이콘 종류는 <a href="https://wiki.roll20.net/CSS_Wizardry#Icon_Fonts">해당 링크</a>에 잘 정리되어 있습니다. <br>(별개로 커스텀 시트 제작법을 공부하기 좋은 사이트입니다.)<br>상기한 두 폰트는 미리보기에 적용되지 않습니다 실제 롤20 시트로 확인해주세요.</p>
-        <div class="field">
-          <label>폰트</label>
-          <select data-path="beforeFont">
-            <option value="Arial, Helvetica, sans-serif">Arial</option>
-            <option value="'Noto Serif KR', serif">Noto Serif KR</option>
-            <option value="dicefontd20">dicefontd20</option>
-            <option value="pictos">pictos</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>아이콘</label>
-          <input type="text" data-path="beforeContent" maxlength="4" value="★">
-          <p class="note">※ dicefont와 pictos는 각 폰트의 원하는 코드 문자를 입력하세요. (예: 롤20 coc 시트 기본값은 dicefontd20, t)</p>
-        </div>
-      </div>
+  <div class="slicer">
+    <iframe id="viewerFrame" src="viewer.html"></iframe>
+    <div id="app">
+      <div class="col-left" id="colLeft"></div>
 
-      <div class="card">
-        <h2>② 시트 배경</h2>
-        <div class="field">
-          <label>배경색</label>
-          <div class="color-row">
-            <input type="color" data-path="charsheet.bgColor" value="#2b2620">
-            <input type="text" data-path="charsheet.bgColor" data-hex="true" maxlength="9" spellcheck="false"
-              value="#2b2620">
+      <div class="col-right">
+        <details class="card" open>
+          <summary>생성된 CSS</summary>
+          <p class="desc">복사 버튼을 이용한 적용법: 배포 트윗 참고</p>
+          <div class="out-actions">
+            <button id="copyBtn" type="button">복사</button>
+            </div> 
+            <div class="out-actions">
+            <button id="HTMLdownloadBtn" class="secondary" type="button">HTML 다운로드</button>
+            <button id="downloadBtn" class="secondary" type="button">CSS 다운로드</button>
+            <button id="JSONdownloadBtn" class="secondary" type="button">번역 JSON 다운로드</button>
           </div>
-        </div>
-        <div class="field">
-          <label>배경 사진 (이미지 URL)</label>
-          <input type="text" data-path="charsheet.bgImage" placeholder="https://...">
-          <img class="thumb" id="charsheetThumb" alt="배경 미리보기">
-        </div>
-        <div class="row2">
-          <div class="field">
-            <label>배경 크기</label>
-            <select data-path="charsheet.bgSize">
-              <option value="100% auto">100% auto (추천)</option>
-              <option value="cover">cover</option>
-              <option value="contain">contain</option>
-              <option value="auto">auto</option>
-            </select>
-          </div>
-          <div class="field">
-            <label>배경 반복</label>
-            <select data-path="charsheet.bgRepeat">
-              <option value="no-repeat">no-repeat (여백 o)</option>
-              <option value="repeat">repeat</option>
-              <option value="repeat-x">repeat-x</option>
-              <option value="repeat-y">repeat-y</option>
-            </select>
-          </div>
-        </div>
-        <div class="field">
-          <label>테두리 색</label>
-          <div class="color-row">
-            <input type="color" data-path="charsheet.borderColor" value="#c9a14a">
-            <input type="text" data-path="charsheet.borderColor" data-hex="true" maxlength="9" spellcheck="false"
-              value="#c9a14a">
-          </div>
-        </div>
-        <div class="row2">
-          <div class="field">
-            <label>테두리 두께 (px)</label>
-            <input type="number" min="0" max="10" data-path="charsheet.borderWidth" value="2">
-          </div>
-          <div class="field">
-            <label>테두리 스타일</label>
-            <select data-path="charsheet.borderStyle">
-              <option value="solid">solid (일반)</option>
-              <option value="dashed">dashed (점선)</option>
-              <option value="dotted">dotted (간격 좁은 점선)</option>
-              <option value="double">double (겹선)</option>
-              <option value="none">none (없음)</option>
-            </select>
-          </div>
-        </div>
-        <div class="field">
-          <label>글자색</label>
-          <div class="color-row">
-            <input type="color" data-path="charsheet.fontColor" value="#f0e6cc">
-            <input type="text" data-path="charsheet.fontColor" data-hex="true" maxlength="9" spellcheck="false"
-              value="#f0e6cc">
-          </div>
-        </div>
-        <div class="field">
-          <label>폰트</label>
-          <select data-path="charsheet.fontFamily">
-            <option value="Arial">Arial</option>
-            <option value="'Do Hyeon', sans-serif">배달의 민족 도현체</option>
-            <option value="'Song Myung', serif">Song Myung</option>
-            <option value="'Noto Serif KR', serif">Noto Serif Korean</option>
-            <option value="'Gowun Dodum', sans-serif">고운 돋움</option>
-            <option value="'Hi Melody', sans-serif">Hi Melody</option>
-            <option value="'Diphylleia', cursive">Diphylleia</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>상단 여백 (px)</label>
-          <input type="number" data-path="charsheet.cdivPaddingTop" value="0" step="10">
-        </div>
-      </div>
-
-      <div class="card">
-        <h2>③ 일반 주사위 버튼</h2>
-        <div class="field">
-          <label>글자색</label>
-          <div class="color-row">
-            <input type="color" data-path="normalRoll.fontColor" value="#f0e6cc">
-            <input type="text" data-path="normalRoll.fontColor" data-hex="true" maxlength="9" spellcheck="false"
-              value="#f0e6cc">
-          </div>
-        </div>
-        <div class="field">
-          <label>배경색</label>
-          <div class="color-row">
-            <input type="color" data-path="normalRoll.bgColor" value="#3c6e71">
-            <input type="text" data-path="normalRoll.bgColor" data-hex="true" maxlength="9" spellcheck="false"
-              value="#3c6e71">
-          </div>
-        </div>
-        <div class="field">
-          <label>테두리 색</label>
-          <div class="color-row">
-            <input type="color" data-path="normalRoll.borderColor" value="#c9a14a">
-            <input type="text" data-path="normalRoll.borderColor" data-hex="true" maxlength="9" spellcheck="false"
-              value="#c9a14a">
-          </div>
-        </div>
-        <div class="row2">
-          <div class="field">
-            <label>테두리 두께 (px)</label>
-            <input type="number" min="0" max="10" data-path="normalRoll.borderWidth" value="1">
-          </div>
-          <div class="field">
-            <label>테두리 스타일</label>
-            <select data-path="normalRoll.borderStyle">
-              <option value="solid">solid (일반)</option>
-              <option value="dashed">dashed (점선)</option>
-              <option value="dotted">dotted (간격 좁은 점선)</option>
-              <option value="double">double (겹선)</option>
-              <option value="none">none (없음)</option>
-            </select>
-          </div>
-        </div>
-        <div class="radius-block">
-          <div class="range-field master">
-            <label>모서리 한번에 조절</label>
-            <input type="range" id="normalRollRadiusMaster" min="0" max="50" value="6">
-            <span class="val" id="normalRollRadiusMasterVal">6px</span>
-          </div>
-          <div class="corner-grid">
-            <div class="range-field"><label>왼쪽 위</label><input type="range" min="0" max="50" value="6"
-                data-path="normalRoll.radius.tl"><span class="val">6px</span></div>
-            <div class="range-field"><label>오른쪽 위</label><input type="range" min="0" max="50" value="6"
-                data-path="normalRoll.radius.tr"><span class="val">6px</span></div>
-            <div class="range-field"><label>왼쪽 아래</label><input type="range" min="0" max="50" value="6"
-                data-path="normalRoll.radius.bl"><span class="val">6px</span></div>
-            <div class="range-field"><label>오른쪽 아래</label><input type="range" min="0" max="50" value="6"
-                data-path="normalRoll.radius.br"><span class="val">6px</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2>④ 단색 버튼들</h2>
-        <p class="desc">아래 버튼으로 전체를 일반 주사위 값과 통일할 수 있습니다.</p>
-        <div class="simple-buttons-grid" id="simpleButtonsContainer"></div>
-      </div>
-
-      <div class="card">
-        <h2>⑤ 섹션 헤더 + 섹션 박스</h2>
-        <p class="desc">탐사자 정보, 특성치 등 섹션의 값을 조정합니다.</p>
-
-        <div class="subgroup-title">헤더</div>
-        <div class="field">
-          <label>배경색</label>
-          <div class="color-row">
-            <input type="color" data-path="sectionHead.bgColor" value="#3c6e71">
-            <input type="text" data-path="sectionHead.bgColor" data-hex="true" maxlength="9" spellcheck="false"
-              value="#3c6e71">
-          </div>
-        </div>
-        <div class="field">
-          <label>글자색</label>
-          <div class="color-row">
-            <input type="color" data-path="sectionHead.fontColor" value="#f0e6cc">
-            <input type="text" data-path="sectionHead.fontColor" data-hex="true" maxlength="9" spellcheck="false"
-              value="#f0e6cc">
-          </div>
-        </div>
-        <div class="field">
-          <label>테두리 색</label>
-          <div class="color-row">
-            <input type="color" data-path="sectionHead.borderColor" value="#c9a14a">
-            <input type="text" data-path="sectionHead.borderColor" data-hex="true" maxlength="9" spellcheck="false"
-              value="#c9a14a">
-          </div>
-        </div>
-        <div class="row2">
-          <div class="field">
-            <label>테두리 두께 (px)</label>
-            <input type="number" min="0" max="10" data-path="sectionHead.borderWidth" value="1">
-          </div>
-          <div class="field">
-            <label>테두리 스타일</label>
-            <select data-path="sectionHead.borderStyle">
-              <option value="solid">solid (일반)</option>
-              <option value="dashed">dashed (점선)</option>
-              <option value="dotted">dotted (간격 좁은 점선)</option>
-              <option value="double">double (겹선)</option>
-              <option value="none">none (없음)</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="subgroup-title">섹션</div>
-        <div class="field">
-          <label>배경색</label>
-          <div class="color-row">
-            <input type="color" data-path="section.bgColor" value="#3a332a">
-            <input type="text" data-path="section.bgColor" data-hex="true" maxlength="9" spellcheck="false"
-              value="#3a332a">
-          </div>
-        </div>
-        <div class="field">
-          <label>테두리 색</label>
-          <div class="color-row">
-            <input type="color" data-path="section.borderColor" value="#c9a14a">
-            <input type="text" data-path="section.borderColor" data-hex="true" maxlength="9" spellcheck="false"
-              value="#c9a14a">
-          </div>
-        </div>
-        <div class="row2">
-          <div class="field">
-            <label>테두리 두께 (px)</label>
-            <input type="number" min="0" max="10" data-path="section.borderWidth" value="2">
-          </div>
-          <div class="field">
-            <label>테두리 스타일</label>
-            <select data-path="section.borderStyle">
-              <option value="solid">solid (일반)</option>
-              <option value="dashed">dashed (점선)</option>
-              <option value="dotted">dotted (간격 좁은 점선)</option>
-              <option value="double">double (겹선)</option>
-              <option value="none">none (없음)</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="radius-block">
-          <div class="range-field master">
-            <label>전체 모서리 한번에 조절</label>
-            <input type="range" id="sectionRadiusMaster" min="0" max="60" value="10">
-            <span class="val" id="sectionRadiusMasterVal">10px</span>
-          </div>
-          <div class="subgroup-title">헤더 위쪽 모서리</div>
-          <div class="corner-grid">
-            <div class="range-field"><label>왼쪽 위</label><input type="range" min="0" max="60" value="10"
-                data-path="sectionHead.radiusTL"><span class="val">10px</span></div>
-            <div class="range-field"><label>오른쪽 위</label><input type="range" min="0" max="60" value="10"
-                data-path="sectionHead.radiusTR"><span class="val">10px</span></div>
-          </div>
-          <div class="subgroup-title">섹션 아래쪽 모서리</div>
-          <div class="corner-grid">
-            <div class="range-field"><label>왼쪽 아래</label><input type="range" min="0" max="60" value="10"
-                data-path="section.radiusBL"><span class="val">10px</span></div>
-            <div class="range-field"><label>오른쪽 아래</label><input type="range" min="0" max="60" value="10"
-                data-path="section.radiusBR"><span class="val">10px</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2>⑥ 입력칸</h2>
-        <div class="row2">
-          <div class="field">
-            <label>배경색</label>
-            <div class="color-row">
-              <input type="color" data-path="input.bgColor" value="#1b1712">
-              <input type="text" data-path="input.bgColor" data-hex="true" maxlength="9" spellcheck="false"
-                value="#1b1712">
-            </div>
-          </div>
-          <div class="field">
-            <label>글자색</label>
-            <div class="color-row">
-              <input type="color" data-path="input.fontColor" value="#f0e6cc">
-              <input type="text" data-path="input.fontColor" data-hex="true" maxlength="9" spellcheck="false"
-                value="#f0e6cc">
-            </div>
-          </div>
-        </div>
-        <div class="field">
-          <label>테두리 색</label>
-          <div class="color-row">
-            <input type="color" data-path="input.borderColor" value="#c9a14a">
-            <input type="text" data-path="input.borderColor" data-hex="true" maxlength="9" spellcheck="false"
-              value="#c9a14a">
-          </div>
-        </div>
-        <div class="radius-block">
-          <div class="range-field master">
-            <label>모서리 한번에 조절</label>
-            <input type="range" id="inputRadiusMaster" min="0" max="50" value="0">
-            <span class="val" id="inputRadiusMasterVal">0px</span>
-          </div>
-          <div class="corner-grid">
-            <div class="range-field"><label>왼쪽 위</label><input type="range" min="0" max="50" value="0"
-                data-path="input.radius.tl"><span class="val">0px</span></div>
-            <div class="range-field"><label>오른쪽 위</label><input type="range" min="0" max="50" value="0"
-                data-path="input.radius.tr"><span class="val">0px</span></div>
-            <div class="range-field"><label>왼쪽 아래</label><input type="range" min="0" max="50" value="0"
-                data-path="input.radius.bl"><span class="val">0px</span></div>
-            <div class="range-field"><label>오른쪽 아래</label><input type="range" min="0" max="50" value="0"
-                data-path="input.radius.br"><span class="val">0px</span></div>
-          </div>
-        </div>
-
-        <div class="subgroup-title">체크박스</div>
-        <div class="field">
-          <label>체크 시 배경색</label>
-          <div class="color-row">
-            <input type="color" data-path="checkbox.bgColor" value="#c9a14a">
-            <input type="text" data-path="checkbox.bgColor" data-hex="true" maxlength="9" spellcheck="false"
-              value="#c9a14aff">
-          </div>
-        </div>
-        <div class="range-field">
-          <label>모서리</label>
-          <input type="range" min="0" max="50" value="8" data-path="checkbox.radius">
-          <span class="val">8px</span>
-        </div>
-        <div class="field">
-          <label>외형</label>
-          <select data-path="checkbox.appearance">
-            <option value="none">커스텀 스타일 적용</option>
-            <option value="auto">기본 체크박스 적용</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2>⑦ 추가/수정/삭제 버튼</h2>
-        <div class="row2">
-          <div class="field">
-            <label>배경색</label>
-            <div class="color-row">
-              <input type="color" data-path="repcontrol.bgColor" value="#c9a14a">
-              <input type="text" data-path="repcontrol.bgColor" data-hex="true" maxlength="9" spellcheck="false"
-                value="#c9a14a">
-            </div>
-          </div>
-          <div class="field">
-            <label>글자색</label>
-            <div class="color-row">
-              <input type="color" data-path="repcontrol.fontColor" value="#1b1712">
-              <input type="text" data-path="repcontrol.fontColor" data-hex="true" maxlength="9" spellcheck="false"
-                value="#1b1712">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2>⑦-1 무기 종류 선택</h2>
-        <div class="field">
-          <label>글자색</label>
-          <div class="color-row">
-            <input type="color" data-path="weaponAction.fontColor" value="#f0e6cc">
-            <input type="text" data-path="weaponAction.fontColor" data-hex="true" maxlength="9" spellcheck="false"
-              value="#f0e6ccff">
-          </div>
-        </div>
-        <div class="field">
-          <label>배경색</label>
-          <div class="color-row">
-            <input type="color" data-path="weaponAction.bgColor" value="#8c3b3b">
-            <input type="text" data-path="weaponAction.bgColor" data-hex="true" maxlength="9" spellcheck="false"
-              value="#8c3b3bff">
-          </div>
-        </div>
-        <div class="field">
-          <label>테두리 색</label>
-          <div class="color-row">
-            <input type="color" data-path="weaponAction.borderColor" value="#c9a14a">
-            <input type="text" data-path="weaponAction.borderColor" data-hex="true" maxlength="9" spellcheck="false"
-              value="#c9a14aff">
-          </div>
-        </div>
-        <div class="row2">
-          <div class="field">
-            <label>테두리 두께 (px)</label>
-            <input type="number" min="0" max="10" data-path="weaponAction.borderWidth" value="1">
-          </div>
-          <div class="field">
-            <label>테두리 스타일</label>
-            <select data-path="weaponAction.borderStyle">
-              <option value="solid">solid (일반)</option>
-              <option value="dashed">dashed (점선)</option>
-              <option value="dotted">dotted (간격 좁은 점선)</option>
-              <option value="double">double (겹선)</option>
-              <option value="none">none (없음)</option>
-            </select>
-          </div>
-        </div>
-        <div class="radius-block">
-          <div class="range-field master">
-            <label>모서리 한번에 조절</label>
-            <input type="range" id="weaponActionRadiusMaster" min="0" max="50" value="6">
-            <span class="val" id="weaponActionRadiusMasterVal">6px</span>
-          </div>
-          <div class="corner-grid">
-            <div class="range-field"><label>왼쪽 위</label><input type="range" min="0" max="50" value="6"
-                data-path="weaponAction.radius.tl"><span class="val">6px</span></div>
-            <div class="range-field"><label>오른쪽 위</label><input type="range" min="0" max="50" value="6"
-                data-path="weaponAction.radius.tr"><span class="val">6px</span></div>
-            <div class="range-field"><label>왼쪽 아래</label><input type="range" min="0" max="50" value="6"
-                data-path="weaponAction.radius.bl"><span class="val">6px</span></div>
-            <div class="range-field"><label>오른쪽 아래</label><input type="range" min="0" max="50" value="6"
-                data-path="weaponAction.radius.br"><span class="val">6px</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2>⑦-2 선택 상자 (피해 보너스 등)</h2>
-        <div class="field">
-          <label>글자색</label>
-          <div class="color-row">
-            <input type="color" data-path="selectBox.fontColor" value="#f0e6cc">
-            <input type="text" data-path="selectBox.fontColor" data-hex="true" maxlength="9" spellcheck="false"
-              value="#f0e6ccff">
-          </div>
-        </div>
-        <div class="field">
-          <label>배경색</label>
-          <div class="color-row">
-            <input type="color" data-path="selectBox.bgColor" value="#1b1712">
-            <input type="text" data-path="selectBox.bgColor" data-hex="true" maxlength="9" spellcheck="false"
-              value="#1b1712ff">
-          </div>
-        </div>
-        <div class="field">
-          <label>테두리 색</label>
-          <div class="color-row">
-            <input type="color" data-path="selectBox.borderColor" value="#c9a14a">
-            <input type="text" data-path="selectBox.borderColor" data-hex="true" maxlength="9" spellcheck="false"
-              value="#c9a14aff">
-          </div>
-        </div>
-        <div class="row2">
-          <div class="field">
-            <label>테두리 두께 (px)</label>
-            <input type="number" min="0" max="10" data-path="selectBox.borderWidth" value="1">
-          </div>
-          <div class="field">
-            <label>테두리 스타일</label>
-            <select data-path="selectBox.borderStyle">
-              <option value="solid">solid (일반)</option>
-              <option value="dashed">dashed (점선)</option>
-              <option value="dotted">dotted (간격 좁은 점선)</option>
-              <option value="double">double (겹선)</option>
-              <option value="none">none (없음)</option>
-            </select>
-          </div>
-        </div>
-        <div class="radius-block">
-          <div class="range-field master">
-            <label>모서리 한번에 조절</label>
-            <input type="range" id="selectBoxRadiusMaster" min="0" max="50" value="6">
-            <span class="val" id="selectBoxRadiusMasterVal">6px</span>
-          </div>
-          <div class="corner-grid">
-            <div class="range-field"><label>왼쪽 위</label><input type="range" min="0" max="50" value="6"
-                data-path="selectBox.radius.tl"><span class="val">6px</span></div>
-            <div class="range-field"><label>오른쪽 위</label><input type="range" min="0" max="50" value="6"
-                data-path="selectBox.radius.tr"><span class="val">6px</span></div>
-            <div class="range-field"><label>왼쪽 아래</label><input type="range" min="0" max="50" value="6"
-                data-path="selectBox.radius.bl"><span class="val">6px</span></div>
-            <div class="range-field"><label>오른쪽 아래</label><input type="range" min="0" max="50" value="6"
-                data-path="selectBox.radius.br"><span class="val">6px</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2>⑧ CoC 로고 표시 여부</h2>
-        <div class="checkbox-row">
-          <input type="checkbox" id="logoVisible" data-path="logo.visible" checked>
-          <label for="logoVisible">로고 표시 (체크 해제 시 숨김)</label>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2>⑨ 판정 결과(기능치, 광기 등)</h2>
-        
-        <div class="subgroup-title">헤더</div>
-        <div class="field">
-          <label>배경색</label>
-          <div class="color-row">
-            <input type="color" data-path="rollCaption.bgColor" value="#3c6e71">
-            <input type="text" data-path="rollCaption.bgColor" data-hex="true" maxlength="9" spellcheck="false"
-              value="#3c6e71">
-          </div>
-        </div>
-
-        <div class="subgroup-title">테이블</div>
-        <div class="field">
-          <label>배경 사진 (이미지 URL)</label>
-          <input type="text" data-path="rollTable.bgImage" placeholder="https://...">
-          <img class="thumb" id="rollTableThumb" alt="배경 미리보기">
-        </div>
-        <div class="row2">
-          <div class="field">
-            <label>배경색</label>
-            <div class="color-row">
-              <input type="color" data-path="rollTable.bgColor" value="#1b1712">
-              <input type="text" data-path="rollTable.bgColor" data-hex="true" maxlength="9" spellcheck="false"
-                value="#1b1712">
-            </div>
-          </div>
-          <div class="field">
-            <label>글자색</label>
-            <div class="color-row">
-              <input type="color" data-path="rollTable.fontColor" value="#f0e6cc">
-              <input type="text" data-path="rollTable.fontColor" data-hex="true" maxlength="9" spellcheck="false"
-                value="#f0e6cc">
-            </div>
-          </div>
-        </div>
-        <div class="row2">
-          <div class="field">
-            <label>테두리 색</label>
-            <div class="color-row">
-              <input type="color" data-path="rollTable.borderColor" value="#c9a14a">
-              <input type="text" data-path="rollTable.borderColor" data-hex="true" maxlength="9" spellcheck="false"
-                value="#c9a14a">
-            </div>
-          </div>
-          <div class="field">
-            <label>테두리 두께 (px)</label>
-            <input type="number" min="0" max="10" data-path="rollTable.borderWidth" value="2">
-          </div>
-        </div>
-
-        <div class="radius-block">
-          <div class="range-field master">
-            <label>전체 모서리 한번에 조절</label>
-            <input type="range" id="rollCaptionTableRadiusMaster" min="0" max="60" value="10">
-            <span class="val" id="rollCaptionTableRadiusMasterVal">10px</span>
-          </div>
-          <div class="subgroup-title">캡션 위쪽 모서리</div>
-          <div class="corner-grid">
-            <div class="range-field"><label>왼쪽 위</label><input type="range" min="0" max="60" value="10"
-                data-path="rollCaption.radiusTL"><span class="val">10px</span></div>
-            <div class="range-field"><label>오른쪽 위</label><input type="range" min="0" max="60" value="10"
-                data-path="rollCaption.radiusTR"><span class="val">10px</span></div>
-          </div>
-          <div class="subgroup-title">테이블 아래쪽 모서리</div>
-          <div class="corner-grid">
-            <div class="range-field"><label>왼쪽 아래</label><input type="range" min="0" max="60" value="10"
-                data-path="rollTable.radiusBL"><span class="val">10px</span></div>
-            <div class="range-field"><label>오른쪽 아래</label><input type="range" min="0" max="60" value="10"
-                data-path="rollTable.radiusBR"><span class="val">10px</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2>⑩ 롤 템플릿 행 구분선</h2>
-        <div class="row2">
-          <div class="field">
-            <label>선 색</label>
-            <div class="color-row">
-              <input type="color" data-path="rollRow.borderColor" value="#c9a14a">
-              <input type="text" data-path="rollRow.borderColor" data-hex="true" maxlength="9" spellcheck="false"
-                value="#c9a14a">
-            </div>
-          </div>
-          <div class="field">
-            <label>선 두께 (px)</label>
-            <input type="number" min="0" max="10" data-path="rollRow.borderWidth" value="2">
-          </div>
-        </div>
-        <div class="field">
-          <label>선 스타일</label>
-          <select data-path="rollRow.borderStyle">
-            <option value="solid">solid</option>
-            <option value="dashed">dashed</option>
-            <option value="dotted">dotted</option>
-            <option value="double">double</option>
-            <option value="none">none</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2>⑪ 주사위 롤 결과</h2>
-        <div class="row2">
-          <div class="field">
-            <label>테두리 색</label>
-            <div class="color-row">
-              <input type="color" data-path="rollInline.borderColor" value="#000000">
-              <input type="text" data-path="rollInline.borderColor" data-hex="true" maxlength="9" spellcheck="false"
-                value="#00000000">
-            </div>
-          </div>
-          <div class="field">
-            <label>배경색</label>
-            <div class="color-row">
-              <input type="color" data-path="rollInline.bgColor" value="#e3c46b">
-              <input type="text" data-path="rollInline.bgColor" data-hex="true" maxlength="9" spellcheck="false"
-                value="#e3c46b">
-            </div>
-          </div>
-        </div>
-        <div class="field">
-          <label>글자색</label>
-          <div class="color-row">
-            <input type="color" data-path="rollInline.fontColor" value="#f0e6cc">
-            <input type="text" data-path="rollInline.fontColor" data-hex="true" maxlength="9" spellcheck="false"
-              value="#f0e6ccff">
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="col-right">
-      <div class="card">
-        <h2>생성된 CSS</h2>
-        <p class="desc">왼쪽 미리보기에 실시간으로 적용됩니다. 최종본은 복사하거나 manipulable.css로 다운로드해서 사용하세요.</p>
-        <div class="out-actions">
-          <button id="copyBtn" type="button">복사</button>
-          <button id="downloadBtn" class="secondary" type="button">manipulable.css 다운로드</button>
-          <button id="resetBtn" class="secondary" type="button">원본값으로 초기화</button>
-        </div>
-        <textarea id="cssOutput" readonly spellcheck="false"></textarea>
+          <input type="file" id="loadFileInput" accept=".css,text/css" hidden>
+          <p class="note" id="loadStatusNote"></p>
+          <p class="note">브라우저 자동 저장을 지원합니다.</p>
+          <textarea id="cssOutput" readonly spellcheck="false"></textarea>
+        </details>
       </div>
     </div>
-  </div>
 
 
 
-  <script>
-    // 기본 색상은 "고서/양피지 + 골드 + 딥 틸" 톤의 일관된 팔레트로 구성했습니다.
-    // 모든 색상 값은 #RRGGBBAA(8자리 HEX) 형식으로 저장하며, 끝 2자리가 알파(투명도)입니다.
-    function mkButtonStyle(fontColor) {
-      return {
-        fontColor,
-        bgColor: '#00000000',
-        borderColor: '#c9a14a00',
-        borderWidth: 0,
-        borderStyle: 'solid',
-        radius: { tl: 0, tr: 0, br: 0, bl: 0 },
-      };
-    }
-
-    const DEFAULT_STATE = {
-      beforeFont: 'Arial, Helvetica, sans-serif',
-      beforeContent: '★',
-      charsheet: {
-        bgColor: '#2b2620ff',
-        bgImage: '',
-        bgSize: '100% auto',
-        bgRepeat: 'no-repeat',
-        borderColor: '#c9a14aff',
-        borderWidth: 2,
-        borderStyle: 'solid',
-        fontColor: '#f0e6ccff',
-        fontFamily: 'Arial',
-        cdivPaddingTop: 0,
-      },
-      normalRoll: {
-        fontColor: '#f0e6ccff',
-        bgColor: '#3c6e71ff',
-        borderColor: '#c9a14aff',
-        borderWidth: 1,
-        borderStyle: 'solid',
-        radius: { tl: 6, tr: 6, br: 6, bl: 6 },
-      },
-      simpleButtons: {
-        oldRoll: mkButtonStyle('#c9a14aff'),
-        smallButtonRoll: mkButtonStyle('#7fa37fff'),
-        diceRoll: mkButtonStyle('#3c6e71ff'),
-        smallNonSkillButtonRoll: mkButtonStyle('#6b5b95ff'),
-        diceRollAction: mkButtonStyle('#d98e73ff'),
-        nadvAction: mkButtonStyle('#8c3b3bff'),
-        advAction: mkButtonStyle('#a1652eff'),
-      },
-      sectionHead: {
-        bgColor: '#3c6e71ff',
-        fontColor: '#f0e6ccff',
-        borderColor: '#c9a14aff',
-        borderWidth: 1,
-        borderStyle: 'solid',
-        radiusTL: 10,
-        radiusTR: 10,
-      },
-      section: {
-        bgColor: '#3a332aff',
-        borderColor: '#c9a14aff',
-        borderWidth: 2,
-        borderStyle: 'solid',
-        radiusBL: 10,
-        radiusBR: 10,
-      },
-      input: {
-        bgColor: '#1b1712ff',
-        fontColor: '#f0e6ccff',
-        borderColor: '#c9a14aff',
-        radius: { tl: 0, tr: 0, br: 0, bl: 0 },
-      },
-      checkbox: {
-        bgColor: '#c9a14aff',
-        radius: 8,
-        appearance: 'none',
-      },
-      repcontrol: {
-        bgColor: '#c9a14aff',
-        fontColor: '#1b1712ff',
-      },
-      weaponAction: {
-        fontColor: '#f0e6ccff',
-        bgColor: '#8c3b3bff',
-        borderColor: '#c9a14aff',
-        borderWidth: 1,
-        borderStyle: 'solid',
-        radius: { tl: 6, tr: 6, br: 6, bl: 6 },
-      },
-      selectBox: {
-        fontColor: '#f0e6ccff',
-        bgColor: '#1b1712ff',
-        borderColor: '#c9a14aff',
-        borderWidth: 1,
-        borderStyle: 'solid',
-        radius: { tl: 6, tr: 6, br: 6, bl: 6 },
-      },
-      logo: {
-        visible: true,
-      },
-      rollCaption: {
-        bgColor: '#3c6e71ff',
-        radiusTL: 10,
-        radiusTR: 10,
-      },
-      rollTable: {
-        bgImage: '',
-        bgColor: '#1b1712ff',
-        fontColor: '#f0e6ccff',
-        borderColor: '#c9a14aff',
-        borderWidth: 2,
-        radiusBL: 10,
-        radiusBR: 10,
-      },
-      rollRow: {
-        borderColor: '#c9a14aff',
-        borderWidth: 2,
-        borderStyle: 'solid',
-      },
-      rollInline: {
-        borderColor: '#00000000',
-        bgColor: '#e3c46bff',
-        fontColor: '#f0e6ccff',
-      },
-    };
-
-    let state = JSON.parse(JSON.stringify(DEFAULT_STATE));
-
-    const SIMPLE_BUTTONS = [
-      { key: 'oldRoll', label: '보너스 다이스', selector: '.charsheet button[type=roll].sheet-old-roll' },
-      { key: 'smallButtonRoll', label: '동료 & 탈것', selector: '.charsheet button[type=roll].sheet-smallbutton-roll' },
-      { key: 'diceRoll', label: '광기', selector: '.charsheet button[type=roll].sheet-dice-roll' },
-      { key: 'smallNonSkillButtonRoll', label: '주도권/방어/장갑 등 (sheet-smallnonskillbutton-roll)', selector: '.charsheet button[type=roll].sheet-smallnonskillbutton-roll' },
-      { key: 'diceRollAction', label: '행운', selector: '.charsheet button[type=action].sheet-dice-roll-action' },
-      { key: 'nadvAction', label: '전투 - 일반', selector: '.charsheet button[type=action].sheet-nadv-action' },
-      { key: 'advAction', label: '전투 - 유리', selector: '.charsheet button[type=action].sheet-adv-action' },
-    ];
-
-    const ROLLTEMPLATE_CLASSES = [
-      '.sheet-rolltemplate-coc',
-      '.sheet-rolltemplate-coc--body-hit-loc',
-      '.sheet-rolltemplate-coc-1',
-      '.sheet-rolltemplate-coc-attack',
-      '.sheet-rolltemplate-coc-attack-1',
-      '.sheet-rolltemplate-coc-body-hit-loc',
-      '.sheet-rolltemplate-coc-bomadness-da-rt',
-      '.sheet-rolltemplate-coc-bomadness-da-summ',
-      '.sheet-rolltemplate-coc-bomadness-rt',
-      '.sheet-rolltemplate-coc-bomadness-summ',
-      '.sheet-rolltemplate-coc-defence',
-      '.sheet-rolltemplate-coc-defence-1',
-      '.sheet-rolltemplate-coc-defence-2',
-      '.sheet-rolltemplate-coc-dice-roll',
-      '.sheet-rolltemplate-coc-init-reroll',
-      '.sheet-rolltemplate-coc-init-stc',
-      '.sheet-rolltemplate-coc-minionattack',
-      '.sheet-rolltemplate-coc-miniondef',
-      '.sheet-rolltemplate-coc-mixed-bomadness-rt',
-      '.sheet-rolltemplate-coc-mixed-bomadness-summ',
-      '.sheet-rolltemplate-coc-one-row-center',
-      '.sheet-rolltemplate-coc-pulp-bomadness-rt',
-      '.sheet-rolltemplate-coc-pulp-bomadness-summ',
-      '.sheet-rolltemplate-coc-vehicleattack',
-      '.sheet-rolltemplate-type-coc-attack',
-      '.sheet-rolltemplate-type-coc-attack-1',
-    ];
-    function selList(suffix) {
-      return ROLLTEMPLATE_CLASSES.map(c => c + suffix).join(',\n');
-    }
-
-    const STATIC_MASTER_GROUPS = [
-      { masterId: 'normalRollRadiusMaster', valId: 'normalRollRadiusMasterVal', paths: ['normalRoll.radius.tl', 'normalRoll.radius.tr', 'normalRoll.radius.br', 'normalRoll.radius.bl'] },
-      { masterId: 'inputRadiusMaster', valId: 'inputRadiusMasterVal', paths: ['input.radius.tl', 'input.radius.tr', 'input.radius.br', 'input.radius.bl'] },
-      { masterId: 'weaponActionRadiusMaster', valId: 'weaponActionRadiusMasterVal', paths: ['weaponAction.radius.tl', 'weaponAction.radius.tr', 'weaponAction.radius.br', 'weaponAction.radius.bl'] },
-      { masterId: 'selectBoxRadiusMaster', valId: 'selectBoxRadiusMasterVal', paths: ['selectBox.radius.tl', 'selectBox.radius.tr', 'selectBox.radius.br', 'selectBox.radius.bl'] },
-      { masterId: 'rollCaptionTableRadiusMaster', valId: 'rollCaptionTableRadiusMasterVal', paths: ['rollCaption.radiusTL', 'rollCaption.radiusTR', 'rollTable.radiusBR', 'rollTable.radiusBL'] },
-      { masterId: 'sectionRadiusMaster', valId: 'sectionRadiusMasterVal', paths: ['sectionHead.radiusTL', 'sectionHead.radiusTR', 'section.radiusBR', 'section.radiusBL'] },
-    ];
-
-    function simpleButtonMasterGroups() {
-      return SIMPLE_BUTTONS.map(b => ({
-        masterId: `simpleBtnRadiusMaster_${b.key}`,
-        valId: `simpleBtnRadiusMasterVal_${b.key}`,
-        paths: ['tl', 'tr', 'br', 'bl'].map(c => `simpleButtons.${b.key}.radius.${c}`),
-      }));
-    }
-    function allMasterGroups() {
-      return STATIC_MASTER_GROUPS.concat(simpleButtonMasterGroups());
-    }
-
-    function getPath(obj, path) {
-      return path.split('.').reduce((o, k) => (o == null ? o : o[k]), obj);
-    }
-    function setPath(obj, path, value) {
-      const keys = path.split('.');
-      let o = obj;
-      for (let i = 0; i < keys.length - 1; i++) o = o[keys[i]];
-      o[keys[keys.length - 1]] = value;
-    }
-
-    function splitHex(hex) {
-      const h = String(hex || '#000000ff');
-      if (/^#[0-9a-fA-F]{8}$/.test(h)) return { rgb: h.slice(0, 7), alphaHex: h.slice(7, 9).toLowerCase() };
-      if (/^#[0-9a-fA-F]{6}$/.test(h)) return { rgb: h, alphaHex: 'ff' };
-      return { rgb: '#000000', alphaHex: 'ff' };
-    }
-    function alphaHexToPercent(a) {
-      return Math.round(parseInt(a, 16) / 255 * 100);
-    }
-    function alphaPercentToHex(p) {
-      return Math.round(Math.min(100, Math.max(0, p)) / 100 * 255).toString(16).padStart(2, '0');
-    }
-
-    function radiusCSS(r) {
-      const { tl, tr, br, bl } = r;
-      if (tl === tr && tr === br && br === bl) {
-        return `border-radius: ${tl}px !important;`;
+    <script>
+      // 모든 색상 값은 #RRGGBBAA(8자리 HEX) 형식으로 저장하며, 끝 2자리가 알파(투명도)입니다.
+      function mkButtonStyle(fontColor) {
+        return {
+          fontColor,
+          bgColor: '#00000000',
+          borderColor: '#c9a14a00',
+          borderWidth: 0,
+          borderStyle: 'solid',
+          radius: { tl: 0, tr: 0, br: 0, bl: 0 },
+        };
       }
-      return [
-        `border-top-left-radius: ${tl}px !important;`,
-        `border-top-right-radius: ${tr}px !important;`,
-        `border-bottom-right-radius: ${br}px !important;`,
-        `border-bottom-left-radius: ${bl}px !important;`,
-      ].join('\n    ');
-    }
-    function headRadiusCSS(h) {
-      return [
-        `border-top-left-radius: ${h.radiusTL}px !important;`,
-        `border-top-right-radius: ${h.radiusTR}px !important;`,
-        `border-bottom-right-radius: 0px !important;`,
-        `border-bottom-left-radius: 0px !important;`,
-      ].join('\n    ');
-    }
-    function sectionRadiusCSS(s) {
-      return [
-        `border-top-left-radius: 0px !important;`,
-        `border-top-right-radius: 0px !important;`,
-        `border-bottom-right-radius: ${s.radiusBR}px !important;`,
-        `border-bottom-left-radius: ${s.radiusBL}px !important;`,
-      ].join('\n    ');
-    }
 
-    function escapeCSSContent(str) {
-      return String(str).replace(/\\/g, '\\\\').replace(/"/g, '\\"');
-    }
+      const DEFAULT_STATE = {
+        beforeFont: 'Arial, Helvetica, sans-serif',
+        beforeContent: '★',
+        charsheet: {
+          bgColor: '#2b2620ff',
+          bgImage: '',
+          bgSize: '100% auto',
+          bgRepeat: 'no-repeat',
+          borderColor: '#c9a14aff',
+          borderWidth: 2,
+          borderStyle: 'solid',
+          fontColor: '#f0e6ccff',
+          fontFamily: 'Arial',
+          cdivPaddingTop: 0,
+        },
+        normalRoll: {
+          fontColor: '#f0e6ccff',
+          bgColor: '#3c6e71ff',
+          borderColor: '#c9a14aff',
+          borderWidth: 1,
+          borderStyle: 'solid',
+          radius: { tl: 6, tr: 6, br: 6, bl: 6 },
+        },
+        simpleButtons: {
+          oldRoll: mkButtonStyle('#c9a14aff'),
+          smallButtonRoll: mkButtonStyle('#7fa37fff'),
+          diceRoll: mkButtonStyle('#3c6e71ff'),
+          smallNonSkillButtonRoll: mkButtonStyle('#6b5b95ff'),
+          diceRollAction: mkButtonStyle('#d98e73ff'),
+          nadvAction: mkButtonStyle('#8c3b3bff'),
+          advAction: mkButtonStyle('#a1652eff'),
+        },
+        sectionHead: {
+          bgColor: '#3c6e71ff',
+          fontColor: '#f0e6ccff',
+          borderColor: '#c9a14aff',
+          borderWidth: 1,
+          borderStyle: 'solid',
+          radiusTL: 10,
+          radiusTR: 10,
+        },
+        section: {
+          bgColor: '#3a332aff',
+          borderColor: '#c9a14aff',
+          borderWidth: 2,
+          borderStyle: 'solid',
+          radiusBL: 10,
+          radiusBR: 10,
+        },
+        input: {
+          bgColor: '#1b1712ff',
+          fontColor: '#f0e6ccff',
+          borderColor: '#c9a14aff',
+          radius: { tl: 0, tr: 0, br: 0, bl: 0 },
+        },
+        checkbox: {
+          bgColor: '#c9a14aff',
+          radius: 8,
+          appearance: 'none',
+        },
+        repcontrol: {
+          bgColor: '#c9a14aff',
+          fontColor: '#1b1712ff',
+        },
+        weaponAction: {
+          fontColor: '#f0e6ccff',
+          bgColor: '#8c3b3bff',
+          borderColor: '#c9a14aff',
+          borderWidth: 1,
+          borderStyle: 'solid',
+          radius: { tl: 6, tr: 6, br: 6, bl: 6 },
+        },
+        selectBox: {
+          fontColor: '#f0e6ccff',
+          bgColor: '#1b1712ff',
+          borderColor: '#c9a14aff',
+          borderWidth: 1,
+          borderStyle: 'solid',
+          radius: { tl: 6, tr: 6, br: 6, bl: 6 },
+        },
+        logo: {
+          visible: true,
+        },
+        rollCaption: {
+          bgColor: '#3c6e71ff',
+          fontColor: '#f0e6ccff',
+          borderColor: '#c9a14aff',
+          borderWidth: 1,
+          borderStyle: 'solid',
+          radiusTL: 10,
+          radiusTR: 10,
+        },
+        rollTable: {
+          bgImage: '',
+          bgColor: '#1b1712ff',
+          fontColor: '#f0e6ccff',
+          borderColor: '#c9a14aff',
+          borderWidth: 2,
+          borderStyle: 'solid',
+          radiusBL: 10,
+          radiusBR: 10,
+        },
+        rollRow: {
+          borderColor: '#c9a14aff',
+          borderWidth: 2,
+          borderStyle: 'solid',
+        },
+        rollInline: {
+          borderColor: '#00000000',
+          bgColor: '#e3c46bff',
+          fontColor: '#f0e6ccff',
+          borderWidth: 2,
+          borderStyle: 'solid',
+        },
+      };
 
-    function generateCSS() {
-      const s = state;
-      const head = s.sectionHead;
-      const sec = s.section;
-      const parts = [];
+      let state = JSON.parse(JSON.stringify(DEFAULT_STATE));
 
-      parts.push(`@import url('https://fonts.googleapis.com/css2?family=Diphylleia&family=Do+Hyeon&family=Gowun+Dodum&family=Hi+Melody&family=Noto+Serif+KR:wght@200..900&family=Song+Myung&display=swap');
+      // 브라우저에 마지막 작업 상태를 저장해서 재방문 시 이어서 작업할 수 있게 한다.
+      // (state의 스키마가 나중에 바뀌어도 base에 없는 낯선 키는 무시하고,
+      //  base에 있는데 저장값에 없는 새 키는 기본값을 그대로 유지한다)
+      const STORAGE_KEY = 'manipulableSheetState_v1';
+      function deepMergeInto(base, saved) {
+        if (!saved || typeof saved !== 'object') return;
+        Object.keys(base).forEach(k => {
+          if (!(k in saved)) return;
+          const bv = base[k], sv = saved[k];
+          if (bv && typeof bv === 'object' && !Array.isArray(bv)) {
+            deepMergeInto(bv, sv);
+          } else if (typeof sv === typeof bv) {
+            base[k] = sv;
+          }
+        });
+      }
+      function saveStateToStorage() {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        } catch (e) {
+          // 저장 공간을 쓸 수 없는 환경(시크릿 모드 등)이면 조용히 무시한다
+        }
+      }
+      try {
+        const savedRaw = localStorage.getItem(STORAGE_KEY);
+        if (savedRaw) deepMergeInto(state, JSON.parse(savedRaw));
+      } catch (e) {
+        // 저장된 값이 손상되었으면 기본값으로 진행한다
+      }
+
+      const SIMPLE_BUTTONS = [
+        { key: 'oldRoll', label: '보너스 다이스', selector: '.charsheet button[type=roll].sheet-old-roll' },
+        { key: 'smallButtonRoll', label: '동료 & 탈것', selector: '.charsheet button[type=roll].sheet-smallbutton-roll' },
+        { key: 'diceRoll', label: '광기', selector: '.charsheet button[type=roll].sheet-dice-roll' },
+        { key: 'smallNonSkillButtonRoll', label: '주도권/방어/장갑 등', selector: '.charsheet button[type=roll].sheet-smallnonskillbutton-roll' },
+        { key: 'diceRollAction', label: '행운', selector: '.charsheet button[type=action].sheet-dice-roll-action' },
+        { key: 'nadvAction', label: '전투 - 일반', selector: '.charsheet button[type=action].sheet-nadv-action' },
+        { key: 'advAction', label: '전투 - 유리', selector: '.charsheet button[type=action].sheet-adv-action' },
+      ];
+
+      const ROLLTEMPLATE_CLASSES = [
+        '.sheet-rolltemplate-coc',
+        '.sheet-rolltemplate-coc--body-hit-loc',
+        '.sheet-rolltemplate-coc-1',
+        '.sheet-rolltemplate-coc-attack',
+        '.sheet-rolltemplate-coc-attack-1',
+        '.sheet-rolltemplate-coc-body-hit-loc',
+        '.sheet-rolltemplate-coc-bomadness-da-rt',
+        '.sheet-rolltemplate-coc-bomadness-da-summ',
+        '.sheet-rolltemplate-coc-bomadness-rt',
+        '.sheet-rolltemplate-coc-bomadness-summ',
+        '.sheet-rolltemplate-coc-defence',
+        '.sheet-rolltemplate-coc-defence-1',
+        '.sheet-rolltemplate-coc-defence-2',
+        '.sheet-rolltemplate-coc-dice-roll',
+        '.sheet-rolltemplate-coc-init-reroll',
+        '.sheet-rolltemplate-coc-init-stc',
+        '.sheet-rolltemplate-coc-minionattack',
+        '.sheet-rolltemplate-coc-miniondef',
+        '.sheet-rolltemplate-coc-mixed-bomadness-rt',
+        '.sheet-rolltemplate-coc-mixed-bomadness-summ',
+        '.sheet-rolltemplate-coc-one-row-center',
+        '.sheet-rolltemplate-coc-pulp-bomadness-rt',
+        '.sheet-rolltemplate-coc-pulp-bomadness-summ',
+        '.sheet-rolltemplate-coc-vehicleattack',
+        '.sheet-rolltemplate-type-coc-attack',
+        '.sheet-rolltemplate-type-coc-attack-1',
+      ];
+      function selList(suffix) {
+        return ROLLTEMPLATE_CLASSES.map(c => c + suffix).join(',\n');
+      }
+
+      function getPath(obj, path) {
+        return path.split('.').reduce((o, k) => (o == null ? o : o[k]), obj);
+      }
+      function setPath(obj, path, value) {
+        const keys = path.split('.');
+        let o = obj;
+        for (let i = 0; i < keys.length - 1; i++) o = o[keys[i]];
+        o[keys[keys.length - 1]] = value;
+      }
+
+      function splitHex(hex) {
+        const h = String(hex || '#000000ff');
+        if (/^#[0-9a-fA-F]{8}$/.test(h)) return { rgb: h.slice(0, 7), alphaHex: h.slice(7, 9).toLowerCase() };
+        if (/^#[0-9a-fA-F]{6}$/.test(h)) return { rgb: h, alphaHex: 'ff' };
+        return { rgb: '#000000', alphaHex: 'ff' };
+      }
+      function alphaHexToPercent(a) {
+        return Math.round(parseInt(a, 16) / 255 * 100);
+      }
+      function alphaPercentToHex(p) {
+        return Math.round(Math.min(100, Math.max(0, p)) / 100 * 255).toString(16).padStart(2, '0');
+      }
+
+      function radiusCSS(r) {
+        const { tl, tr, br, bl } = r;
+        if (tl === tr && tr === br && br === bl) {
+          return `border-radius: ${tl}px !important;`;
+        }
+        return [
+          `border-top-left-radius: ${tl}px !important;`,
+          `border-top-right-radius: ${tr}px !important;`,
+          `border-bottom-right-radius: ${br}px !important;`,
+          `border-bottom-left-radius: ${bl}px !important;`,
+        ].join('\n    ');
+      }
+      function headRadiusCSS(h) {
+        return [
+          `border-top-left-radius: ${h.radiusTL}px !important;`,
+          `border-top-right-radius: ${h.radiusTR}px !important;`,
+          `border-bottom-right-radius: 0px !important;`,
+          `border-bottom-left-radius: 0px !important;`,
+        ].join('\n    ');
+      }
+      function sectionRadiusCSS(s) {
+        return [
+          `border-top-left-radius: 0px !important;`,
+          `border-top-right-radius: 0px !important;`,
+          `border-bottom-right-radius: ${s.radiusBR}px !important;`,
+          `border-bottom-left-radius: ${s.radiusBL}px !important;`,
+        ].join('\n    ');
+      }
+
+      function escapeCSSContent(str) {
+        return String(str).replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+      }
+
+      function borderLine(x, prop = 'border') {
+        return `${prop}: ${x.borderWidth}px ${x.borderStyle} ${x.borderColor} !important;`;
+      }
+
+      function generateCSS() {
+        const s = state;
+        const head = s.sectionHead;
+        const sec = s.section;
+        const parts = [];
+
+        parts.push(`@import url('https://fonts.googleapis.com/css?family=Diphylleia|Do+Hyeon|Gowun+Dodum|Hi+Melody|Noto+Serif+KR:wght@200..900|Song+Myung&display=swap');
       .charsheet button[type=roll],
       .charsheet button[type=action] {
     text-shadow: none !important;
     box-shadow: none !important;
 }`);
 
-      parts.push(`.charsheet button[type=roll]:before,    /* 주사위 내부*/
+        parts.push(`.charsheet button[type=roll]:before,    /* 주사위 내부*/
 .charsheet button[type=action]:before {
     font-family: ${s.beforeFont} !important;
     content: "${escapeCSSContent(s.beforeContent)}" !important;
 }`);
 
-      parts.push(`.charsheet button[type=roll].sheet-new-roll{   /* normal dice*/
+        parts.push(`.charsheet button[type=roll].sheet-new-roll{   /* normal dice*/
     color: ${s.normalRoll.fontColor} !important;
     background-image: none !important;
     background-color: ${s.normalRoll.bgColor} !important;
-    border: ${s.normalRoll.borderWidth}px ${s.normalRoll.borderStyle} ${s.normalRoll.borderColor} !important;
+    ${borderLine(s.normalRoll)}
     ${radiusCSS(s.normalRoll.radius)}
 }`);
 
-      SIMPLE_BUTTONS.forEach(b => {
-        const st = s.simpleButtons[b.key];
-        parts.push(`${b.selector} {   /* ${b.label} */
+        SIMPLE_BUTTONS.forEach(b => {
+          const st = s.simpleButtons[b.key];
+          parts.push(`${b.selector} {   /* ${b.label} */
     color: ${st.fontColor} !important;
     background-image: none !important;
     background-color: ${st.bgColor} !important;
-    border: ${st.borderWidth}px ${st.borderStyle} ${st.borderColor} !important;
+    ${borderLine(st)}
     ${radiusCSS(st.radius)}
 }`);
-      });
+        });
 
-      parts.push(`.charsheet {    /* 시트 배경 */
+        parts.push(`.charsheet {    /* 시트 배경 */
     background-image: url(${s.charsheet.bgImage}) !important;
     background-size: ${s.charsheet.bgSize} !important;
     background-repeat: ${s.charsheet.bgRepeat} !important;
     background-color: ${s.charsheet.bgColor} !important;
-    border: ${s.charsheet.borderWidth}px ${s.charsheet.borderStyle} ${s.charsheet.borderColor} !important;
+    ${borderLine(s.charsheet)}
     color:${s.charsheet.fontColor} !important;
     font-family: ${s.charsheet.fontFamily} !important;
 }`);
 
-      parts.push(`.sheet-cdiv {    /* 캐릭터 시트 컨테이너 상단 여백 */
+        parts.push(`.sheet-cdiv {    /* 캐릭터 시트 컨테이너 상단 여백 */
     padding-top: ${s.charsheet.cdivPaddingTop}px !important;
 }`);
 
-      parts.push(`h4.sheet-section-head {    /* 각 칸 헤더 */
+        parts.push(`h4.sheet-section-head {    /* 각 칸 헤더 */
     background-image: none !important;
     background-color: ${head.bgColor} !important;
     color: ${head.fontColor} !important;
-    border: ${head.borderWidth}px ${head.borderStyle} ${head.borderColor} !important;
+    ${borderLine(head)}
     ${headRadiusCSS(head)}
 }`);
 
-      parts.push(`div.sheet-section {    /* 각 칸 내용 */
+        parts.push(`div.sheet-section {    /* 각 칸 내용 */
+      
     background-color: ${sec.bgColor} !important;
-    border: ${sec.borderWidth}px ${sec.borderStyle} ${sec.borderColor} !important;
+    ${borderLine(sec)}
+    border-top: 0px !important;
     ${sectionRadiusCSS(sec)}
 }`);
 
-      parts.push(`.charsheet input{    /* 수치 입력 */
+        parts.push(`.charsheet input,
+      .charsheet textarea{    /* 수치 입력 */
     background-color: ${s.input.bgColor} !important;
     color: ${s.input.fontColor} !important;
     border-color: ${s.input.borderColor} !important;
@@ -982,8 +392,8 @@
     ${radiusCSS(s.input.radius)}
 }`);
 
-      parts.push(`.charsheet input[type="checkbox"]{    /* 체크박스 */
-    width: 1rem !important;
+        parts.push(`.charsheet input[type="checkbox"]{    /* 체크박스 */
+    width: 1rem;
     height: 1rem !important;
     border-radius: ${s.checkbox.radius}px !important;
     border: 1px solid ${s.input.borderColor} !important;
@@ -992,38 +402,39 @@
 }
 .charsheet input[type="checkbox"]:checked {
     background-color: ${s.checkbox.bgColor} !important;
+    accent-color: ${s.checkbox.bgColor} !important;
 }`);
 
-      parts.push(`.charsheet .repcontrol_add,
+        parts.push(`.charsheet .repcontrol_add, 
 .charsheet .repcontrol_edit,
-.charsheet .repcontrol_del {
+.charsheet .repcontrol_del {  /*추가 수정 삭제 버튼*/
     background: ${s.repcontrol.bgColor} !important;
     color: ${s.repcontrol.fontColor} !important;
     font-family: ${s.charsheet.fontFamily} !important;
 }`);
 
-      parts.push(`.charsheet button[type=action].sheet-type-weapons {    /* 무기 액션 버튼 */
+        parts.push(`.charsheet button[type=action].sheet-type-weapons {    /* 무기 종류 선택 */
     font-family: ${s.charsheet.fontFamily} !important;
     color: ${s.weaponAction.fontColor} !important;
     background-image: none !important;
     background-color: ${s.weaponAction.bgColor} !important;
-    border: ${s.weaponAction.borderWidth}px ${s.weaponAction.borderStyle} ${s.weaponAction.borderColor} !important;
+    ${borderLine(s.weaponAction)}
     ${radiusCSS(s.weaponAction.radius)}
 }`);
 
-      parts.push(`.charsheet select {    /* 선택 상자 */
+        parts.push(`.charsheet select {    /* 선택 상자 */
     color: ${s.selectBox.fontColor} !important;
     background-color: ${s.selectBox.bgColor} !important;
-    border: ${s.selectBox.borderWidth}px ${s.selectBox.borderStyle} ${s.selectBox.borderColor} !important;
+    ${borderLine(s.selectBox)}
     ${radiusCSS(s.selectBox.radius)}
 }`);
 
-      parts.push(`.sheet-showpulp,
+        parts.push(`.sheet-showpulp,
 .sheet-logosection {
     visibility: ${s.logo.visible ? 'block' : 'hidden'} !important;  /*coc로고삭제 여부(hidden/block)*/
 }`);
 
-      parts.push(`${selList(' table')}{
+        parts.push(`${selList(' table')}{    /* 판정 결과 */
     background-image: url(${s.rollTable.bgImage}) !important;
     background-repeat: no-repeat !important;
     background-position: bottom center !important;
@@ -1033,319 +444,886 @@
     background-color: ${s.rollTable.bgColor} !important;
     border-color: ${s.rollTable.borderColor} !important;
     border-width: ${s.rollTable.borderWidth}px !important;
+    border-style: ${s.rollTable.borderStyle} !important;
+    border-collapse: separate !important;
+    overflow: clip !important;
+    overflow-clip-margin: border-box !important;
+    border-top: 0px !important;
     ${sectionRadiusCSS(s.rollTable)}
 }`);
 
-      parts.push(`${selList(' caption')} {
+        parts.push(`${selList(' caption')} {    /* 판정 헤더 */
   background-color: none !important;
   background: ${s.rollCaption.bgColor} !important;
+  color: ${s.rollCaption.fontColor} !important;
+  ${borderLine(s.rollCaption)}
   ${headRadiusCSS(s.rollCaption)}
 }`);
 
-      parts.push(`${selList(' td')}{
-    border-bottom: ${s.rollRow.borderWidth}px ${s.rollRow.borderStyle} ${s.rollRow.borderColor} !important;
+        parts.push(`${selList(' td')}{    /* 판정 내용1 */
+    ${borderLine(s.rollRow, 'border-bottom')}
     background: none !important;
 }`);
 
-      parts.push(`${selList(' tr')}{
-    border-bottom: ${s.rollRow.borderWidth}px ${s.rollRow.borderStyle} ${s.rollRow.borderColor} !important;
+        parts.push(`${selList(' tr')}{    /* 판정 내용2 */
     background: none !important;
 }`);
 
-      parts.push(`${selList(' .inlinerollresult')} {
-    border: 2px solid ${s.rollInline.borderColor} !important;
+        parts.push(`${selList(' .inlinerollresult')} {    /* 주사위 값 */
+    ${borderLine(s.rollInline)}
     background: ${s.rollInline.bgColor} !important;
     color: ${s.rollInline.fontColor} !important;
 }`);
+        return parts.join('\n\n');
+      }
 
-      return parts.join('\n\n');
-    }
+      // ---- 좌측 패널 필드 렌더 헬퍼 ----
+      // 카드 대부분이 "색상/텍스트/숫자/셀렉트 필드 + 테두리 row2 + 모서리 반경 블록"의
+      // 조합이라, 이 조합을 만드는 함수들을 한 번만 정의하고 카드 스키마(CARDS)에서 재사용한다.
 
-    function colorFieldHTML(path, label) {
-      const val = getPath(state, path);
-      return `<div class="field">
+      function colorFieldHTML(path, label) {
+        const val = getPath(state, path);
+        return `<div class="field">
     <label>${label}</label>
     <div class="color-row">
       <input type="color" data-path="${path}" value="${splitHex(val).rgb}">
       <input type="text" data-path="${path}" data-hex="true" maxlength="9" spellcheck="false" value="${val}">
     </div>
   </div>`;
-    }
+      }
 
-    function borderStyleOptionsHTML() {
-      return ['solid', 'dashed', 'dotted', 'double', 'none']
-        .map(v => `<option value="${v}">${v}</option>`).join('');
-    }
+      function textFieldHTML(path, label, opts = {}) {
+        const val = getPath(state, path);
+        const attrs = [
+          opts.maxlength != null ? `maxlength="${opts.maxlength}"` : '',
+          opts.placeholder ? `placeholder="${opts.placeholder}"` : '',
+        ].filter(Boolean).join(' ');
+        const thumb = opts.thumbId ? `<img class="thumb" id="${opts.thumbId}" alt="배경 미리보기">` : '';
+        const note = opts.note ? `<p class="note">${opts.note}</p>` : '';
+        return `<div class="field">
+    <label>${label}</label>
+    <input type="text" ${attrs} data-path="${path}" value="${val}">
+    ${thumb}
+    ${note}
+  </div>`;
+      }
 
-    function buttonBlockHTML(b) {
-      const path = `simpleButtons.${b.key}`;
-      const st = state.simpleButtons[b.key];
-      return `<div class="simple-button-block">
-    <div class="subgroup-title">${b.label}</div>
+      function numberFieldHTML(path, label, opts = {}) {
+        const val = getPath(state, path);
+        const attrs = [
+          opts.min != null ? `min="${opts.min}"` : '',
+          opts.max != null ? `max="${opts.max}"` : '',
+          opts.step != null ? `step="${opts.step}"` : '',
+        ].filter(Boolean).join(' ');
+        return `<div class="field">
+    <label>${label}</label>
+    <input type="number" ${attrs} data-path="${path}" value="${val}">
+  </div>`;
+      }
+
+      function selectFieldHTML(path, label, options) {
+        const opts = options.map(o => `<option value="${o.value}">${o.label}</option>`).join('');
+        return `<div class="field">
+    <label>${label}</label>
+    <select data-path="${path}">${opts}</select>
+  </div>`;
+      }
+
+      const BORDER_STYLE_ANNOTATED = [
+        ['solid', 'solid (일반)'],
+        ['dashed', 'dashed (점선)'],
+        ['dotted', 'dotted (간격 좁은 점선)'],
+        ['double', 'double (겹선)'],
+        ['none', 'none (없음)'],
+      ];
+      function borderStyleSelectHTML(path, label) {
+        const opts = BORDER_STYLE_ANNOTATED.map(([v, l]) => `<option value="${v}">${l}</option>`).join('');
+        return `<div class="field"><label>${label}</label><select data-path="${path}">${opts}</select></div>`;
+      }
+
+      function checkboxRowHTML(path, label, id) {
+        const checked = getPath(state, path) ? 'checked' : '';
+        return `<div class="checkbox-row">
+    <input type="checkbox" id="${id}" data-path="${path}" ${checked}>
+    <label for="${id}">${label}</label>
+  </div>`;
+      }
+
+      function row2HTML(a, b) {
+        return `<div class="row2">${a}${b}</div>`;
+      }
+
+      function subgroupHTML(label) {
+        return `<div class="subgroup-title">${label}</div>`;
+      }
+
+      function rangeFieldHTML(path, label, max) {
+        const val = getPath(state, path);
+        return `<div class="range-field">
+    <label>${label}</label>
+    <input type="range" min="0" max="${max}" value="${val}" data-path="${path}">
+    <span class="val">${val}px</span>
+  </div>`;
+      }
+
+      function radiusCornersHTML(max, tl, tr, bl, br) {
+        const corners = [
+          ['왼쪽 위', tl], ['오른쪽 위', tr], ['왼쪽 아래', bl], ['오른쪽 아래', br],
+        ];
+        return `<div class="corner-grid">${corners.map(([label, path]) => {
+          const v = getPath(state, path);
+          return `<div class="range-field"><label>${label}</label><input type="range" min="0" max="${max}" value="${v}" data-path="${path}"><span class="val">${v}px</span></div>`;
+        }).join('')}</div>`;
+      }
+
+      // 마스터 슬라이더 하나로 4방향 모서리를 한번에 조절하는 블록.
+      // radiusBlockHTML()로 만든 블록은 STATIC_MASTER_GROUPS에 자기 자신을 등록해서,
+      // wireMasterSliders/syncMasterSliders가 별도 목록을 손으로 유지할 필요가 없게 한다.
+      const STATIC_MASTER_GROUPS = [];
+
+      function radiusBlockBodyHTML({ masterId, valId, max, tl, tr, bl, br, masterLabel = '모서리 한번에 조절' }) {
+        const v = getPath(state, tl);
+        return `<div class="radius-block">
+    <div class="range-field master">
+      <label>${masterLabel}</label>
+      <input type="range" id="${masterId}" min="0" max="${max}" value="${v}">
+      <span class="val" id="${valId}">${v}px</span>
+    </div>
+    ${radiusCornersHTML(max, tl, tr, bl, br)}
+  </div>`;
+      }
+
+      function radiusBlockHTML(opts) {
+        const { masterId, valId, tl, tr, br, bl } = opts;
+        STATIC_MASTER_GROUPS.push({ masterId, valId, paths: [tl, tr, br, bl] });
+        return radiusBlockBodyHTML(opts);
+      }
+
+      // 헤더 위쪽 2모서리 + 섹션 아래쪽 2모서리처럼, 두 객체에 걸친 4모서리를
+      // 마스터 슬라이더 하나로 조절하는 블록 (카드 ⑤, ⑨에서 사용)
+      function splitRadiusBlockHTML({ masterId, valId, max, topLabel, topTL, topTR, bottomLabel, bottomBL, bottomBR, masterLabel = '전체 모서리 한번에 조절' }) {
+        STATIC_MASTER_GROUPS.push({ masterId, valId, paths: [topTL, topTR, bottomBR, bottomBL] });
+        const v = getPath(state, topTL);
+        return `<div class="radius-block">
+    <div class="range-field master">
+      <label>${masterLabel}</label>
+      <input type="range" id="${masterId}" min="0" max="${max}" value="${v}">
+      <span class="val" id="${valId}">${v}px</span>
+    </div>
+    ${subgroupHTML(topLabel)}
+    <div class="corner-grid">
+      <div class="range-field"><label>왼쪽 위</label><input type="range" min="0" max="${max}" value="${getPath(state, topTL)}" data-path="${topTL}"><span class="val">${getPath(state, topTL)}px</span></div>
+      <div class="range-field"><label>오른쪽 위</label><input type="range" min="0" max="${max}" value="${getPath(state, topTR)}" data-path="${topTR}"><span class="val">${getPath(state, topTR)}px</span></div>
+    </div>
+    ${subgroupHTML(bottomLabel)}
+    <div class="corner-grid">
+      <div class="range-field"><label>왼쪽 아래</label><input type="range" min="0" max="${max}" value="${getPath(state, bottomBL)}" data-path="${bottomBL}"><span class="val">${getPath(state, bottomBL)}px</span></div>
+      <div class="range-field"><label>오른쪽 아래</label><input type="range" min="0" max="${max}" value="${getPath(state, bottomBR)}" data-path="${bottomBR}"><span class="val">${getPath(state, bottomBR)}px</span></div>
+    </div>
+  </div>`;
+      }
+
+      // ---- 카드 스키마: 좌측 패널 ①~⑪ ----
+      const CARDS = [
+        {
+          title: '주사위 문양',
+          desc: 'dicefont, pictos 아이콘 종류는 <a href="https://wiki.roll20.net/CSS_Wizardry#Icon_Fonts">해당 링크</a>에 잘 정리되어 있습니다. <br>(별개로 커스텀 시트 제작법을 공부하기 좋은 사이트입니다.)<br>상기한 두 폰트는 미리보기에 적용되지 않습니다 실제 롤20 시트로 확인해주세요.',
+          blocks: [
+            selectFieldHTML('beforeFont', '폰트', [
+              { value: 'Arial, Helvetica, sans-serif', label: 'Arial' },
+              { value: "'Noto Serif KR', serif", label: 'Noto Serif KR' },
+              { value: 'dicefontd20', label: 'dicefontd20' },
+              { value: 'pictos', label: 'pictos' },
+            ]),
+            textFieldHTML('beforeContent', '아이콘', { maxlength: 4, note: '※ dicefont와 pictos는 각 폰트의 원하는 코드 문자를 입력하세요. (예: 롤20 coc 시트 기본값은 dicefontd20, t)' }),
+          ],
+        },
+        {
+          title: '시트 배경',
+          blocks: [
+            colorFieldHTML('charsheet.bgColor', '배경색'),
+            textFieldHTML('charsheet.bgImage', '배경 사진 (이미지 URL)', { placeholder: 'https://...', thumbId: 'charsheetThumb' }),
+            row2HTML(
+              selectFieldHTML('charsheet.bgSize', '배경 크기', [
+                { value: '100% auto', label: '100% auto (추천)' },
+                { value: 'cover', label: 'cover' },
+                { value: 'contain', label: 'contain' },
+                { value: 'auto', label: 'auto' },
+              ]),
+              selectFieldHTML('charsheet.bgRepeat', '배경 반복', [
+                { value: 'no-repeat', label: 'no-repeat (여백 o)' },
+                { value: 'repeat', label: 'repeat' },
+                { value: 'repeat-x', label: 'repeat-x' },
+                { value: 'repeat-y', label: 'repeat-y' },
+              ])
+            ),
+            colorFieldHTML('charsheet.borderColor', '테두리 색'),
+            row2HTML(
+              numberFieldHTML('charsheet.borderWidth', '테두리 두께 (px)', { min: 0, max: 10 }),
+              borderStyleSelectHTML('charsheet.borderStyle', '테두리 스타일')
+            ),
+            colorFieldHTML('charsheet.fontColor', '글자색'),
+            selectFieldHTML('charsheet.fontFamily', '폰트', [
+              { value: 'Arial', label: 'Arial' },
+              { value: "'Do Hyeon', sans-serif", label: '배달의 민족 도현체' },
+              { value: "'Song Myung', serif", label: 'Song Myung' },
+              { value: "'Noto Serif KR', serif", label: 'Noto Serif Korean' },
+              { value: "'Gowun Dodum', sans-serif", label: '고운 돋움' },
+              { value: "'Hi Melody', sans-serif", label: 'Hi Melody' },
+              { value: "'Diphylleia', cursive", label: 'Diphylleia' },
+            ]),
+            numberFieldHTML('charsheet.cdivPaddingTop', '상단 여백 (px)', { step: 10 }),
+          ],
+        },
+        {
+          title: '일반 주사위 버튼',
+          blocks: [
+            colorFieldHTML('normalRoll.fontColor', '글자색'),
+            colorFieldHTML('normalRoll.bgColor', '배경색'),
+            colorFieldHTML('normalRoll.borderColor', '테두리 색'),
+            row2HTML(
+              numberFieldHTML('normalRoll.borderWidth', '테두리 두께 (px)', { min: 0, max: 10 }),
+              borderStyleSelectHTML('normalRoll.borderStyle', '테두리 스타일')
+            ),
+            radiusBlockHTML({ masterId: 'normalRollRadiusMaster', valId: 'normalRollRadiusMasterVal', max: 50, tl: 'normalRoll.radius.tl', tr: 'normalRoll.radius.tr', bl: 'normalRoll.radius.bl', br: 'normalRoll.radius.br' }),
+          ],
+        },
+        {
+          title: '기타 주사위 버튼',
+          desc: '아래 버튼으로 전체를 일반 주사위 값과 통일할 수 있습니다.',
+          blocks: [
+            '<div class="simple-buttons-grid" id="simpleButtonsContainer"></div>',
+          ],
+        },
+        {
+          title: '섹션 헤더 + 섹션 박스',
+          desc: '탐사자 정보, 특성치 등 섹션의 값을 조정합니다.',
+          blocks: [
+            subgroupHTML('헤더'),
+            colorFieldHTML('sectionHead.bgColor', '배경색'),
+            colorFieldHTML('sectionHead.fontColor', '글자색'),
+            colorFieldHTML('sectionHead.borderColor', '테두리 색'),
+            row2HTML(
+              numberFieldHTML('sectionHead.borderWidth', '테두리 두께 (px)', { min: 0, max: 10 }),
+              borderStyleSelectHTML('sectionHead.borderStyle', '테두리 스타일')
+            ),
+            subgroupHTML('섹션'),
+            colorFieldHTML('section.bgColor', '배경색'),
+            colorFieldHTML('section.borderColor', '테두리 색'),
+            row2HTML(
+              numberFieldHTML('section.borderWidth', '테두리 두께 (px)', { min: 0, max: 10 }),
+              borderStyleSelectHTML('section.borderStyle', '테두리 스타일')
+            ),
+            splitRadiusBlockHTML({
+              masterId: 'sectionRadiusMaster', valId: 'sectionRadiusMasterVal', max: 60,
+              topLabel: '헤더 위쪽 모서리', topTL: 'sectionHead.radiusTL', topTR: 'sectionHead.radiusTR',
+              bottomLabel: '섹션 아래쪽 모서리', bottomBL: 'section.radiusBL', bottomBR: 'section.radiusBR',
+            }),
+          ],
+        },
+        {
+          title: '입력칸',
+          blocks: [
+            row2HTML(colorFieldHTML('input.bgColor', '배경색'), colorFieldHTML('input.fontColor', '글자색')),
+            colorFieldHTML('input.borderColor', '테두리 색'),
+            radiusBlockHTML({ masterId: 'inputRadiusMaster', valId: 'inputRadiusMasterVal', max: 50, tl: 'input.radius.tl', tr: 'input.radius.tr', bl: 'input.radius.bl', br: 'input.radius.br' }),
+            subgroupHTML('체크박스'),
+            colorFieldHTML('checkbox.bgColor', '체크 시 배경색'),
+            rangeFieldHTML('checkbox.radius', '모서리', 50),
+            selectFieldHTML('checkbox.appearance', '외형', [
+              { value: 'none', label: '커스텀 스타일 적용' },
+              { value: 'auto', label: '기본 체크박스 적용' },
+            ]),
+          ],
+        },
+        {
+          title: '추가/수정/삭제 버튼',
+          blocks: [
+            row2HTML(colorFieldHTML('repcontrol.bgColor', '배경색'), colorFieldHTML('repcontrol.fontColor', '글자색')),
+          ],
+        },
+        {
+          title: '무기 종류 선택',
+          blocks: [
+            colorFieldHTML('weaponAction.fontColor', '글자색'),
+            colorFieldHTML('weaponAction.bgColor', '배경색'),
+            colorFieldHTML('weaponAction.borderColor', '테두리 색'),
+            row2HTML(
+              numberFieldHTML('weaponAction.borderWidth', '테두리 두께 (px)', { min: 0, max: 10 }),
+              borderStyleSelectHTML('weaponAction.borderStyle', '테두리 스타일')
+            ),
+            radiusBlockHTML({ masterId: 'weaponActionRadiusMaster', valId: 'weaponActionRadiusMasterVal', max: 50, tl: 'weaponAction.radius.tl', tr: 'weaponAction.radius.tr', bl: 'weaponAction.radius.bl', br: 'weaponAction.radius.br' }),
+          ],
+        },
+        {
+          title: '선택 상자 (피해 보너스 등)',
+          blocks: [
+            colorFieldHTML('selectBox.fontColor', '글자색'),
+            colorFieldHTML('selectBox.bgColor', '배경색'),
+            colorFieldHTML('selectBox.borderColor', '테두리 색'),
+            row2HTML(
+              numberFieldHTML('selectBox.borderWidth', '테두리 두께 (px)', { min: 0, max: 10 }),
+              borderStyleSelectHTML('selectBox.borderStyle', '테두리 스타일')
+            ),
+            radiusBlockHTML({ masterId: 'selectBoxRadiusMaster', valId: 'selectBoxRadiusMasterVal', max: 50, tl: 'selectBox.radius.tl', tr: 'selectBox.radius.tr', bl: 'selectBox.radius.bl', br: 'selectBox.radius.br' }),
+          ],
+        },
+        {
+          title: 'CoC 로고 표시 여부',
+          blocks: [
+            checkboxRowHTML('logo.visible', '로고 표시 (체크 해제 시 숨김)', 'logoVisible'),
+          ],
+        },
+        {
+          title: '판정 결과(기능치, 광기 등)',
+          blocks: [
+            subgroupHTML('헤더'),
+            colorFieldHTML('rollCaption.bgColor', '배경색'),
+            colorFieldHTML('rollCaption.fontColor', '글자색'),
+            colorFieldHTML('rollCaption.borderColor', '테두리 색'),
+            row2HTML(
+              numberFieldHTML('rollCaption.borderWidth', '테두리 두께 (px)', { min: 0, max: 10 }),
+              borderStyleSelectHTML('rollCaption.borderStyle', '테두리 스타일')
+            ),
+            subgroupHTML('테이블'),
+            textFieldHTML('rollTable.bgImage', '배경 사진 (이미지 URL)', { placeholder: 'https://...', thumbId: 'rollTableThumb' }),
+            row2HTML(colorFieldHTML('rollTable.bgColor', '배경색'), colorFieldHTML('rollTable.fontColor', '글자색')),
+            row2HTML(colorFieldHTML('rollTable.borderColor', '테두리 색'), numberFieldHTML('rollTable.borderWidth', '테두리 두께 (px)', { min: 0, max: 10 })),
+            borderStyleSelectHTML('rollTable.borderStyle', '테두리 스타일'),
+            splitRadiusBlockHTML({
+              masterId: 'rollCaptionTableRadiusMaster', valId: 'rollCaptionTableRadiusMasterVal', max: 60,
+              topLabel: '캡션 위쪽 모서리', topTL: 'rollCaption.radiusTL', topTR: 'rollCaption.radiusTR',
+              bottomLabel: '테이블 아래쪽 모서리', bottomBL: 'rollTable.radiusBL', bottomBR: 'rollTable.radiusBR',
+            }),
+
+          ],
+        },
+        {
+          title: '주사위 롤 결과',
+          blocks: [
+            row2HTML(colorFieldHTML('rollInline.borderColor', '테두리 색'), colorFieldHTML('rollInline.bgColor', '배경색')),
+            colorFieldHTML('rollInline.fontColor', '글자색'),
+            row2HTML(
+              numberFieldHTML('rollInline.borderWidth', '테두리 두께 (px)', { min: 0, max: 10 }),
+              borderStyleSelectHTML('rollInline.borderStyle', '테두리 스타일')
+            ),
+            subgroupHTML('행 구분 선'),
+            colorFieldHTML('rollRow.borderColor', '선 색'),
+            row2HTML(
+              numberFieldHTML('rollRow.borderWidth', '선 두께 (px)', { min: 0, max: 10 }),
+              borderStyleSelectHTML('rollRow.borderStyle', '선 스타일')
+            ),
+          ],
+        },
+      ];
+
+      function cardHTML(card) {
+        return `<details class="card" open>
+    <summary>${card.title}</summary>
+    ${card.desc ? `<p class="desc">${card.desc}</p>` : ''}
+    ${card.blocks.join('\n')}
+  </details>`;
+      }
+      function renderCards(cards) {
+        return cards.map(cardHTML).join('\n');
+      }
+
+      function buttonBlockHTML(b) {
+        const path = `simpleButtons.${b.key}`;
+        return `<div class="simple-button-block">
+    ${subgroupHTML(b.label)}
     ${colorFieldHTML(path + '.fontColor', '글자색')}
     ${colorFieldHTML(path + '.bgColor', '배경색')}
     ${colorFieldHTML(path + '.borderColor', '테두리 색')}
-    <div class="row2">
-      <div class="field">
-        <label>테두리 두께 (px)</label>
-        <input type="number" min="0" max="10" data-path="${path}.borderWidth" value="${st.borderWidth}">
-      </div>
-      <div class="field">
-        <label>테두리 스타일</label>
-        <select data-path="${path}.borderStyle">${borderStyleOptionsHTML()}</select>
-      </div>
-    </div>
-    <div class="radius-block">
-      <div class="range-field master">
-        <label>모서리 한번에 조절</label>
-        <input type="range" id="simpleBtnRadiusMaster_${b.key}" min="0" max="50" value="${st.radius.tl}">
-        <span class="val" id="simpleBtnRadiusMasterVal_${b.key}">${st.radius.tl}px</span>
-      </div>
-      <div class="corner-grid">
-        <div class="range-field"><label>왼쪽 위</label><input type="range" min="0" max="50" value="${st.radius.tl}" data-path="${path}.radius.tl"><span class="val">${st.radius.tl}px</span></div>
-        <div class="range-field"><label>오른쪽 위</label><input type="range" min="0" max="50" value="${st.radius.tr}" data-path="${path}.radius.tr"><span class="val">${st.radius.tr}px</span></div>
-        <div class="range-field"><label>왼쪽 아래</label><input type="range" min="0" max="50" value="${st.radius.bl}" data-path="${path}.radius.bl"><span class="val">${st.radius.bl}px</span></div>
-        <div class="range-field"><label>오른쪽 아래</label><input type="range" min="0" max="50" value="${st.radius.br}" data-path="${path}.radius.br"><span class="val">${st.radius.br}px</span></div>
-      </div>
-    </div>
+    ${row2HTML(
+          numberFieldHTML(path + '.borderWidth', '테두리 두께 (px)', { min: 0, max: 10 }),
+          borderStyleSelectHTML(path + '.borderStyle', '테두리 스타일')
+        )}
+    ${radiusBlockBodyHTML({
+          masterId: `simpleBtnRadiusMaster_${b.key}`, valId: `simpleBtnRadiusMasterVal_${b.key}`, max: 50,
+          tl: `${path}.radius.tl`, tr: `${path}.radius.tr`, bl: `${path}.radius.bl`, br: `${path}.radius.br`,
+        })}
   </div>`;
-    }
+      }
 
-    function unifyToNormalRoll() {
-      SIMPLE_BUTTONS.forEach(b => {
-        state.simpleButtons[b.key] = JSON.parse(JSON.stringify(state.normalRoll));
-      });
-      renderSimpleButtons();
-      syncInputsFromState();
-      updateOutput();
-    }
-
-    function renderSimpleButtons() {
-      const container = document.getElementById('simpleButtonsContainer');
-      container.innerHTML =
-        `<button type="button" id="unifyToNormalRollBtn" class="unify-btn">일반 주사위 값으로 변경</button>` +
-        SIMPLE_BUTTONS.map(buttonBlockHTML).join('');
-      document.getElementById('unifyToNormalRollBtn').addEventListener('click', unifyToNormalRoll);
-      wireMasterSliders(simpleButtonMasterGroups());
-    }
-
-    function syncInputsFromState(except) {
-      document.querySelectorAll('[data-path]').forEach(el => {
-        if (el === except) return;
-        const val = getPath(state, el.dataset.path);
-        if (el.type === 'checkbox') el.checked = !!val;
-        else if (el.type === 'color') el.value = splitHex(val).rgb;
-        else el.value = val;
-      });
-      document.querySelectorAll('input[type=range][data-path]').forEach(el => {
-        const lbl = el.parentElement.querySelector('.val');
-        if (lbl) lbl.textContent = el.value + 'px';
-      });
-      document.querySelectorAll('[data-alpha-path]').forEach(el => {
-        if (el === except) return;
-        const val = getPath(state, el.dataset.alphaPath);
-        const pct = alphaHexToPercent(splitHex(val).alphaHex);
-        el.value = pct;
-        const lbl = el.parentElement.querySelector('.alpha-val');
-        if (lbl) lbl.textContent = pct + '%';
-      });
-      enhanceColorRows();
-      syncMasterSliders();
-      syncThumbnails();
-    }
-
-    function enhanceColorRows() {
-      document.querySelectorAll('.color-row').forEach(row => {
-        if (row.dataset.alphaEnhanced === 'true') return;
-        const colorInput = row.querySelector('input[type=color]');
-        if (!colorInput || !colorInput.dataset.path) return;
-        const path = colorInput.dataset.path;
-        const pct = alphaHexToPercent(splitHex(getPath(state, path)).alphaHex);
-        const alphaWrap = document.createElement('div');
-        alphaWrap.className = 'range-field alpha-field';
-        alphaWrap.innerHTML = `<label>알파(투명도)</label><input type="range" min="0" max="100" data-alpha-path="${path}" value="${pct}"><span class="val alpha-val">${pct}%</span>`;
-        row.insertAdjacentElement('afterend', alphaWrap);
-        row.dataset.alphaEnhanced = 'true';
-      });
-    }
-
-    function syncMasterSliders() {
-      allMasterGroups().forEach(g => {
-        const master = document.getElementById(g.masterId);
-        const valLbl = document.getElementById(g.valId);
-        if (!master || !valLbl) return;
-        const v = getPath(state, g.paths[0]);
-        master.value = v;
-        valLbl.textContent = v + 'px';
-      });
-    }
-
-    function wireMasterSliders(groups) {
-      groups.forEach(g => {
-        const master = document.getElementById(g.masterId);
-        const valLbl = document.getElementById(g.valId);
-        if (!master || !valLbl) return;
-        master.addEventListener('input', () => {
-          const v = Number(master.value);
-          valLbl.textContent = v + 'px';
-          g.paths.forEach(p => setPath(state, p, v));
-          syncInputsFromState(master);
-          updateOutput();
+      function unifyToNormalRoll() {
+        SIMPLE_BUTTONS.forEach(b => {
+          state.simpleButtons[b.key] = JSON.parse(JSON.stringify(state.normalRoll));
         });
-      });
-    }
-
-    const THUMBNAILS = [
-      { path: 'charsheet.bgImage', imgId: 'charsheetThumb' },
-      { path: 'rollTable.bgImage', imgId: 'rollTableThumb' },
-    ];
-    function syncThumbnails() {
-      THUMBNAILS.forEach(t => {
-        const img = document.getElementById(t.imgId);
-        const url = getPath(state, t.path);
-        if (img.src !== url) img.src = url || '';
-        img.style.display = url ? '' : 'none';
-      });
-    }
-    function wireThumbnails() {
-      THUMBNAILS.forEach(t => {
-        const img = document.getElementById(t.imgId);
-        img.onerror = () => { img.style.display = 'none'; };
-      });
-      syncThumbnails();
-    }
-
-    function applyField(t) {
-      let val;
-      if (t.type === 'checkbox') val = t.checked;
-      else if (t.type === 'number' || t.type === 'range') val = Number(t.value);
-      else val = t.value;
-
-      if (t.type === 'color') {
-        // native color input has no alpha channel; keep the alpha already stored in state
-        const { alphaHex } = splitHex(getPath(state, t.dataset.path));
-        val = t.value + alphaHex;
-      } else if (t.dataset.hex === 'true') {
-        if (!/^#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/.test(val)) return;
-        if (val.length === 7) val += 'ff';
-        val = val.toLowerCase();
-      }
-      setPath(state, t.dataset.path, val);
-      syncInputsFromState(t);
-      updateOutput();
-    }
-
-    function applyAlphaField(t) {
-      const path = t.dataset.alphaPath;
-      const { rgb } = splitHex(getPath(state, path));
-      setPath(state, path, rgb + alphaPercentToHex(Number(t.value)));
-      syncInputsFromState(t);
-      updateOutput();
-    }
-
-    function onFieldEvent(e) {
-      const t = e.target;
-      if (t.dataset.alphaPath) {
-        applyAlphaField(t);
-        return;
-      }
-      if (!t.dataset.path) return;
-      if (t.dataset.hex === 'true' && e.type !== 'change') return;
-      applyField(t);
-    }
-
-    function getViewerDoc() {
-      const iframe = document.getElementById('viewerFrame');
-      try {
-        return iframe.contentDocument || iframe.contentWindow.document;
-      } catch (e) {
-        return null;
-      }
-    }
-
-    function injectLiveStyle() {
-      const doc = getViewerDoc();
-      const note = document.getElementById('liveSyncNote');
-      if (!doc || !doc.head) {
-        if (note) note.style.display = '';
-        syncFixedIframeTop();
-        return;
-      }
-      if (note) note.style.display = 'none';
-      syncFixedIframeTop();
-      let styleEl = doc.getElementById('live-generated-css');
-      if (!styleEl) {
-        styleEl = doc.createElement('style');
-        styleEl.id = 'live-generated-css';
-      }
-      doc.head.appendChild(styleEl); // re-append keeps it last so it always wins the cascade
-      styleEl.textContent = generateCSS();
-    }
-
-    // Keeps the fixed-position iframe from overlapping the header (and the
-    // live-sync warning banner, when shown) by pinning its top/height to
-    // whatever space those elements actually occupy.
-    function syncFixedIframeTop() {
-      const slicer = document.querySelector('.slicer');
-      const iframe = document.getElementById('viewerFrame');
-      if (!slicer || !iframe) return;
-      if (getComputedStyle(iframe).position !== 'fixed') {
-        iframe.style.top = '';
-        iframe.style.height = '';
-        return;
-      }
-      const top = Math.round(slicer.getBoundingClientRect().top + window.scrollY);
-      iframe.style.top = top + 'px';
-      iframe.style.height = `calc(100vh - ${top}px)`;
-    }
-
-    function updateOutput() {
-      document.getElementById('cssOutput').value = generateCSS();
-      injectLiveStyle();
-    }
-
-    function copyOutput() {
-      const ta = document.getElementById('cssOutput');
-      ta.select();
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(ta.value).catch(() => document.execCommand('copy'));
-      } else {
-        document.execCommand('copy');
-      }
-    }
-    function downloadOutput() {
-      const blob = new Blob([generateCSS()], { type: 'text/css' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'manipulable.css';
-      a.click();
-      URL.revokeObjectURL(url);
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      renderSimpleButtons();
-      const app = document.getElementById('app');
-      app.addEventListener('input', onFieldEvent);
-      app.addEventListener('change', onFieldEvent);
-      wireMasterSliders(STATIC_MASTER_GROUPS);
-      wireThumbnails();
-      document.getElementById('viewerFrame').addEventListener('load', injectLiveStyle);
-      window.addEventListener('resize', syncFixedIframeTop);
-      syncInputsFromState();
-      syncFixedIframeTop();
-      updateOutput();
-
-      document.getElementById('resetBtn').addEventListener('click', () => {
-        state = JSON.parse(JSON.stringify(DEFAULT_STATE));
         renderSimpleButtons();
         syncInputsFromState();
         updateOutput();
+      }
+
+      function simpleButtonMasterGroups() {
+        return SIMPLE_BUTTONS.map(b => ({
+          masterId: `simpleBtnRadiusMaster_${b.key}`,
+          valId: `simpleBtnRadiusMasterVal_${b.key}`,
+          paths: ['tl', 'tr', 'br', 'bl'].map(c => `simpleButtons.${b.key}.radius.${c}`),
+        }));
+      }
+      function allMasterGroups() {
+        return STATIC_MASTER_GROUPS.concat(simpleButtonMasterGroups());
+      }
+
+      function renderSimpleButtons() {
+        const container = document.getElementById('simpleButtonsContainer');
+        container.innerHTML =
+          `<button type="button" id="unifyToNormalRollBtn" class="unify-btn">일반 주사위 값으로 변경</button>` +
+          SIMPLE_BUTTONS.map(buttonBlockHTML).join('');
+        document.getElementById('unifyToNormalRollBtn').addEventListener('click', unifyToNormalRoll);
+        wireMasterSliders(simpleButtonMasterGroups());
+      }
+
+      function syncInputsFromState(except) {
+        document.querySelectorAll('[data-path]').forEach(el => {
+          if (el === except) return;
+          const val = getPath(state, el.dataset.path);
+          if (el.type === 'checkbox') el.checked = !!val;
+          else if (el.type === 'color') el.value = splitHex(val).rgb;
+          else el.value = val;
+        });
+        document.querySelectorAll('input[type=range][data-path]').forEach(el => {
+          const lbl = el.parentElement.querySelector('.val');
+          if (lbl) lbl.textContent = el.value + 'px';
+        });
+        document.querySelectorAll('[data-alpha-path]').forEach(el => {
+          if (el === except) return;
+          const val = getPath(state, el.dataset.alphaPath);
+          const pct = alphaHexToPercent(splitHex(val).alphaHex);
+          el.value = pct;
+          const lbl = el.parentElement.querySelector('.alpha-val');
+          if (lbl) lbl.textContent = pct + '%';
+        });
+        enhanceColorRows();
+        syncMasterSliders();
+        syncThumbnails();
+      }
+
+      function enhanceColorRows() {
+        document.querySelectorAll('.color-row').forEach(row => {
+          if (row.dataset.alphaEnhanced === 'true') return;
+          const colorInput = row.querySelector('input[type=color]');
+          if (!colorInput || !colorInput.dataset.path) return;
+          const path = colorInput.dataset.path;
+          const pct = alphaHexToPercent(splitHex(getPath(state, path)).alphaHex);
+          const alphaWrap = document.createElement('div');
+          alphaWrap.className = 'range-field alpha-field';
+          alphaWrap.innerHTML = `<label>알파(투명도)</label><input type="range" min="0" max="100" data-alpha-path="${path}" value="${pct}"><span class="val alpha-val">${pct}%</span>`;
+          row.insertAdjacentElement('afterend', alphaWrap);
+          row.dataset.alphaEnhanced = 'true';
+        });
+      }
+
+      function syncMasterSliders() {
+        allMasterGroups().forEach(g => {
+          const master = document.getElementById(g.masterId);
+          const valLbl = document.getElementById(g.valId);
+          if (!master || !valLbl) return;
+          const v = getPath(state, g.paths[0]);
+          master.value = v;
+          valLbl.textContent = v + 'px';
+        });
+      }
+
+      function wireMasterSliders(groups) {
+        groups.forEach(g => {
+          const master = document.getElementById(g.masterId);
+          const valLbl = document.getElementById(g.valId);
+          if (!master || !valLbl) return;
+          master.addEventListener('input', () => {
+            const v = Number(master.value);
+            valLbl.textContent = v + 'px';
+            g.paths.forEach(p => setPath(state, p, v));
+            syncInputsFromState(master);
+            updateOutput();
+          });
+        });
+      }
+
+      const THUMBNAILS = [
+        { path: 'charsheet.bgImage', imgId: 'charsheetThumb' },
+        { path: 'rollTable.bgImage', imgId: 'rollTableThumb' },
+      ];
+      function syncThumbnails() {
+        THUMBNAILS.forEach(t => {
+          const img = document.getElementById(t.imgId);
+          const url = getPath(state, t.path);
+          if (img.src !== url) img.src = url || '';
+          img.style.display = url ? '' : 'none';
+        });
+      }
+      function wireThumbnails() {
+        THUMBNAILS.forEach(t => {
+          const img = document.getElementById(t.imgId);
+          img.onerror = () => { img.style.display = 'none'; };
+        });
+        syncThumbnails();
+      }
+
+      function applyField(t) {
+        let val;
+        if (t.type === 'checkbox') val = t.checked;
+        else if (t.type === 'number' || t.type === 'range') val = Number(t.value);
+        else val = t.value;
+
+        if (t.type === 'color') {
+          // native color input has no alpha channel; keep the alpha already stored in state
+          const { alphaHex } = splitHex(getPath(state, t.dataset.path));
+          val = t.value + alphaHex;
+        } else if (t.dataset.hex === 'true') {
+          if (!/^#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/.test(val)) return;
+          if (val.length === 7) val += 'ff';
+          val = val.toLowerCase();
+        }
+        setPath(state, t.dataset.path, val);
+        syncInputsFromState(t);
+        updateOutput();
+      }
+
+      function applyAlphaField(t) {
+        const path = t.dataset.alphaPath;
+        const { rgb } = splitHex(getPath(state, path));
+        setPath(state, path, rgb + alphaPercentToHex(Number(t.value)));
+        syncInputsFromState(t);
+        updateOutput();
+      }
+
+      function onFieldEvent(e) {
+        const t = e.target;
+        if (t.dataset.alphaPath) {
+          applyAlphaField(t);
+          return;
+        }
+        if (!t.dataset.path) return;
+        if (t.dataset.hex === 'true' && e.type !== 'change') return;
+        applyField(t);
+      }
+
+      function getViewerDoc() {
+        const iframe = document.getElementById('viewerFrame');
+        try {
+          return iframe.contentDocument || iframe.contentWindow.document;
+        } catch (e) {
+          return null;
+        }
+      }
+
+      function injectLiveStyle() {
+        const doc = getViewerDoc();
+        const note = document.getElementById('liveSyncNote');
+        if (!doc || !doc.head) {
+          if (note) note.style.display = '';
+          syncFixedIframeTop();
+          return;
+        }
+        if (note) note.style.display = 'none';
+        syncFixedIframeTop();
+        let styleEl = doc.getElementById('live-generated-css');
+        if (!styleEl) {
+          styleEl = doc.createElement('style');
+          styleEl.id = 'live-generated-css';
+        }
+        doc.head.appendChild(styleEl); // re-append keeps it last so it always wins the cascade
+        styleEl.textContent = generateCSS();
+      }
+
+      // Keeps the fixed-position iframe from overlapping the header (and the
+      // live-sync warning banner, when shown) by pinning its top/height to
+      // whatever space those elements actually occupy.
+      function syncFixedIframeTop() {
+        const slicer = document.querySelector('.slicer');
+        const iframe = document.getElementById('viewerFrame');
+        if (!slicer || !iframe) return;
+        if (getComputedStyle(iframe).position !== 'fixed') {
+          iframe.style.top = '';
+          iframe.style.height = '';
+          return;
+        }
+        const top = Math.round(slicer.getBoundingClientRect().top + window.scrollY);
+        iframe.style.top = top + 'px';
+        iframe.style.height = `calc(100vh - ${top}px)`;
+      }
+
+      function updateOutput() {
+        document.getElementById('cssOutput').value = generateCSS();
+        injectLiveStyle();
+        saveStateToStorage();
+      }
+
+      function copyOutput() {
+        const ta = document.getElementById('cssOutput');
+        ta.select();
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(ta.value).catch(() => document.execCommand('copy'));
+        } else {
+          document.execCommand('copy');
+        }
+      }
+      function triggerDownload(content, filename, mime) {
+        const blob = new Blob([content], { type: mime });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+
+      async function fetchText(url) {
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`${url} 요청 실패 (${res.status})`);
+        return res.text();
+      }
+
+      async function downloadOutput() {
+        let combined = generateCSS();
+        try {
+          const baseCSS = await fetchText('coc_7th_ed.css');
+          combined += '\n\n' + baseCSS;
+        } catch (e) {
+          alert('coc_7th_ed.css를 불러오지 못해 생성된 CSS만 다운로드합니다. (파일을 로컬 서버로 열어야 정상 동작합니다)');
+        }
+        triggerDownload(combined, 'custom_css.css', 'text/css');
+      }
+
+      async function downloadHTMLFile() {
+        try {
+          const html = await fetchText('coc_7th_ed_custom.html');
+          triggerDownload(html, 'coc_7th_ed_custom.html', 'text/html');
+        } catch (e) {
+          alert('coc_7th_ed_custom.html을 불러오지 못했습니다. (파일을 로컬 서버로 열어야 정상 동작합니다)');
+        }
+      }
+
+      async function downloadJSONFile() {
+        try {
+          const json = await fetchText('ko.json');
+          triggerDownload(json, 'ko.json', 'application/json');
+        } catch (e) {
+          alert('ko.json을 불러오지 못했습니다. (파일을 로컬 서버로 열어야 정상 동작합니다)');
+        }
+      }
+
+      // ---- CSS 파일 불러오기 ----
+      // generateCSS()가 만든(=이 도구가 만든) CSS는 셀렉터/속성 구성이 고정돼 있으므로,
+      // 각 블록을 고유한 셀렉터 조각으로 찾아서 필요한 속성만 정규식으로 되읽어 state를 복원한다.
+      function extractCSSBlock(css, anchor) {
+        const idx = css.indexOf(anchor);
+        if (idx === -1) return null;
+        const braceStart = css.indexOf('{', idx);
+        if (braceStart === -1) return null;
+        const braceEnd = css.indexOf('}', braceStart);
+        if (braceEnd === -1) return null;
+        return css.slice(braceStart + 1, braceEnd);
+      }
+      function extractCSSProp(block, prop) {
+        if (!block) return null;
+        const escaped = prop.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const m = block.match(new RegExp('(?<![a-zA-Z-])' + escaped + '\\s*:\\s*([^;]+);'));
+        return m ? m[1].replace(/!important/i, '').trim() : null;
+      }
+      function extractBorderShorthand(block, prop = 'border') {
+        if (!block) return null;
+        const escaped = prop.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const m = block && block.match(new RegExp('(?<![a-zA-Z-])' + escaped + '\\s*:\\s*(\\d+)px\\s+(\\S+)\\s+(#[0-9a-fA-F]{6,8})'));
+        return m ? { borderWidth: Number(m[1]), borderStyle: m[2], borderColor: m[3] } : null;
+      }
+      function extractRadiusQuad(block) {
+        if (!block) return null;
+        const uniform = block.match(/(?<![a-zA-Z-])border-radius\s*:\s*(\d+)px/);
+        if (uniform) { const v = Number(uniform[1]); return { tl: v, tr: v, br: v, bl: v }; }
+        const tl = block.match(/border-top-left-radius\s*:\s*(\d+)px/);
+        const tr = block.match(/border-top-right-radius\s*:\s*(\d+)px/);
+        const br = block.match(/border-bottom-right-radius\s*:\s*(\d+)px/);
+        const bl = block.match(/border-bottom-left-radius\s*:\s*(\d+)px/);
+        return (tl && tr && br && bl) ? { tl: +tl[1], tr: +tr[1], br: +br[1], bl: +bl[1] } : null;
+      }
+      function extractTopCorners(block) {
+        const tl = block && block.match(/border-top-left-radius\s*:\s*(\d+)px/);
+        const tr = block && block.match(/border-top-right-radius\s*:\s*(\d+)px/);
+        return (tl && tr) ? { radiusTL: +tl[1], radiusTR: +tr[1] } : null;
+      }
+      function extractBottomCorners(block) {
+        const br = block && block.match(/border-bottom-right-radius\s*:\s*(\d+)px/);
+        const bl = block && block.match(/border-bottom-left-radius\s*:\s*(\d+)px/);
+        return (br && bl) ? { radiusBR: +br[1], radiusBL: +bl[1] } : null;
+      }
+
+      function applyButtonLikeFromCSS(cssText, anchor, s, statePath) {
+        const block = extractCSSBlock(cssText, anchor);
+        if (!block) return 0;
+        let n = 0;
+        const fontColor = extractCSSProp(block, 'color');
+        if (fontColor) { setPath(s, statePath + '.fontColor', fontColor); n++; }
+        const bgColor = extractCSSProp(block, 'background-color');
+        if (bgColor) { setPath(s, statePath + '.bgColor', bgColor); n++; }
+        const border = extractBorderShorthand(block);
+        if (border) {
+          setPath(s, statePath + '.borderWidth', border.borderWidth);
+          setPath(s, statePath + '.borderStyle', border.borderStyle);
+          setPath(s, statePath + '.borderColor', border.borderColor);
+          n += 3;
+        }
+        const radius = extractRadiusQuad(block);
+        if (radius) { setPath(s, statePath + '.radius', radius); n++; }
+        return n;
+      }
+
+      function parseGeneratedCSS(cssText) {
+        const s = JSON.parse(JSON.stringify(DEFAULT_STATE));
+        let recovered = 0;
+        const setIf = (path, val) => { if (val != null && val !== '') { setPath(s, path, val); recovered++; } };
+        const setNum = (path, val) => { if (val != null && val !== '') { setPath(s, path, Number(parseFloat(val))); recovered++; } };
+        const assignIf = (obj, val) => { if (val) { Object.assign(obj, val); recovered++; } };
+
+        let block = extractCSSBlock(cssText, 'button[type=roll]:before');
+        setIf('beforeFont', extractCSSProp(block, 'font-family'));
+        const contentM = block && block.match(/content\s*:\s*"((?:[^"\\]|\\.)*)"/);
+        if (contentM) { setPath(s, 'beforeContent', contentM[1].replace(/\\(.)/g, '$1')); recovered++; }
+
+        recovered += applyButtonLikeFromCSS(cssText, 'sheet-new-roll', s, 'normalRoll');
+        SIMPLE_BUTTONS.forEach(b => {
+          recovered += applyButtonLikeFromCSS(cssText, b.selector, s, `simpleButtons.${b.key}`);
+        });
+
+        block = extractCSSBlock(cssText, '.charsheet {');
+        const bgImgM = block && block.match(/background-image\s*:\s*url\(([^)]*)\)/);
+        if (bgImgM) { setPath(s, 'charsheet.bgImage', bgImgM[1]); recovered++; }
+        setIf('charsheet.bgSize', extractCSSProp(block, 'background-size'));
+        setIf('charsheet.bgRepeat', extractCSSProp(block, 'background-repeat'));
+        setIf('charsheet.bgColor', extractCSSProp(block, 'background-color'));
+        assignIf(s.charsheet, extractBorderShorthand(block));
+        setIf('charsheet.fontColor', extractCSSProp(block, 'color'));
+        setIf('charsheet.fontFamily', extractCSSProp(block, 'font-family'));
+
+        block = extractCSSBlock(cssText, '.sheet-cdiv {');
+        setNum('charsheet.cdivPaddingTop', extractCSSProp(block, 'padding-top'));
+
+        block = extractCSSBlock(cssText, 'sheet-section-head');
+        setIf('sectionHead.bgColor', extractCSSProp(block, 'background-color'));
+        setIf('sectionHead.fontColor', extractCSSProp(block, 'color'));
+        assignIf(s.sectionHead, extractBorderShorthand(block));
+        assignIf(s.sectionHead, block && extractTopCorners(block));
+
+        block = extractCSSBlock(cssText, 'div.sheet-section');
+        setIf('section.bgColor', extractCSSProp(block, 'background-color'));
+        assignIf(s.section, extractBorderShorthand(block));
+        assignIf(s.section, block && extractBottomCorners(block));
+
+        block = extractCSSBlock(cssText, 'charsheet input,');
+        setIf('input.bgColor', extractCSSProp(block, 'background-color'));
+        setIf('input.fontColor', extractCSSProp(block, 'color'));
+        setIf('input.borderColor', extractCSSProp(block, 'border-color'));
+        const inputRadius = block && extractRadiusQuad(block);
+        if (inputRadius) { s.input.radius = inputRadius; recovered++; }
+
+        const cbIdx = cssText.indexOf('input[type="checkbox"]');
+        block = extractCSSBlock(cssText, 'input[type="checkbox"]');
+        setNum('checkbox.radius', extractCSSProp(block, 'border-radius'));
+        setIf('checkbox.appearance', extractCSSProp(block, 'appearance'));
+        if (cbIdx !== -1) {
+          const checkedIdx = cssText.indexOf(':checked', cbIdx);
+          if (checkedIdx !== -1) {
+            const braceStart = cssText.indexOf('{', checkedIdx);
+            const braceEnd = cssText.indexOf('}', braceStart);
+            const checkedBlock = braceStart !== -1 && braceEnd !== -1 ? cssText.slice(braceStart + 1, braceEnd) : null;
+            setIf('checkbox.bgColor', extractCSSProp(checkedBlock, 'background-color'));
+          }
+        }
+
+        block = extractCSSBlock(cssText, 'repcontrol_add');
+        setIf('repcontrol.bgColor', extractCSSProp(block, 'background'));
+        setIf('repcontrol.fontColor', extractCSSProp(block, 'color'));
+
+        recovered += applyButtonLikeFromCSS(cssText, 'sheet-type-weapons', s, 'weaponAction');
+
+        block = extractCSSBlock(cssText, '.charsheet select {');
+        setIf('selectBox.fontColor', extractCSSProp(block, 'color'));
+        setIf('selectBox.bgColor', extractCSSProp(block, 'background-color'));
+        assignIf(s.selectBox, extractBorderShorthand(block));
+        assignIf(s.selectBox, block && extractRadiusQuad(block));
+
+        block = extractCSSBlock(cssText, 'sheet-showpulp');
+        const vis = extractCSSProp(block, 'visibility');
+        if (vis) { setPath(s, 'logo.visible', vis.trim() === 'block'); recovered++; }
+
+        const base = ROLLTEMPLATE_CLASSES[0];
+
+        block = extractCSSBlock(cssText, base + ' table');
+        const rtImgM = block && block.match(/background-image\s*:\s*url\(([^)]*)\)/);
+        if (rtImgM) { setPath(s, 'rollTable.bgImage', rtImgM[1]); recovered++; }
+        setIf('rollTable.fontColor', extractCSSProp(block, 'color'));
+        setIf('rollTable.bgColor', extractCSSProp(block, 'background-color'));
+        setIf('rollTable.borderColor', extractCSSProp(block, 'border-color'));
+        setNum('rollTable.borderWidth', extractCSSProp(block, 'border-width'));
+        setIf('rollTable.borderStyle', extractCSSProp(block, 'border-style'));
+        assignIf(s.rollTable, block && extractBottomCorners(block));
+
+        block = extractCSSBlock(cssText, base + ' caption');
+        setIf('rollCaption.bgColor', extractCSSProp(block, 'background'));
+        setIf('rollCaption.fontColor', extractCSSProp(block, 'color'));
+        assignIf(s.rollCaption, extractBorderShorthand(block));
+        assignIf(s.rollCaption, block && extractTopCorners(block));
+
+        block = extractCSSBlock(cssText, base + ' td');
+        assignIf(s.rollRow, extractBorderShorthand(block, 'border-bottom'));
+
+        block = extractCSSBlock(cssText, base + ' .inlinerollresult');
+        assignIf(s.rollInline, extractBorderShorthand(block));
+        setIf('rollInline.bgColor', extractCSSProp(block, 'background'));
+        setIf('rollInline.fontColor', extractCSSProp(block, 'color'));
+
+        return { state: s, recovered };
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('colLeft').innerHTML = renderCards(CARDS);
+        renderSimpleButtons();
+        const app = document.getElementById('app');
+        app.addEventListener('input', onFieldEvent);
+        app.addEventListener('change', onFieldEvent);
+        wireMasterSliders(STATIC_MASTER_GROUPS);
+        wireThumbnails();
+        document.getElementById('viewerFrame').addEventListener('load', injectLiveStyle);
+        window.addEventListener('resize', syncFixedIframeTop);
+        syncInputsFromState();
+        syncFixedIframeTop();
+        updateOutput();
+
+        document.getElementById('resetBtn').addEventListener('click', () => {
+          state = JSON.parse(JSON.stringify(DEFAULT_STATE));
+          renderSimpleButtons();
+          syncInputsFromState();
+          updateOutput();
+        });
+        document.getElementById('copyBtn').addEventListener('click', copyOutput);
+        document.getElementById('downloadBtn').addEventListener('click', downloadOutput);
+        document.getElementById('HTMLdownloadBtn').addEventListener('click', downloadHTMLFile);
+        document.getElementById('JSONdownloadBtn').addEventListener('click', downloadJSONFile);
+
+        const loadFileInput = document.getElementById('loadFileInput');
+        document.getElementById('loadBtn').addEventListener('click', () => loadFileInput.click());
+        loadFileInput.addEventListener('change', (e) => {
+          const file = e.target.files[0];
+          if (!file) return;
+          const reader = new FileReader();
+          reader.onload = () => {
+            const { state: parsedState, recovered } = parseGeneratedCSS(String(reader.result));
+            state = parsedState;
+            renderSimpleButtons();
+            syncInputsFromState();
+            updateOutput();
+            const note = document.getElementById('loadStatusNote');
+            note.textContent = recovered > 0
+              ? `불러오기 완료 (${recovered}개 값 복원됨).`
+              : '이 파일에서 값을 인식하지 못했습니다. 이 도구로 만든 CSS 파일을 선택해주세요.';
+          };
+          reader.readAsText(file);
+          loadFileInput.value = '';
+        });
       });
-      document.getElementById('copyBtn').addEventListener('click', copyOutput);
-      document.getElementById('downloadBtn').addEventListener('click', downloadOutput);
-    });
-  </script>
+    </script>
 </body>
 
 </html>
