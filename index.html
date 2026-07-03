@@ -10,7 +10,7 @@
 <body>
   <header>
     <h1>롤20 COC 커스텀 시트 헬퍼</h1>
-    <p>각 선택자별 배경색·배경이미지·외곽선·radius·글자색을 조절하면 미리보기와 오른쪽 CSS가 실시간으로 갱신됩니다.</p>
+    <p>좌측 미리보기는 실제 시트와 다릅니다. 꼭 실제 적용 모습을 확인하며 작업해주세요!</p>
   </header>
 
   <p id="liveSyncNote">⚠ 미리보기와의 실시간 연동에 실패했습니다. 브라우저가 로컬 파일 간 접근을 차단하고 있을 수 있습니다 (로컬 서버로 열면 해결됩니다).</p>
@@ -20,27 +20,26 @@
   <div id="app">
     <div class="col-left">
       <div class="card">
-        <h2>① 다이스/액션 아이콘 폰트</h2>
-        <p class="desc">dicefont, pictos 아이콘 종류는 <a href="https://wiki.roll20.net/CSS_Wizardry#Icon_Fonts">해당 링크</a>에 잘 정리되어 있습니다. <br>(별개로 커스텀 시트 제작법을 공부하기 좋은 사이트입니다.)<br>상기한 두 폰트는 미리보기가 아닌 실제 롤20 시트로 확인해주세요.</p>
+        <h2>① 주사위 문양</h2>
+        <p class="desc">dicefont, pictos 아이콘 종류는 <a href="https://wiki.roll20.net/CSS_Wizardry#Icon_Fonts">해당 링크</a>에 잘 정리되어 있습니다. <br>(별개로 커스텀 시트 제작법을 공부하기 좋은 사이트입니다.)<br>상기한 두 폰트는 미리보기에 적용되지 않습니다 실제 롤20 시트로 확인해주세요.</p>
         <div class="field">
           <label>폰트</label>
           <select data-path="beforeFont">
             <option value="Arial, Helvetica, sans-serif">Arial</option>
-            <option value="'Noto Serif KR', sserif">Noto Serif KR</option>
+            <option value="'Noto Serif KR', serif">Noto Serif KR</option>
             <option value="dicefontd20">dicefontd20</option>
             <option value="pictos">pictos</option>
           </select>
         </div>
         <div class="field">
-          <label>아이콘 문자 (content)</label>
+          <label>아이콘</label>
           <input type="text" data-path="beforeContent" maxlength="4" value="★">
-          <p class="note">※ dicefont와 pictos는 해당 폰트의 코드 문자를 입력하세요. (롤20 기본: dicefontd20, t)</p>
+          <p class="note">※ dicefont와 pictos는 각 폰트의 원하는 코드 문자를 입력하세요. (예: 롤20 coc 시트 기본값은 dicefontd20, t)</p>
         </div>
       </div>
 
       <div class="card">
-        <h2>② 시트 배경 (.charsheet)</h2>
-        <p class="desc">캐릭터 시트 전체의 배경/테두리/기본 글자색입니다.</p>
+        <h2>② 시트 배경</h2>
         <div class="field">
           <label>배경색</label>
           <div class="color-row">
@@ -58,7 +57,7 @@
           <div class="field">
             <label>배경 크기</label>
             <select data-path="charsheet.bgSize">
-              <option value="100% auto">100% auto</option>
+              <option value="100% auto">100% auto (추천)</option>
               <option value="cover">cover</option>
               <option value="contain">contain</option>
               <option value="auto">auto</option>
@@ -67,7 +66,7 @@
           <div class="field">
             <label>배경 반복</label>
             <select data-path="charsheet.bgRepeat">
-              <option value="no-repeat">no-repeat</option>
+              <option value="no-repeat">no-repeat (여백 o)</option>
               <option value="repeat">repeat</option>
               <option value="repeat-x">repeat-x</option>
               <option value="repeat-y">repeat-y</option>
@@ -90,11 +89,11 @@
           <div class="field">
             <label>테두리 스타일</label>
             <select data-path="charsheet.borderStyle">
-              <option value="solid">solid</option>
-              <option value="dashed">dashed</option>
-              <option value="dotted">dotted</option>
-              <option value="double">double</option>
-              <option value="none">none</option>
+              <option value="solid">solid (일반)</option>
+              <option value="dashed">dashed (점선)</option>
+              <option value="dotted">dotted (간격 좁은 점선)</option>
+              <option value="double">double (겹선)</option>
+              <option value="none">none (없음)</option>
             </select>
           </div>
         </div>
@@ -119,7 +118,7 @@
           </select>
         </div>
         <div class="field">
-          <label>상단 여백 (sheet-cdiv padding-top, px)</label>
+          <label>상단 여백 (px)</label>
           <input type="number" data-path="charsheet.cdivPaddingTop" value="0" step="10">
         </div>
       </div>
@@ -158,11 +157,11 @@
           <div class="field">
             <label>테두리 스타일</label>
             <select data-path="normalRoll.borderStyle">
-              <option value="solid">solid</option>
-              <option value="dashed">dashed</option>
-              <option value="dotted">dotted</option>
-              <option value="double">double</option>
-              <option value="none">none</option>
+              <option value="solid">solid (일반)</option>
+              <option value="dashed">dashed (점선)</option>
+              <option value="dotted">dotted (간격 좁은 점선)</option>
+              <option value="double">double (겹선)</option>
+              <option value="none">none (없음)</option>
             </select>
           </div>
         </div>
@@ -187,15 +186,15 @@
 
       <div class="card">
         <h2>④ 단색 버튼들</h2>
-        <p class="desc">보너스 다이스 / 동료·탈것 / 펄프 새니티 / 주도권·방어·장갑 / 행운 / 전투(일반·유리). 각 버튼마다 ③ 일반 주사위 버튼과 동일하게 글자색·배경색·테두리·모서리 radius를 개별 조절할 수 있습니다. 아래 버튼으로 전체를 일반 주사위 값과 통일할 수 있습니다.</p>
+        <p class="desc">아래 버튼으로 전체를 일반 주사위 값과 통일할 수 있습니다.</p>
         <div class="simple-buttons-grid" id="simpleButtonsContainer"></div>
       </div>
 
       <div class="card">
         <h2>⑤ 섹션 헤더 + 섹션 박스</h2>
-        <p class="desc">두 선택자는 서로 다르지만, 하나의 둥근 박스처럼 보이도록 모서리를 함께 조절할 수 있습니다. (헤더 = 위쪽 모서리, 섹션 = 아래쪽 모서리)</p>
+        <p class="desc">탐사자 정보, 특성치 등 섹션의 값을 조정합니다.</p>
 
-        <div class="subgroup-title">헤더 (sheet-section-head)</div>
+        <div class="subgroup-title">헤더</div>
         <div class="field">
           <label>배경색</label>
           <div class="color-row">
@@ -228,11 +227,11 @@
           <div class="field">
             <label>테두리 스타일</label>
             <select data-path="sectionHead.borderStyle">
-              <option value="solid">solid</option>
-              <option value="dashed">dashed</option>
-              <option value="dotted">dotted</option>
-              <option value="double">double</option>
-              <option value="none">none</option>
+              <option value="solid">solid (일반)</option>
+              <option value="dashed">dashed (점선)</option>
+              <option value="dotted">dotted (간격 좁은 점선)</option>
+              <option value="double">double (겹선)</option>
+              <option value="none">none (없음)</option>
             </select>
           </div>
         </div>
@@ -262,11 +261,11 @@
           <div class="field">
             <label>테두리 스타일</label>
             <select data-path="section.borderStyle">
-              <option value="solid">solid</option>
-              <option value="dashed">dashed</option>
-              <option value="dotted">dotted</option>
-              <option value="double">double</option>
-              <option value="none">none</option>
+              <option value="solid">solid (일반)</option>
+              <option value="dashed">dashed (점선)</option>
+              <option value="dotted">dotted (간격 좁은 점선)</option>
+              <option value="double">double (겹선)</option>
+              <option value="none">none (없음)</option>
             </select>
           </div>
         </div>
@@ -340,10 +339,9 @@
           </div>
         </div>
 
-        <div class="subgroup-title">체크박스 (input[type=checkbox])</div>
-        <p class="desc">appearance를 auto로 두면 브라우저 기본 체크박스로 돌아가며, 아래 배경색·radius 설정은 시각적으로 적용되지 않습니다.</p>
+        <div class="subgroup-title">체크박스</div>
         <div class="field">
-          <label>배경색 (체크됨)</label>
+          <label>체크 시 배경색</label>
           <div class="color-row">
             <input type="color" data-path="checkbox.bgColor" value="#c9a14a">
             <input type="text" data-path="checkbox.bgColor" data-hex="true" maxlength="9" spellcheck="false"
@@ -351,15 +349,15 @@
           </div>
         </div>
         <div class="range-field">
-          <label>모서리 radius (4방향 동시)</label>
+          <label>모서리</label>
           <input type="range" min="0" max="50" value="8" data-path="checkbox.radius">
           <span class="val">8px</span>
         </div>
         <div class="field">
-          <label>외형 (appearance)</label>
+          <label>외형</label>
           <select data-path="checkbox.appearance">
-            <option value="none">none (커스텀 스타일 적용)</option>
-            <option value="auto">auto (기본 체크박스로 복귀)</option>
+            <option value="none">커스텀 스타일 적용</option>
+            <option value="auto">기본 체크박스 적용</option>
           </select>
         </div>
       </div>
@@ -387,7 +385,7 @@
       </div>
 
       <div class="card">
-        <h2>⑦-1 무기 액션 버튼 (button[type=action].sheet-type-weapons)</h2>
+        <h2>⑦-1 무기 종류 선택</h2>
         <div class="field">
           <label>글자색</label>
           <div class="color-row">
@@ -420,11 +418,11 @@
           <div class="field">
             <label>테두리 스타일</label>
             <select data-path="weaponAction.borderStyle">
-              <option value="solid">solid</option>
-              <option value="dashed">dashed</option>
-              <option value="dotted">dotted</option>
-              <option value="double">double</option>
-              <option value="none">none</option>
+              <option value="solid">solid (일반)</option>
+              <option value="dashed">dashed (점선)</option>
+              <option value="dotted">dotted (간격 좁은 점선)</option>
+              <option value="double">double (겹선)</option>
+              <option value="none">none (없음)</option>
             </select>
           </div>
         </div>
@@ -448,7 +446,7 @@
       </div>
 
       <div class="card">
-        <h2>⑦-2 선택 상자 (select)</h2>
+        <h2>⑦-2 선택 상자 (피해 보너스 등)</h2>
         <div class="field">
           <label>글자색</label>
           <div class="color-row">
@@ -481,11 +479,11 @@
           <div class="field">
             <label>테두리 스타일</label>
             <select data-path="selectBox.borderStyle">
-              <option value="solid">solid</option>
-              <option value="dashed">dashed</option>
-              <option value="dotted">dotted</option>
-              <option value="double">double</option>
-              <option value="none">none</option>
+              <option value="solid">solid (일반)</option>
+              <option value="dashed">dashed (점선)</option>
+              <option value="dotted">dotted (간격 좁은 점선)</option>
+              <option value="double">double (겹선)</option>
+              <option value="none">none (없음)</option>
             </select>
           </div>
         </div>
@@ -517,10 +515,9 @@
       </div>
 
       <div class="card">
-        <h2>⑨ 롤 템플릿 캡션 + 테이블</h2>
-        <p class="desc">캡션이 위, 테이블이 아래에 오는 하나의 박스처럼 보이도록 모서리를 함께 조절할 수 있습니다. (캡션 = 위쪽 모서리, 테이블 = 아래쪽 모서리)</p>
-
-        <div class="subgroup-title">캡션 (caption)</div>
+        <h2>⑨ 판정 결과(기능치, 광기 등)</h2>
+        
+        <div class="subgroup-title">헤더</div>
         <div class="field">
           <label>배경색</label>
           <div class="color-row">
@@ -530,7 +527,7 @@
           </div>
         </div>
 
-        <div class="subgroup-title">테이블 (table)</div>
+        <div class="subgroup-title">테이블</div>
         <div class="field">
           <label>배경 사진 (이미지 URL)</label>
           <input type="text" data-path="rollTable.bgImage" placeholder="https://...">
@@ -621,7 +618,7 @@
       </div>
 
       <div class="card">
-        <h2>⑪ 인라인 롤 결과 (.inlinerollresult)</h2>
+        <h2>⑪ 주사위 롤 결과</h2>
         <div class="row2">
           <div class="field">
             <label>테두리 색</label>
@@ -794,13 +791,13 @@
     let state = JSON.parse(JSON.stringify(DEFAULT_STATE));
 
     const SIMPLE_BUTTONS = [
-      { key: 'oldRoll', label: '보너스 다이스 (sheet-old-roll)', selector: '.charsheet button[type=roll].sheet-old-roll' },
-      { key: 'smallButtonRoll', label: '동료 & 탈것 (sheet-smallbutton-roll)', selector: '.charsheet button[type=roll].sheet-smallbutton-roll' },
-      { key: 'diceRoll', label: '펄프 새니티 (sheet-dice-roll)', selector: '.charsheet button[type=roll].sheet-dice-roll' },
+      { key: 'oldRoll', label: '보너스 다이스', selector: '.charsheet button[type=roll].sheet-old-roll' },
+      { key: 'smallButtonRoll', label: '동료 & 탈것', selector: '.charsheet button[type=roll].sheet-smallbutton-roll' },
+      { key: 'diceRoll', label: '광기', selector: '.charsheet button[type=roll].sheet-dice-roll' },
       { key: 'smallNonSkillButtonRoll', label: '주도권/방어/장갑 등 (sheet-smallnonskillbutton-roll)', selector: '.charsheet button[type=roll].sheet-smallnonskillbutton-roll' },
-      { key: 'diceRollAction', label: '행운 (sheet-dice-roll-action)', selector: '.charsheet button[type=action].sheet-dice-roll-action' },
-      { key: 'nadvAction', label: '전투 - 일반 (sheet-nadv-action)', selector: '.charsheet button[type=action].sheet-nadv-action' },
-      { key: 'advAction', label: '전투 - 유리 (sheet-adv-action)', selector: '.charsheet button[type=action].sheet-adv-action' },
+      { key: 'diceRollAction', label: '행운', selector: '.charsheet button[type=action].sheet-dice-roll-action' },
+      { key: 'nadvAction', label: '전투 - 일반', selector: '.charsheet button[type=action].sheet-nadv-action' },
+      { key: 'advAction', label: '전투 - 유리', selector: '.charsheet button[type=action].sheet-adv-action' },
     ];
 
     const ROLLTEMPLATE_CLASSES = [
@@ -932,7 +929,7 @@
 
       parts.push(`.charsheet button[type=roll].sheet-new-roll{   /* normal dice*/
     color: ${s.normalRoll.fontColor} !important;
-    background-image: none; !important;
+    background-image: none !important;
     background-color: ${s.normalRoll.bgColor} !important;
     border: ${s.normalRoll.borderWidth}px ${s.normalRoll.borderStyle} ${s.normalRoll.borderColor} !important;
     ${radiusCSS(s.normalRoll.radius)}
